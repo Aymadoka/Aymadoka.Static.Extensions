@@ -1,0 +1,1 @@
+# Aymadok.Static.Extensions
