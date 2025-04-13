@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netstandard2.1</TargetFramework>
+		<Nullable>enable</Nullable>
+		<RootNamespace>Aymadok.Static</RootNamespace>
+		<PackageId>Aymadok.Static.Extensions</PackageId>
+		<Version>0.0.9</Version>
+		<Authors>Jenina</Authors>
+		<Description>This is a basic extension library.</Description>
+		<PackageTags>extension encrypt capital</PackageTags>
+		<RepositoryUrl>https://github.com/Aymadok/Aymadok.Static.Extensions</RepositoryUrl>
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+	</PropertyGroup>
+
+</Project>
