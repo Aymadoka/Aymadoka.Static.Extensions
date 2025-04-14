@@ -53,7 +53,7 @@ namespace Aymadok.Static.StringExtension
             return reversed;
         }
 
-        public static bool IsEmail([NotNullWhen(true)] this string? value)
+        public static bool IsValidEmail([NotNullWhen(true)] this string? value)
         {
             if (value.IsNullOrWhiteSpace())
             {
@@ -63,6 +63,23 @@ namespace Aymadok.Static.StringExtension
             var emailRegex = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
 
             return Regex.IsMatch(value, emailRegex, RegexOptions.IgnoreCase);
+        }
+
+        public static bool IsValidPhoneNumber(this string? value)
+        {
+            if (value.IsNullOrWhiteSpace())
+            {
+                return false;
+            }
+
+            var phoneRegex = @"^(\+?\d{1,3}[- ]?)?($?\d{1,4}$?[- ]?)?\d{1,4}[- ]?\d{1,4}[- ]?\d{1,9}$";
+
+            return Regex.IsMatch(value, phoneRegex, RegexOptions.IgnoreCase);
+        }
+
+        public static bool IsValidUrl(string url)
+        {
+            return Uri.TryCreate(url, UriKind.Absolute, out _);
         }
 
         /// <summary>将字符串转换为标题大小写（每个单词首字母大写）</summary>
