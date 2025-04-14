@@ -1019,7 +1019,7 @@ namespace Aymadok.Static.StringExtension
             var result = input.ToBase64();
 
             // Assert
-            Assert.Equal("5q2j5a+G5pel5pysIUAjJCVeJiooKQ==", result);
+            Assert.Equal("54m55q6K5a2X56ymIUAjJCVeJiooKQ==", result);
         }
 
         [Fact]
@@ -1088,7 +1088,7 @@ namespace Aymadok.Static.StringExtension
         public void FromBase64_ShouldHandleSpecialCharacters()
         {
             // Arrange
-            string input = "5q2j5a+G5pel5pysIUAjJCVeJiooKQ=="; // Base64 for "特殊字符!@#$%^&*()"
+            string input = "54m55q6K5a2X56ymIUAjJCVeJiooKQ=="; // Base64 for "特殊字符!@#$%^&*()"
 
             // Act
             var result = input.FromBase64();
