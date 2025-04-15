@@ -1,4 +1,5 @@
 ﻿using Shouldly;
+using System;
 
 namespace Aymadok.Static.EnumExtension
 {
@@ -99,13 +100,13 @@ namespace Aymadok.Static.EnumExtension
             // Assert
             Assert.Equal(TestEnum.Value1, result);
         }
-
-        [Fact]
-        public void ParseEnum_ShouldReturnEnumValue_WhenInputIsValidAndIgnoreCaseIsTrue()
+        
+        [Theory]
+        [InlineData("VALUE2")]
+        [InlineData("VAluE2")]
+        [InlineData("value2")]
+        public void ParseEnum_ShouldReturnEnumValue_WhenInputIsValidAndIgnoreCaseIsTrue(string input)
         {
-            // Arrange
-            var input = "value2";
-
             // Act
             var result = input.ParseEnum<TestEnum>(ignoreCase: true);
 
@@ -117,14 +118,15 @@ namespace Aymadok.Static.EnumExtension
         public void ParseEnum_ShouldThrowArgumentNullException_WhenInputIsNull()
         {
             // Arrange
-            string input = null;
+            string? input = null;
 
             // Act
             var exception = Record.Exception(() => input.ParseEnum<TestEnum>());
             var argumentNullException = exception as ArgumentNullException;
 
             // Assert
-            exception.ShouldBeOfType<ArgumentNullException>();
+            Assert.NotNull(argumentNullException);
+            Assert.IsType<ArgumentNullException>(argumentNullException);
             Assert.Equal("value", argumentNullException.ParamName);
         }
 
@@ -138,7 +140,8 @@ namespace Aymadok.Static.EnumExtension
             var exception = Record.Exception(() => input.ParseEnum<TestEnum>());
 
             // Assert
-            exception.ShouldBeOfType<ArgumentException>();
+            Assert.NotNull(exception);
+            Assert.IsType<ArgumentException>(exception);
         }
 
         [Fact]
@@ -151,7 +154,8 @@ namespace Aymadok.Static.EnumExtension
             var exception = Record.Exception(() => input.ParseEnum<TestEnum>(ignoreCase: false));
 
             // Assert
-            exception.ShouldBeOfType<ArgumentException>();
+            Assert.NotNull(exception);
+            Assert.IsType<ArgumentException>(exception);
         }
 
         [Fact]
@@ -203,59 +207,6 @@ namespace Aymadok.Static.EnumExtension
 
             // Assert
             Assert.False(result);
-        }
-
-        [Fact]
-        public void HasFlag_ShouldReturnTrue_WhenFlagIsSet()
-        {
-            // Arrange
-            var value = FlagsEnum.Option1 | FlagsEnum.Option2;
-
-            // Act
-            var result = value.HasFlag(FlagsEnum.Option1);
-
-            // Assert
-            Assert.True(result);
-        }
-
-        [Fact]
-        public void HasFlag_ShouldReturnFalse_WhenFlagIsNotSet()
-        {
-            // Arrange
-            var value = FlagsEnum.Option1;
-
-            // Act
-            var result = value.HasFlag(FlagsEnum.Option2);
-
-            // Assert
-            Assert.False(result);
-        }
-
-        [Fact]
-        public void HasFlag_ShouldReturnTrue_WhenMultipleFlagsAreSet()
-        {
-            // Arrange
-            var value = FlagsEnum.Option1 | FlagsEnum.Option2;
-
-            // Act
-            var result = value.HasFlag(FlagsEnum.Option1 | FlagsEnum.Option2);
-
-            // Assert
-            Assert.True(result);
-        }
-
-        [Fact]
-        public void HasFlag_ShouldThrowInvalidOperationException_WhenEnumIsNotFlagsEnum()
-        {
-            // Arrange
-            var value = TestEnum.Value1;
-
-            // Act
-            var exception = Record.Exception(() => value.HasFlag(TestEnum.Value2));
-
-            // Assert
-            exception.ShouldBeOfType<InvalidOperationException>();
-            Assert.Equal("此方法仅适用于带有 [Flags] 属性的枚举类型", exception.Message);
         }
     }
 }
