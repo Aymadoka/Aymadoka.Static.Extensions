@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netstandard2.1</TargetFramework>
+		<Nullable>enable</Nullable>
+		<RootNamespace>Aymadoka.Static</RootNamespace>
+		<PackageId>Aymadoka.Static.Extensions</PackageId>
+		<Version>0.0.9</Version>
+		<Authors>Aymadoka</Authors>
+		<Description>This is a basic extension library.</Description>
+		<PackageTags>extension encrypt capital</PackageTags>
+		<RepositoryUrl>https://github.com/Aymadoka/Aymadoka.Static.Extensions</RepositoryUrl>
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+	</PropertyGroup>
+
+</Project>
+
