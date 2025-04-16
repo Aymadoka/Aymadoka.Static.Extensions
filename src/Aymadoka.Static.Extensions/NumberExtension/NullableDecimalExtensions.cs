@@ -1,4 +1,4 @@
-﻿namespace Aymadoka.Static.DecimalExtension
+﻿namespace Aymadoka.Static.NumberExtension
 {
     public static class NullableDecimalExtensions
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 
-namespace Aymadoka.Static.DecimalExtension
+namespace Aymadoka.Static.NumberExtension
 {
     public static class DecimalExtensions
     {
@@ -29,7 +29,7 @@ namespace Aymadoka.Static.DecimalExtension
         /// <returns>如果是整数返回 true，否则返回 false</returns>
         public static bool IsInteger(this decimal source)
         {
-            return (source % 1) == 0;
+            return source % 1 == 0;
         }
 
         /// <summary>将小数值转换为百分比格式的字符串</summary>

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Aymadoka.Static.Int32Extension
+namespace Aymadoka.Static.NumberExtension
 {
     public static class Int32Extensions
     {

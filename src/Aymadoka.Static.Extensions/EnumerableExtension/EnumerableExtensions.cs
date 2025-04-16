@@ -60,12 +60,5 @@ namespace Aymadoka.Static.EnumerableExtension
 
             return splits;
         }
-
-
-
-
-
-
-
     }
 }

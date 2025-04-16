@@ -1,4 +1,6 @@
-﻿namespace Aymadoka.Static.DecimalExtension
+﻿using Aymadoka.Static.NumberExtension;
+
+namespace Aymadoka.Static.DecimalExtension
 {
     public class DecimalExtensionsTests
     {
