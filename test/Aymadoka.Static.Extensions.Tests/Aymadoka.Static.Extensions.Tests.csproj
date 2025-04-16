@@ -22,7 +22,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\src\Aymadoka.Static.Extensions\Aymadoka.Static.Extensions.csproj" />
+	  <ProjectReference Include="..\..\src\Aymadoka.Static.Extensions\Aymadoka.Static.Extensions.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
