@@ -45,9 +45,9 @@ namespace Aymadoka.Static.EnumExtension
             }
 
             var field = value.GetType().GetField(value.ToString());
-            var attribute = field.GetCustomAttributes(typeof(DescriptionAttribute), false)
-                                 .OfType<DescriptionAttribute>()
-                                 .FirstOrDefault();
+            var attribute = field?.GetCustomAttributes(typeof(DescriptionAttribute), false)
+                             .OfType<DescriptionAttribute>()
+                             .FirstOrDefault();
 
             return attribute?.Description ?? value.ToString();
         }

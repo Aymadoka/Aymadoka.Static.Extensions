@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Aymadoka.Static.EnumerableExtension
 {
-    internal class EnumerableExtensionsTest
+    public class EnumerableExtensionsTest
     {
+
     }
 }
