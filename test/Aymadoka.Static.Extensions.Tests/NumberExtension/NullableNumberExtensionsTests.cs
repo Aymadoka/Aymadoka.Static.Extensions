@@ -1,4 +1,6 @@
-﻿namespace Aymadoka.Static.NumberExtension
+﻿using System.Globalization;
+
+namespace Aymadoka.Static.NumberExtension
 {
     public class NullableNumberExtensionsTests
     {
@@ -254,6 +256,108 @@
         public void Keep_ShouldReturnExpectedResult_ForNullableFloat(float? value, int decimalPlaces, float? expected)
         {
             Assert.Equal(expected, value.Keep(decimalPlaces));
+        }
+
+        [Theory]
+        [InlineData(null, 2, null)] // 空值
+        [InlineData(0.1234, 2, "12.34%")] // 正数，保留两位小数
+        [InlineData(0.1234, 0, "12%")] // 正数，保留整数
+        [InlineData(-0.1234, 2, "-12.34%")] // 负数，保留两位小数
+        [InlineData(-0.1234, 0, "-12%")] // 负数，保留整数
+        [InlineData(0.0, 2, "0.00%")] // 零，保留两位小数
+        [InlineData(1.0, 2, "100.00%")] // 1 转换为百分比
+        [InlineData(0.56789, 3, "56.789%")] // 保留三位小数
+        public void ToPercentage_ShouldReturnExpectedResult_DefaultCulture(double? value, int decimalPlaces, string? expected)
+        {
+            Assert.Equal(expected, value.ToPercentage(decimalPlaces));
+        }
+
+        [Theory]
+        [InlineData(null, 2, null)] // 空值
+        [InlineData(0.1234, 2, "12,34%")] // 正数，保留两位小数（德语文化）
+        [InlineData(-0.1234, 2, "-12,34%")] // 负数，保留两位小数（德语文化）
+        [InlineData(0.0, 2, "0,00%")] // 零，保留两位小数（德语文化）
+        [InlineData(1.0, 2, "100,00%")] // 1 转换为百分比（德语文化）
+        public void ToPercentage_ShouldReturnExpectedResult_SpecificCulture(double? value, int decimalPlaces, string? expected)
+        {
+            var germanCulture = new CultureInfo("de-DE");
+            Assert.Equal(expected, value.ToPercentage(decimalPlaces, germanCulture));
+        }
+
+        [Theory]
+        [InlineData(null, null, null)] // 空值
+        [InlineData(1234.56, "zh-CN", "¥1,234.56")] // 正数，中文文化
+        [InlineData(-1234.56, "zh-CN", "-¥1,234.56")] // 负数，中文文化
+        [InlineData(0.0, "zh-CN", "¥0.00")] // 零，中文文化
+        [InlineData(1234.56, "en-US", "$1,234.56")] // 正数，美国文化
+        [InlineData(-1234.56, "en-US", "($1,234.56)")] // 负数，美国文化
+        [InlineData(0.0, "en-US", "$0.00")] // 零，美国文化
+        [InlineData(1234.56, "de-DE", "1.234,56 €")] // 正数，德国文化
+        [InlineData(-1234.56, "de-DE", "-1.234,56 €")] // 负数，德国文化
+        [InlineData(0.0, "de-DE", "0,00 €")] // 零，德国文化
+        public void ToCurrency_ShouldReturnExpectedResult(double? value, string? cultureName, string? expected)
+        {
+            var culture = cultureName != null ? new CultureInfo(cultureName) : null;
+            Assert.Equal(expected, value.ToCurrency(culture));
+        }
+
+        [Theory]
+        [InlineData(null, 2, null)] // 空值
+        [InlineData(1234.5678, 2, "1.23E+03")] // 正数，保留两位小数
+        [InlineData(1234.5678, 3, "1.235E+03")] // 正数，保留三位小数
+        [InlineData(-1234.5678, 2, "-1.23E+03")] // 负数，保留两位小数
+        [InlineData(-1234.5678, 3, "-1.235E+03")] // 负数，保留三位小数
+        [InlineData(0.0, 2, "0.00E+00")] // 零，保留两位小数
+        [InlineData(1.0, 2, "1.00E+00")] // 1 转换为科学计数法
+        [InlineData(0.0001234, 2, "1.23E-04")] // 小数，保留两位小数
+        public void ToScientificNotation_ShouldReturnExpectedResult_DefaultCulture(double? value, int decimalPlaces, string? expected)
+        {
+            Assert.Equal(expected, value.ToScientificNotation(decimalPlaces));
+        }
+
+        [Theory]
+        [InlineData(null, 2, null)] // 空值
+        [InlineData(1234.5678, 2, "1,23E+03")] // 正数，保留两位小数（德语文化）
+        [InlineData(-1234.5678, 2, "-1,23E+03")] // 负数，保留两位小数（德语文化）
+        [InlineData(0.0, 2, "0,00E+00")] // 零，保留两位小数（德语文化）
+        [InlineData(1.0, 2, "1,00E+00")] // 1 转换为科学计数法（德语文化）
+        [InlineData(0.0001234, 2, "1,23E-04")] // 小数，保留两位小数（德语文化）
+        public void ToScientificNotation_ShouldReturnExpectedResult_SpecificCulture(double? value, int decimalPlaces, string? expected)
+        {
+            var germanCulture = new CultureInfo("de-DE");
+            Assert.Equal(expected, value.ToScientificNotation(decimalPlaces, germanCulture));
+        }
+
+        [Theory]
+        [InlineData(null, null)] // 空值
+        [InlineData(0.0, "零元")] // 零
+        [InlineData(123.45, "壹佰贰拾叁元肆角伍分")] // 正数（小数）
+        [InlineData(-123.45, "负壹佰贰拾叁元肆角伍分")] // 负数（小数）
+        [InlineData(123.00, "壹佰贰拾叁元整")] // 正数（整数）
+        [InlineData(-123.00, "负壹佰贰拾叁元整")] // 负数（整数）
+        [InlineData(1000.01, "壹仟元零壹分")] // 边界值（千位）
+        [InlineData(-1000.01, "负壹仟元零壹分")] // 边界值（负千位）
+        [InlineData(1000000.00, "壹佰万元整")] // 边界值（百万）
+        [InlineData(-1000000.00, "负壹佰万元整")] // 边界值（负百万）
+        public void ChineseCapitalized_ShouldReturnExpectedResult_ForNullableDouble(double? value, string? expected)
+        {
+            Assert.Equal(expected, value.ChineseCapitalized());
+        }
+
+        [Theory]
+        [InlineData(null, null)] // 空值
+        [InlineData(0.0f, "零元")] // 零
+        [InlineData(123.45f, "壹佰贰拾叁元肆角伍分")] // 正数（小数）
+        [InlineData(-123.45f, "负壹佰贰拾叁元肆角伍分")] // 负数（小数）
+        [InlineData(123.00f, "壹佰贰拾叁元整")] // 正数（整数）
+        [InlineData(-123.00f, "负壹佰贰拾叁元整")] // 负数（整数）
+        [InlineData(1000.01f, "壹仟元零壹分")] // 边界值（千位）
+        [InlineData(-1000.01f, "负壹仟元零壹分")] // 边界值（负千位）
+        [InlineData(1000000.00f, "壹佰万元整")] // 边界值（百万）
+        [InlineData(-1000000.00f, "负壹佰万元整")] // 边界值（负百万）
+        public void ChineseCapitalized_ShouldReturnExpectedResult_ForNullableFloat(float? value, string? expected)
+        {
+            Assert.Equal(expected, value.ChineseCapitalized());
         }
     }
 }
