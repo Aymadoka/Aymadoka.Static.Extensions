@@ -49,8 +49,6 @@ namespace Aymadoka.Static.NumberExtension
         [InlineData("0", true)]  // 零是整数
         [InlineData("1", true)]  // 正整数
         [InlineData("-1", true)] // 负整数
-        [InlineData("1.5", false)] // 非整数（正小数）
-        [InlineData("-1.5", false)] // 非整数（负小数）
         public void IsInteger_ShouldReturnExpectedResult_ForBigInteger(string value, bool expected)
         {
             var bigInteger = BigInteger.Parse(value);
@@ -58,11 +56,11 @@ namespace Aymadoka.Static.NumberExtension
         }
 
         [Theory]
-        [InlineData(1, true)]  // 正整数
-        [InlineData(0, false)] // 零
-        [InlineData(-1, false)] // 负整数
-        [InlineData(1.5, true)] // 正小数
-        [InlineData(-1.5, false)] // 负小数
+        [InlineData(1d, true)]  // 正整数
+        [InlineData(0d, false)] // 零
+        [InlineData(-1d, false)] // 负整数
+        [InlineData(1.5d, true)] // 正小数
+        [InlineData(-1.5d, false)] // 负小数
         public void IsPositive_ShouldReturnExpectedResult_ForDouble(double value, bool expected)
         {
             Assert.Equal(expected, value.IsPositive());
