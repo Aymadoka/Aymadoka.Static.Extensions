@@ -166,34 +166,6 @@ namespace Aymadoka.Static.StringExtension
             return value.Length <= length ? value : value.Substring(value.Length - length);
         }
 
-        /// <summary>将字符串编码为 Base64 格式</summary>
-        /// <param name="value">要编码的字符串</param>
-        /// <returns>编码后的 Base64 字符串；如果输入为 null 或空字符串，则返回原字符串</returns>
-        public static string ToBase64(this string value)
-        {
-            if (value.IsNullOrEmpty())
-            {
-                return value;
-            }
-
-            var bytes = Encoding.UTF8.GetBytes(value);
-            return Convert.ToBase64String(bytes);
-        }
-
-        /// <summary>将 Base64 字符串解码为普通字符串</summary>
-        /// <param name="value">要解码的 Base64 字符串</param>
-        /// <returns>解码后的字符串；如果输入为 null 或空字符串，则返回原字符串</returns>
-        public static string FromBase64(this string value)
-        {
-            if (value.IsNullOrEmpty())
-            {
-                return value;
-            }
-
-            var bytes = Convert.FromBase64String(value);
-            return Encoding.UTF8.GetString(bytes);
-        }
-
         /// <summary>判断字符串是否为数字</summary>
         /// <param name="value">要检查的字符串</param>
         /// <returns>如果字符串是数字，则返回 true；否则返回 false</returns>
