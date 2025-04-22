@@ -1,6 +1,6 @@
-﻿namespace Aymadoka.Static.Md5Extension
+﻿namespace Aymadoka.Static.HashExtension
 {
-    public enum EnumMd5Format
+    public enum EnumHashFormat
     {
         x = 1, 
         x2 = 2, 
