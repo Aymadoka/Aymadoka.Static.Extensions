@@ -1,7 +1,7 @@
-﻿using Aymadoka.Static.EnumerableExtension;
-using Aymadoka.Static.StringExtension;
-using System;
+﻿using System;
 using System.Text;
+using Aymadoka.Static.EnumerableExtension;
+using Aymadoka.Static.StringExtension;
 
 namespace Aymadoka.Static.Base64Extension
 {

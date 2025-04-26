@@ -7,7 +7,10 @@
 		<PackageId>Aymadoka.Static.Extensions</PackageId>
 		<Version>0.0.9</Version>
 		<Authors>Aymadoka</Authors>
-		<Description>This is a basic extension library.</Description>
+		<Description>
+			This is a basic extension library.
+			contact: Aymadoka@foxmail.com
+		</Description>
 		<PackageTags>extension encrypt capital</PackageTags>
 		<RepositoryUrl>https://github.com/Aymadoka/Aymadoka.Static.Extensions</RepositoryUrl>
 		<PublishRepositoryUrl>true</PublishRepositoryUrl>

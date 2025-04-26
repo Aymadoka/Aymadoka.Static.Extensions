@@ -48,7 +48,7 @@ namespace Aymadoka.Static.Base64Extension
         public void ToBase64FromString_NullOrEmptyString_ThrowsArgumentNullException()
         {
             // Arrange
-            string input = null;
+            string? input = null;
 
             // Act & Assert
             Assert.Throws<ArgumentNullException>(() => input.ToBase64FromString());

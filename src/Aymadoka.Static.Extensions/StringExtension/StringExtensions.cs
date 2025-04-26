@@ -1,7 +1,6 @@
 ﻿using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
-using System.Text;
 using System;
 using System.Diagnostics.CodeAnalysis;
 
@@ -20,7 +19,7 @@ namespace Aymadoka.Static.StringExtension
         /// <summary>判断字符串是否不为 null</summary>
         /// <param name="source">要检查的字符串</param>
         /// <returns>如果字符串不为 null，则返回 true；否则返回 false</returns>
-        public static bool IsNotNull(this string? source)
+        public static bool IsNotNull([NotNullWhen(true)] this string? source)
         {
             return !source.IsNull();
         }
