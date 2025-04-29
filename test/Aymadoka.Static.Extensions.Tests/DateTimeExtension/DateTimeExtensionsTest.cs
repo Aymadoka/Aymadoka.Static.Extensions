@@ -122,23 +122,28 @@
         }
 
         [Theory]
-        [InlineData(2025, 4, 26, 15, 30, 45, 2025, 4, 1)] // 常规日期
-        [InlineData(2024, 2, 29, 0, 0, 0, 2024, 2, 1)] // 闰年 2 月 29 日
-        [InlineData(2025, 1, 1, 0, 0, 0, 2025, 1, 1)] // 年初
-        [InlineData(2025, 12, 31, 23, 59, 59, 2025, 12, 1)] // 年末
-        [InlineData(1970, 1, 15, 0, 0, 0, 1970, 1, 1)] // Unix 纪元
+        [InlineData(2025, 4, 26, 15, 30, 45, "2025-04-01")] // 常规日期
+        [InlineData(2024, 2, 29, 0, 0, 0, "2024-02-01")] // 闰年 2 月 29 日
+        [InlineData(2025, 1, 1, 0, 0, 0, "2025-01-01")] // 年初
+        [InlineData(2025, 12, 31, 23, 59, 59, "2025-12-01")] // 年末
+        [InlineData(1970, 1, 15, 0, 0, 0, "1970-01-01")] // Unix 纪元
         public void CurrentMonthFirstDay_ShouldReturnFirstDayOfMonth(
             int year, int month, int day, int hour, int minute, int second,
-            int expectedYear, int expectedMonth, int expectedDay)
+            string expectedStr)
         {
             // Arrange
             var dateTime = new DateTime(year, month, day, hour, minute, second);
 
             // Act
             var result = dateTime.CurrentMonthFirstDay();
+            var expected = DateTime.Parse(expectedStr);
+
+
 
             // Assert
-            Assert.Equal(new DateTime(expectedYear, expectedMonth, expectedDay, hour: 0, minute: 0, second: 0), result);
+            Assert.Equal(expected.Year, result.Year);
+            Assert.Equal(expected.Month, result.Month);
+            Assert.Equal(expected.Day, result.Day);
         }
 
         [Fact]

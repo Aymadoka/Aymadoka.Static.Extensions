@@ -10,12 +10,16 @@ namespace Aymadoka.Static.DateTimeOffsetExtension
         /// <param name="sourceDateTime">要移除时间部分的 <see cref="DateTimeOffset"/>。</param>
         /// <returns>仅包含日期部分的 <see cref="DateTimeOffset"/>。</returns>
         /// <remarks>
-        /// - 返回的 <see cref="DateTimeOffset"/> 的时间部分将被设置为 00:00:00。
-        /// - 保留原始的时区偏移量。
+        ///     <list type="bullet">
+        ///         <item>返回的 <see cref="DateTimeOffset"/> 的时间部分将被设置为 00:00:00。</item>
+        ///         <item>保留原始的时区偏移量。/item> 
+        ///     </list>
         /// </remarks>
         public static DateTimeOffset RemoveTime(this DateTimeOffset sourceDateTime)
         {
-            return sourceDateTime.Date;
+            var timeOfDay = sourceDateTime.TimeOfDay;
+            var result = sourceDateTime - timeOfDay;
+            return result;
         }
 
         /// <summary>
