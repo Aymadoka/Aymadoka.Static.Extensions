@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFramework>net9.0</TargetFramework> 
@@ -9,7 +9,7 @@
 		<Authors>Aymadoka</Authors>
 		<Description>
 			This is a basic extension library.
-			contact: Aymadoka@foxmail.com
+			contact: Aymadoka@foxmail.com 
 		</Description>
 		<PackageTags>extension encrypt capital</PackageTags>
 		<RepositoryUrl>https://github.com/Aymadoka/Aymadoka.Static.Extensions</RepositoryUrl>
