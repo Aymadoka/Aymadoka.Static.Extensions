@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Text;
@@ -14,7 +14,7 @@ namespace Aymadoka.Static.ExceptionExtension
         /// 如果没有嵌套异常，则返回原始异常；如果输入为 <c>null</c>，则返回 <c>null</c>。
         /// </returns>
         public static Exception? GetDeepestInnerException([NotNullIfNotNull(nameof(exception))] this Exception? exception)
-        {
+        { 
             while (exception != null && exception.InnerException != null)
             {
                 exception = exception.InnerException;

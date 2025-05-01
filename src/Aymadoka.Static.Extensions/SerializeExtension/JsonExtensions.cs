@@ -1,7 +1,7 @@
-﻿using Aymadoka.Static.StringExtension;
+using Aymadoka.Static.StringExtension;
 using System.Text.Json;
 
-namespace Aymadoka.Static.JsonExtension
+namespace Aymadoka.Static.SerializeExtension 
 {
     public static class JsonExtensions
     {
@@ -14,7 +14,7 @@ namespace Aymadoka.Static.JsonExtension
         {
             if (data == null)
             {
-                return null;
+                return null; 
             }
 
             return JsonSerializer.Serialize(data, options ?? new JsonSerializerOptions());

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Linq;
@@ -10,7 +10,7 @@ namespace Aymadoka.Static.QueryableExtension
     {
         public static IQueryable<T> WhereIf<T>(this IQueryable<T> source, Expression<Func<T, bool>> predicate, bool condition)
         {
-            return condition ? source.Where(predicate) : source;
+            return condition ? source.Where(predicate) : source; 
         }
 
         public static IQueryable<T> WhereIf<T>(this IQueryable<T> source, Expression<Func<T, int, bool>> predicate, bool condition)

@@ -1,4 +1,4 @@
-﻿using System.Globalization;
+using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System;
@@ -13,7 +13,7 @@ namespace Aymadoka.Static.StringExtension
         /// <returns>如果字符串为 null，则返回 true；否则返回 false</returns>
         public static bool IsNull([NotNullWhen(false)] this string? source)
         {
-            return source == null;
+            return source == null; 
         }
 
         /// <summary>判断字符串是否不为 null</summary>

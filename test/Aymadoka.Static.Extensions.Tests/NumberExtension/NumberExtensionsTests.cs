@@ -1,9 +1,9 @@
-﻿using System.Globalization;
+using System.Globalization;
 using System.Numerics;
 
 namespace Aymadoka.Static.NumberExtension
 {
-    public class NumberExtensionsTests
+    public class NumberExtensionsTests 
     {
         [Theory]
         [InlineData(0, true)]  // 零是整数

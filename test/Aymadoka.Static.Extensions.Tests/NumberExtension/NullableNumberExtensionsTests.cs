@@ -1,8 +1,8 @@
-﻿using System.Globalization;
+using System.Globalization;
 
 namespace Aymadoka.Static.NumberExtension
 {
-    public class NullableNumberExtensionsTests
+    public class NullableNumberExtensionsTests 
     {
         [Theory]
         [InlineData(null, false)]  // 空值

@@ -1,8 +1,8 @@
-﻿namespace Aymadoka.Static.DateTimeOffsetExtension
+namespace Aymadoka.Static.DateTimeOffsetExtension
 {
     public class NullableDateTimeOffsetExtensionsTests
     {
-        [Theory]
+        [Theory] 
         [InlineData(2025, 12, 31, 23, 59, 59, 0, "yyyy-MM-dd", "2025-12-31")] // 自定义格式
         [InlineData(2025, 12, 31, 23, 59, 59, 0, "MM/dd/yyyy", "12/31/2025")] // 不同格式
         [InlineData(2025, 12, 31, 23, 59, 59, 0, null, "2025/12/31 23:59:59")] // 默认格式

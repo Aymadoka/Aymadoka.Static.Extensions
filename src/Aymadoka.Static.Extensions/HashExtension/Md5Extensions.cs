@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -7,7 +7,7 @@ namespace Aymadoka.Static.HashExtension
 {
     public static class Md5Extensions
     {
-        /// <summary>获取字符串的MD5哈希值</summary>
+        /// <summary>获取字符串的MD5哈希值</summary> 
         /// <param name="value">输入字符串</param>
         /// <returns>MD5哈希值</returns>
         public static string ToMd5Hash(this string value)

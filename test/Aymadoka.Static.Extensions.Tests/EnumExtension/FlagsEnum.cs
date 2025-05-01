@@ -1,8 +1,8 @@
-﻿namespace Aymadoka.Static.EnumExtension
+namespace Aymadoka.Static.EnumExtension
 {
     [Flags]
     public enum FlagsEnum
-    {
+    { 
         None = 0,
         Option1 = 1,
         Option2 = 2,

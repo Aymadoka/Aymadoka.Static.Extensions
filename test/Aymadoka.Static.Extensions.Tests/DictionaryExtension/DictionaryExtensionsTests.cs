@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Aymadoka.Static.EnumerableExtension
+namespace Aymadoka.Static.DictionaryExtension
 {
-    public class EnumerableExtensionsTest
+    internal class DictionaryExtensionsTests
     { 
-         
     }
 }

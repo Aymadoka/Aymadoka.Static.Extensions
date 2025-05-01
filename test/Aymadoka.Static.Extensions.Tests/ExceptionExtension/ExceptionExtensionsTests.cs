@@ -1,8 +1,8 @@
-﻿namespace Aymadoka.Static.ExceptionExtension
+namespace Aymadoka.Static.ExceptionExtension
 {
     public class ExceptionExtensionsTests
     {
-        [Fact]
+        [Fact] 
         public void InnerException_ShouldReturnNull_WhenExceptionIsNull()
         {
             // Arrange

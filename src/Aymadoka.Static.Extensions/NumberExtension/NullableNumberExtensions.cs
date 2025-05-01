@@ -1,9 +1,9 @@
-﻿using System.Globalization;
+using System.Globalization;
 using System.Numerics;
 
 namespace Aymadoka.Static.NumberExtension
 {
-    public static class NullableNumberExtensions
+    public static class NullableNumberExtensions 
     {
         public static bool IsInteger<T>(this T? source) where T : struct, INumber<T>
         {

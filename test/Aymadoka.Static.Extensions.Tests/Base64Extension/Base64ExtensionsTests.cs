@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +8,7 @@ namespace Aymadoka.Static.Base64Extension
 {
     public class Base64ExtensionsTests
     {
-        [Fact]
+        [Fact] 
         public void ToBase64_ValidByteArray_ReturnsBase64String()
         {
             // Arrange

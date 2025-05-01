@@ -1,4 +1,4 @@
-﻿using Aymadoka.Static.EnumerableExtension;
+using Aymadoka.Static.EnumerableExtension;
 using System.Security.Cryptography;
 using System.Text;
 using System;
@@ -8,7 +8,7 @@ namespace Aymadoka.Static.HashExtension
 {
     public static class Sha256Extensions
     {
-        /// <summary>获取字符串的SHA256哈希值</summary>
+        /// <summary>获取字符串的SHA256哈希值</summary> 
         /// <param name="value">输入字符串</param>
         /// <returns>SHA256哈希值</returns>
         public static string ToSha256Hash(this string value)

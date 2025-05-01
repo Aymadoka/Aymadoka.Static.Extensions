@@ -1,4 +1,4 @@
-﻿using Aymadoka.Static.StringExtension;
+using Aymadoka.Static.StringExtension;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,7 +28,7 @@ namespace Aymadoka.Static.EnumExtension
         /// <param name="value">枚举值（未使用，仅用于调用扩展方法）</param>
         /// <returns>包含枚举值及其描述的列表</returns>
         public static List<(TEnum value, string description)> GetEnumValuesWithDescriptions<TEnum>(this TEnum value) where TEnum : Enum
-        {
+        { 
             return GetEnumValuesWithDescriptions<TEnum>();
         }
 

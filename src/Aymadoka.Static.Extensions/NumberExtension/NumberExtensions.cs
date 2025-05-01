@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Globalization;
 using System.Linq;
 using System.Numerics;
@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 
 namespace Aymadoka.Static.NumberExtension
 {
-    public static class NumberExtensions
+    public static class NumberExtensions 
     {
         public static bool IsInteger<T>(this T source) where T : struct, INumber<T>
         {

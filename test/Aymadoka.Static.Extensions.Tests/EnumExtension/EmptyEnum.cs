@@ -1,7 +1,7 @@
-﻿namespace Aymadoka.Static.EnumExtension
+namespace Aymadoka.Static.EnumExtension
 {
     public enum EmptyEnum
-    {
+    { 
 
     }
 }

@@ -1,8 +1,8 @@
-﻿namespace Aymadoka.Static.DateTimeExtension
+namespace Aymadoka.Static.DateTimeExtension
 {
     public class DateTimeExtensionsTest
     {
-        [Theory]
+        [Theory] 
         [InlineData(2025, 4, 26, 15, 30, 45, 2025, 4, 26)] // 常规日期和时间
         [InlineData(1970, 1, 1, 0, 0, 0, 1970, 1, 1)] // Unix 纪元时间
         [InlineData(2024, 2, 29, 23, 59, 59, 2024, 2, 29)] // 闰年 2 月 29 日
@@ -377,7 +377,7 @@
             var dateTime = new DateTime(year, month, day);
 
             // Act
-            var result = dateTime.CurrentMonthLastDay();
+            var result = dateTime.GetLastDayOfMonth();
 
             // Assert
             Assert.Equal(new DateTime(expectedYear, expectedMonth, expectedDay), result);
@@ -392,9 +392,9 @@
             var unspecifiedDateTime = new DateTime(2025, 4, 15, 15, 30, 45, DateTimeKind.Unspecified);
 
             // Act
-            var utcResult = utcDateTime.CurrentMonthLastDay();
-            var localResult = localDateTime.CurrentMonthLastDay();
-            var unspecifiedResult = unspecifiedDateTime.CurrentMonthLastDay();
+            var utcResult = utcDateTime.GetLastDayOfMonth();
+            var localResult = localDateTime.GetLastDayOfMonth();
+            var unspecifiedResult = unspecifiedDateTime.GetLastDayOfMonth();
 
             // Assert
             Assert.Equal(DateTimeKind.Utc, utcResult.Kind);

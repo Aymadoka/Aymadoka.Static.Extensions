@@ -1,10 +1,10 @@
-﻿using Shouldly;
+using Shouldly;
 
 namespace Aymadoka.Static.DateTimeExtension
 {
     public class NullableDateTimeExtensionsTests
     {
-        [Fact]
+        [Fact] 
         public void ToString_ShouldReturnDefaultFormattedString_WhenFormatIsNull()
         {
             // Arrange

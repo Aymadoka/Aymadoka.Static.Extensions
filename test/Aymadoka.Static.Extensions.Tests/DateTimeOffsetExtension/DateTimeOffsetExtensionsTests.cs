@@ -1,10 +1,10 @@
-﻿using System;
+using System;
 
 namespace Aymadoka.Static.DateTimeOffsetExtension
 {
     public class DateTimeOffsetExtensionsTests
     {
-        [Theory]
+        [Theory] 
         [InlineData(2025, 4, 27, 15, 30, 45, 0, 2025, 4, 27)] // 普通日期
         [InlineData(2025, 12, 31, 23, 59, 59, 4, 2025, 12, 31)] // 年末
         [InlineData(2024, 2, 29, 12, 0, 0, 8, 2024, 2, 29)] // 闰年

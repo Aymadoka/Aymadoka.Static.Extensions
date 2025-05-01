@@ -1,10 +1,10 @@
-﻿using Shouldly;
+using Shouldly;
 using System;
 
 namespace Aymadoka.Static.EnumExtension
 {
     public class EnumExtensionsTests
-    {
+    { 
         [Fact]
         public void GetEnumValuesWithDescriptions_ShouldReturnAllEnumValuesWithDescriptions()
         {

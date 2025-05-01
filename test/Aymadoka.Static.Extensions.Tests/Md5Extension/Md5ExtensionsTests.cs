@@ -1,10 +1,10 @@
-﻿using Aymadoka.Static.HashExtension;
+using Aymadoka.Static.HashExtension;
 using Shouldly;
 using System.Text;
 
 namespace Aymadoka.Static.Md5Extension
 {
-    public class Md5ExtensionsTests
+    public class Md5ExtensionsTests 
     {
         [Fact]
         public void ToMd5_WithValidString_ReturnsCorrectHash()

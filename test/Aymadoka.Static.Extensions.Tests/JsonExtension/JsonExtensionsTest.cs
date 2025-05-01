@@ -1,8 +1,8 @@
-﻿using System.Text.Json;
+using System.Text.Json;
 
 namespace Aymadoka.Static.JsonExtension
 {
-    public class JsonExtensionsTest
+    public class JsonExtensionsTest 
     {
         public class TestObject
         {
