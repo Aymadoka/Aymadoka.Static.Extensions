@@ -78,7 +78,7 @@ namespace Aymadoka.Static.DateTimeOffsetExtension
             DateTime? dateTime = new DateTime(year, month, day, hour, minute, second);
 
             // Act
-            var result = dateTime.PreviousDay();
+            var result = dateTime.Yesterday();
 
             // Assert
             Assert.NotNull(result);
@@ -92,7 +92,7 @@ namespace Aymadoka.Static.DateTimeOffsetExtension
             DateTime? dateTime = null;
 
             // Act
-            var result = dateTime.PreviousDay();
+            var result = dateTime.Yesterday();
 
             // Assert
             Assert.Null(result);
@@ -111,7 +111,7 @@ namespace Aymadoka.Static.DateTimeOffsetExtension
             DateTime? dateTime = new DateTime(year, month, day, hour, minute, second);
 
             // Act
-            var result = dateTime.NextDay();
+            var result = dateTime.Tomorrow();
 
             // Assert
             Assert.NotNull(result);
@@ -125,7 +125,7 @@ namespace Aymadoka.Static.DateTimeOffsetExtension
             DateTime? dateTime = null;
 
             // Act
-            var result = dateTime.NextDay();
+            var result = dateTime.Tomorrow();
 
             // Assert
             Assert.Null(result);

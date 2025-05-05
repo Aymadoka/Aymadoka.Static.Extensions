@@ -52,7 +52,7 @@ namespace Aymadoka.Static.DateTimeOffsetExtension
             var dateTime = new DateTimeOffset(year, month, day, hour, minute, second, TimeSpan.FromMinutes(offsetMinutes));
 
             // Act
-            var result = dateTime.NextDay();
+            var result = dateTime.Tomorrow();
 
             // Assert
             Assert.Equal(new DateTimeOffset(expectedYear, expectedMonth, expectedDay, hour, minute, second, TimeSpan.FromMinutes(offsetMinutes)), result);

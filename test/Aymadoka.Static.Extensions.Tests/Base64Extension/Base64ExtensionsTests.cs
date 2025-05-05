@@ -15,7 +15,7 @@ namespace Aymadoka.Static.Base64Extension
             var bytes = Encoding.UTF8.GetBytes("Hello, World!");
 
             // Act
-            var result = bytes.ToBase64();
+            var result = bytes.ToBase64String();
 
             // Assert
             Assert.Equal(Convert.ToBase64String(bytes), result);
@@ -28,7 +28,7 @@ namespace Aymadoka.Static.Base64Extension
             byte[]? bytes = null;
 
             // Act & Assert
-            Assert.Throws<ArgumentNullException>(() => bytes.ToBase64());
+            Assert.Throws<ArgumentNullException>(() => bytes.ToBase64String());
         }
 
         [Fact]

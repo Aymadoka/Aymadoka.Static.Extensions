@@ -1,3 +1,4 @@
+using Aymadoka.Static.NullableNumberExtension;
 using System.Globalization;
 
 namespace Aymadoka.Static.NumberExtension

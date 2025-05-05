@@ -1,4 +1,4 @@
-namespace Aymadoka.Static.DateTimeExtension
+namespace Aymadoka.Static.NullableDateTimeExtension
 {
     public class DateTimeExtensionsTest
     {
@@ -57,7 +57,7 @@ namespace Aymadoka.Static.DateTimeExtension
             var dateTime = new DateTime(year, month, day, hour, minute, second);
 
             // Act
-            var result = dateTime.PreviousDay();
+            var result = dateTime.Yesterday();
 
             // Assert
             Assert.Equal(new DateTime(expectedYear, expectedMonth, expectedDay, expectedHour, expectedMinute, expectedSecond), result);
@@ -72,9 +72,9 @@ namespace Aymadoka.Static.DateTimeExtension
             var unspecifiedDateTime = new DateTime(2025, 4, 26, 15, 30, 45, DateTimeKind.Unspecified);
 
             // Act
-            var utcResult = utcDateTime.PreviousDay();
-            var localResult = localDateTime.PreviousDay();
-            var unspecifiedResult = unspecifiedDateTime.PreviousDay();
+            var utcResult = utcDateTime.Yesterday();
+            var localResult = localDateTime.Yesterday();
+            var unspecifiedResult = unspecifiedDateTime.Yesterday();
 
             // Assert
             Assert.Equal(DateTimeKind.Utc, utcResult.Kind);
@@ -96,7 +96,7 @@ namespace Aymadoka.Static.DateTimeExtension
             var dateTime = new DateTime(year, month, day, hour, minute, second);
 
             // Act
-            var result = dateTime.NextDay();
+            var result = dateTime.Tomorrow();
 
             // Assert
             Assert.Equal(new DateTime(expectedYear, expectedMonth, expectedDay, expectedHour, expectedMinute, expectedSecond), result);
@@ -111,9 +111,9 @@ namespace Aymadoka.Static.DateTimeExtension
             var unspecifiedDateTime = new DateTime(2025, 4, 26, 15, 30, 45, DateTimeKind.Unspecified);
 
             // Act
-            var utcResult = utcDateTime.NextDay();
-            var localResult = localDateTime.NextDay();
-            var unspecifiedResult = unspecifiedDateTime.NextDay();
+            var utcResult = utcDateTime.Tomorrow();
+            var localResult = localDateTime.Tomorrow();
+            var unspecifiedResult = unspecifiedDateTime.Tomorrow();
 
             // Assert
             Assert.Equal(DateTimeKind.Utc, utcResult.Kind);
@@ -179,7 +179,7 @@ namespace Aymadoka.Static.DateTimeExtension
             var dateTime = new DateTime(year, month, day);
 
             // Act
-            var result = dateTime.GetFirstDayOfLastMonth();
+            var result = dateTime.GetLastMonthFirstDay();
 
             // Assert
             Assert.Equal(new DateTime(expectedYear, expectedMonth, expectedDay), result);
@@ -194,9 +194,9 @@ namespace Aymadoka.Static.DateTimeExtension
             var unspecifiedDateTime = new DateTime(2025, 4, 26, 15, 30, 45, DateTimeKind.Unspecified);
 
             // Act
-            var utcResult = utcDateTime.GetFirstDayOfLastMonth();
-            var localResult = localDateTime.GetFirstDayOfLastMonth();
-            var unspecifiedResult = unspecifiedDateTime.GetFirstDayOfLastMonth();
+            var utcResult = utcDateTime.GetLastMonthFirstDay();
+            var localResult = localDateTime.GetLastMonthFirstDay();
+            var unspecifiedResult = unspecifiedDateTime.GetLastMonthFirstDay();
 
             // Assert
             Assert.Equal(DateTimeKind.Utc, utcResult.Kind);
@@ -218,7 +218,7 @@ namespace Aymadoka.Static.DateTimeExtension
             var dateTime = new DateTime(year, month, day);
 
             // Act
-            var result = dateTime.GetFirstDayOfNextMonth();
+            var result = dateTime.GetNextMonthFirstDay();
 
             // Assert
             Assert.Equal(new DateTime(expectedYear, expectedMonth, expectedDay), result);
@@ -233,9 +233,9 @@ namespace Aymadoka.Static.DateTimeExtension
             var unspecifiedDateTime = new DateTime(2025, 4, 26, 15, 30, 45, DateTimeKind.Unspecified);
 
             // Act
-            var utcResult = utcDateTime.GetFirstDayOfNextMonth();
-            var localResult = localDateTime.GetFirstDayOfNextMonth();
-            var unspecifiedResult = unspecifiedDateTime.GetFirstDayOfNextMonth();
+            var utcResult = utcDateTime.GetNextMonthFirstDay();
+            var localResult = localDateTime.GetNextMonthFirstDay();
+            var unspecifiedResult = unspecifiedDateTime.GetNextMonthFirstDay();
 
             // Assert
             Assert.Equal(DateTimeKind.Utc, utcResult.Kind);
@@ -297,7 +297,7 @@ namespace Aymadoka.Static.DateTimeExtension
             var dateTime = new DateTime(year, month, day);
 
             // Act
-            var result = dateTime.GetLastDayOfMonth();
+            var result = dateTime.GetCurrentMonthLastDay();
 
             // Assert
             Assert.Equal(new DateTime(expectedYear, expectedMonth, expectedDay), result);
@@ -312,9 +312,9 @@ namespace Aymadoka.Static.DateTimeExtension
             var unspecifiedDateTime = new DateTime(2025, 4, 15, 15, 30, 45, DateTimeKind.Unspecified);
 
             // Act
-            var utcResult = utcDateTime.GetLastDayOfMonth();
-            var localResult = localDateTime.GetLastDayOfMonth();
-            var unspecifiedResult = unspecifiedDateTime.GetLastDayOfMonth();
+            var utcResult = utcDateTime.GetCurrentMonthLastDay();
+            var localResult = localDateTime.GetCurrentMonthLastDay();
+            var unspecifiedResult = unspecifiedDateTime.GetCurrentMonthLastDay();
 
             // Assert
             Assert.Equal(DateTimeKind.Utc, utcResult.Kind);
@@ -337,7 +337,7 @@ namespace Aymadoka.Static.DateTimeExtension
             var dateTime = new DateTime(year, month, day);
 
             // Act
-            var result = dateTime.GetSecondDayToLastOfMonth();
+            var result = dateTime.GetLastOfMonthSecondDay();
 
             // Assert
             Assert.Equal(new DateTime(expectedYear, expectedMonth, expectedDay), result);
@@ -352,9 +352,9 @@ namespace Aymadoka.Static.DateTimeExtension
             var unspecifiedDateTime = new DateTime(2025, 4, 15, 15, 30, 45, DateTimeKind.Unspecified);
 
             // Act
-            var utcResult = utcDateTime.GetSecondDayToLastOfMonth();
-            var localResult = localDateTime.GetSecondDayToLastOfMonth();
-            var unspecifiedResult = unspecifiedDateTime.GetSecondDayToLastOfMonth();
+            var utcResult = utcDateTime.GetLastOfMonthSecondDay();
+            var localResult = localDateTime.GetLastOfMonthSecondDay();
+            var unspecifiedResult = unspecifiedDateTime.GetLastOfMonthSecondDay();
 
             // Assert
             Assert.Equal(DateTimeKind.Utc, utcResult.Kind);
@@ -377,7 +377,7 @@ namespace Aymadoka.Static.DateTimeExtension
             var dateTime = new DateTime(year, month, day);
 
             // Act
-            var result = dateTime.GetLastDayOfMonth();
+            var result = dateTime.GetCurrentMonthLastDay();
 
             // Assert
             Assert.Equal(new DateTime(expectedYear, expectedMonth, expectedDay), result);
@@ -392,9 +392,9 @@ namespace Aymadoka.Static.DateTimeExtension
             var unspecifiedDateTime = new DateTime(2025, 4, 15, 15, 30, 45, DateTimeKind.Unspecified);
 
             // Act
-            var utcResult = utcDateTime.GetLastDayOfMonth();
-            var localResult = localDateTime.GetLastDayOfMonth();
-            var unspecifiedResult = unspecifiedDateTime.GetLastDayOfMonth();
+            var utcResult = utcDateTime.GetCurrentMonthLastDay();
+            var localResult = localDateTime.GetCurrentMonthLastDay();
+            var unspecifiedResult = unspecifiedDateTime.GetCurrentMonthLastDay();
 
             // Assert
             Assert.Equal(DateTimeKind.Utc, utcResult.Kind);
