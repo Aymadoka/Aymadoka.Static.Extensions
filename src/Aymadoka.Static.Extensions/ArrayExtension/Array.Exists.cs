@@ -4,8 +4,8 @@ namespace Aymadoka.Static.ArrayExtension;
 
 public static partial class ArrayExtensions
 {
-    public static int ByteLength<T>(this T[] array)
+    public static bool Exists<T>(this T[] array, Predicate<T> match)
     {
-        return Buffer.ByteLength(array);
+        return Array.Exists(array, match);
     }
 }

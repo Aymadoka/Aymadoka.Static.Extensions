@@ -4,8 +4,8 @@ namespace Aymadoka.Static.ArrayExtension;
 
 public static partial class ArrayExtensions
 {
-    public static int ByteLength<T>(this T[] array)
+    public static void ForEach<T>(this T[] array, Action<T> action)
     {
-        return Buffer.ByteLength(array);
+        Array.ForEach(array, action);
     }
 }

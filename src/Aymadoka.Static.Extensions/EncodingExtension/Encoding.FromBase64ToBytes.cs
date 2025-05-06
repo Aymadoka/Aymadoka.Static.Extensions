@@ -15,7 +15,7 @@ namespace Aymadoka.Static.EncodingExtension
         /// <exception cref="FormatException">
         /// 当 <paramref name="this"/> 不是有效的 Base64 字符串时抛出
         /// </exception>
-        public static byte[] FromBase64(this string @this)
+        public static byte[] FromBase64ToBytes(this string @this)
         {
             if (@this.IsNullOrEmpty())
             {

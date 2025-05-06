@@ -12,7 +12,7 @@ namespace Aymadoka.Static.EncodingExtension
         /// <exception cref="ArgumentNullException">
         /// 当 <paramref name="this"/> 为 null 或空时抛出
         /// </exception>
-        public static string ToBase64String(this byte[] @this)
+        public static string ToBase64FromBytes(this byte[] @this)
         {
             if (@this.IsNullOrEmpty())
             {
@@ -23,7 +23,7 @@ namespace Aymadoka.Static.EncodingExtension
             return base64;
         }
 
-        public static string ToBase64String(this byte[] @this, Base64FormattingOptions options)
+        public static string ToBase64FromBytes(this byte[] @this, Base64FormattingOptions options)
         {
             if (@this.IsNullOrEmpty())
             {
@@ -33,7 +33,7 @@ namespace Aymadoka.Static.EncodingExtension
             return Convert.ToBase64String(@this, options);
         }
 
-        public static string ToBase64String(this byte[] @this, int offset, int length)
+        public static string ToBase64FromBytes(this byte[] @this, int offset, int length)
         {
             if (@this.IsNullOrEmpty())
             {
@@ -43,7 +43,7 @@ namespace Aymadoka.Static.EncodingExtension
             return Convert.ToBase64String(@this, offset, length);
         }
 
-        public static string ToBase64String(this Byte[] @this, int offset, int length, Base64FormattingOptions options)
+        public static string ToBase64FromBytes(this Byte[] @this, int offset, int length, Base64FormattingOptions options)
         {
             if (@this.IsNullOrEmpty())
             {

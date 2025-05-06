@@ -21,7 +21,7 @@ namespace Aymadoka.Static.EncodingExtension
             }
 
             var bytes = Encoding.UTF8.GetBytes(@this);
-            return bytes.ToBase64String();
+            return bytes.ToBase64FromBytes();
         }
     }
 }

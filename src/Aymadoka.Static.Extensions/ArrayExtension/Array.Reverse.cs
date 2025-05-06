@@ -4,12 +4,12 @@ namespace Aymadoka.Static.ArrayExtension;
 
 public static partial class ArrayExtensions
 {
-    public static void Reverse(this Array array)
+    public static void Reverse<T>(this T[] array)
     {
         Array.Reverse(array);
     }
 
-    public static void Reverse(this Array array, int index, int length)
+    public static void Reverse<T>(this T[] array, int index, int length)
     {
         Array.Reverse(array, index, length);
     }

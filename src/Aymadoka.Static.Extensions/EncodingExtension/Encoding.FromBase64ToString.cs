@@ -23,7 +23,7 @@ namespace Aymadoka.Static.EncodingExtension
                 throw new ArgumentNullException(nameof(@this));
             }
 
-            var bytes = @this.FromBase64();
+            var bytes = @this.FromBase64ToBytes();
             var result = Encoding.UTF8.GetString(bytes);
             return result;
         }
