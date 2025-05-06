@@ -1,6 +1,6 @@
 using System;
 
-namespace Aymadoka.Static.NullableDateTimeExtension;
+namespace Aymadoka.Static.DateTimeExtension;
 
 public static partial class DateTimeExtensions
 {

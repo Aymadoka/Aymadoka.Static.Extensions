@@ -661,7 +661,7 @@ namespace Aymadoka.Static.NullableDateTimeExtension
             DateTime? sourceDateTime = null;
 
             // Act
-            var result = sourceDateTime.IsWeekend();
+            var result = sourceDateTime.IsWeekendDay();
 
             // Assert
             Assert.False(result);
@@ -675,8 +675,8 @@ namespace Aymadoka.Static.NullableDateTimeExtension
             DateTime? sunday = new DateTime(2025, 4, 27);   // Sunday
 
             // Act
-            var resultSaturday = saturday.IsWeekend();
-            var resultSunday = sunday.IsWeekend();
+            var resultSaturday = saturday.IsWeekendDay();
+            var resultSunday = sunday.IsWeekendDay();
 
             // Assert
             Assert.True(resultSaturday);
@@ -694,11 +694,11 @@ namespace Aymadoka.Static.NullableDateTimeExtension
             DateTime? friday = new DateTime(2025, 5, 2);    // Friday
 
             // Act
-            var resultMonday = monday.IsWeekend();
-            var resultTuesday = tuesday.IsWeekend();
-            var resultWednesday = wednesday.IsWeekend();
-            var resultThursday = thursday.IsWeekend();
-            var resultFriday = friday.IsWeekend();
+            var resultMonday = monday.IsWeekendDay();
+            var resultTuesday = tuesday.IsWeekendDay();
+            var resultWednesday = wednesday.IsWeekendDay();
+            var resultThursday = thursday.IsWeekendDay();
+            var resultFriday = friday.IsWeekendDay();
 
             // Assert
             Assert.False(resultMonday);
@@ -719,14 +719,14 @@ namespace Aymadoka.Static.NullableDateTimeExtension
 
             // Act & Assert
             // Null DateTime
-            Assert.False(nullDateTime.IsWeekend());
+            Assert.False(nullDateTime.IsWeekendDay());
 
             // Weekend Dates
-            Assert.True(saturday.IsWeekend());
-            Assert.True(sunday.IsWeekend());
+            Assert.True(saturday.IsWeekendDay());
+            Assert.True(sunday.IsWeekendDay());
 
             // Weekday Date
-            Assert.False(monday.IsWeekend());
+            Assert.False(monday.IsWeekendDay());
         }
     }
 }

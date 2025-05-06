@@ -1,3 +1,4 @@
+using Aymadoka.Static.DateTimeExtension;
 using System;
 using System.Diagnostics.CodeAnalysis;
 
@@ -15,14 +16,14 @@ public static partial class NullableDateTimeExtensions
     /// - 如果输入为 <c>null</c>，方法将返回 <c>false</c>
     /// - 如果输入为有效日期，方法将判断该日期是否为周六或周日
     /// </remarks>
-    public static bool IsWeekend([NotNullWhen(true)] this DateTime? @this)
+    public static bool IsWeekendDay([NotNullWhen(true)] this DateTime? @this)
     {
         if (@this == null)
         {
             return false;
         }
 
-        var result = @this.Value.IsWeekend();
+        var result = @this.Value.IsWeekendDay();
         return result;
     }
 }
