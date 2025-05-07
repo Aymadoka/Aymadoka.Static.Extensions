@@ -1,8 +1,8 @@
 using System;
 
-namespace Aymadoka.Static.ArrayExtension;
+namespace Aymadoka.Static.ObjectExtension;
 
-public static partial class ArrayExtensions
+public static partial class ObjectExtensions
 {
     public static bool In<T>(this T @this, params T[] values)
     {
