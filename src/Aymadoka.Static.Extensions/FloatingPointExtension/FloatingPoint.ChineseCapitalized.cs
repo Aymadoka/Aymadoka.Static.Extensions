@@ -31,7 +31,7 @@ namespace Aymadoka.Static.FloatingPointExtension
                 return "零元";
             }
 
-            source = source.Keep();
+            source = source.ToKeep();
 
             const string STRING = "#L#E#D#C#K#E#D#C#J#E#D#C#I#E#D#C#H#E#D#C#G#E#D#C#F#E#D#C#.0B0A";
 

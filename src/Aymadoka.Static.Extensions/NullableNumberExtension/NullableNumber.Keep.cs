@@ -12,7 +12,7 @@ public static partial class NullableNumberExtensions
             return null;
         }
 
-        T value = source.Value.Keep(keepPlaceCount);
+        T value = source.Value.ToKeep(keepPlaceCount);
         return value;
     }
 }

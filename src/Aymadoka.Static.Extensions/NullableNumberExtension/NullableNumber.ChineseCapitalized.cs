@@ -13,7 +13,7 @@ namespace Aymadoka.Static.NullableNumberExtension
                 return null;
             }
 
-            return source.Value.Keep().ChineseCapitalized();
+            return source.Value.ToKeep().ChineseCapitalized();
         }
     }
 }

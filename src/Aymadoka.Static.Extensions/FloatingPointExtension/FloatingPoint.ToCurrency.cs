@@ -12,7 +12,7 @@ namespace Aymadoka.Static.FloatingPointExtension
         public static string ToCurrency<T>(this T source, CultureInfo? culture = null) where T : struct, IFloatingPoint<T>
         {
             culture ??= new CultureInfo("zh-CN");
-            var result = source.Keep(2).ToString("C", culture);
+            var result = source.ToKeep(2).ToString("C", culture);
             return result;
         }
     }
