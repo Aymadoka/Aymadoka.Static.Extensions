@@ -4,9 +4,14 @@ namespace Aymadoka.Static.NullableDateTimeExtension;
 
 public static partial class NullableDateTimeExtensions
 {
-    public static long GetSecondLevelTimeStamp(this DateTime? date)
+    public static long? GetSecondLevelTimeStamp(this DateTime? date)
     {
-        var result = (long)(date - DateTime.UnixEpoch).TotalSeconds;
+        if (date == null)
+        {
+            return null;
+        }
+
+        var result = (long)(date - DateTime.UnixEpoch).Value.TotalSeconds;
         return result;
     }
 }
