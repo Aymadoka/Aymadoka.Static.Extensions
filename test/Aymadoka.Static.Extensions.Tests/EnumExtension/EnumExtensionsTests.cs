@@ -31,9 +31,9 @@ namespace Aymadoka.Static.EnumExtension
             // Assert
             Assert.NotNull(result);
             Assert.Equal(3, result.Count);
-            Assert.Contains(result, item => item.value == TestEnum.Value1 && item.description == "Value One");
-            Assert.Contains(result, item => item.value == TestEnum.Value2 && item.description == "Value Two");
-            Assert.Contains(result, item => item.value == TestEnum.Value3 && item.description == "Value3");
+            Assert.Contains(result, item => item.Value == TestEnum.Value1 && item.Description == "Value One");
+            Assert.Contains(result, item => item.Value == TestEnum.Value2 && item.Description == "Value Two");
+            Assert.Contains(result, item => item.Value == TestEnum.Value3 && item.Description == "Value3");
         }
 
         [Fact]

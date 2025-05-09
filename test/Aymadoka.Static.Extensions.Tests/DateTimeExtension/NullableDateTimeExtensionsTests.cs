@@ -401,7 +401,7 @@ namespace Aymadoka.Static.NullableDateTimeExtension
             DateTime? sourceDateTime = null;
 
             // Act
-            var result = sourceDateTime.GetFirstDayOfMonth();
+            var result = sourceDateTime.CurrentMonthFirstDay();
 
             // Assert
             Assert.Null(result);
@@ -414,7 +414,7 @@ namespace Aymadoka.Static.NullableDateTimeExtension
             DateTime? sourceDateTime = new DateTime(2025, 4, 15);
 
             // Act
-            var result = sourceDateTime.GetFirstDayOfMonth();
+            var result = sourceDateTime.CurrentMonthFirstDay();
 
             // Assert
             Assert.NotNull(result);
@@ -432,20 +432,20 @@ namespace Aymadoka.Static.NullableDateTimeExtension
 
             // Act & Assert
             // Null DateTime
-            Assert.Null(nullDateTime.GetFirstDayOfMonth());
+            Assert.Null(nullDateTime.CurrentMonthFirstDay());
 
             // Mid-month Date
-            var resultMidMonth = midMonthDate.GetFirstDayOfMonth();
+            var resultMidMonth = midMonthDate.CurrentMonthFirstDay();
             Assert.NotNull(resultMidMonth);
             Assert.Equal(new DateTime(2025, 4, 1), resultMidMonth);
 
             // First Day of Month
-            var resultFirstDayOfMonth = firstDayOfMonth.GetFirstDayOfMonth();
+            var resultFirstDayOfMonth = firstDayOfMonth.CurrentMonthFirstDay();
             Assert.NotNull(resultFirstDayOfMonth);
             Assert.Equal(new DateTime(2025, 4, 1), resultFirstDayOfMonth);
 
             // Leap Year Date
-            var resultLeapYearDate = leapYearDate.GetFirstDayOfMonth();
+            var resultLeapYearDate = leapYearDate.CurrentMonthFirstDay();
             Assert.NotNull(resultLeapYearDate);
             Assert.Equal(new DateTime(2024, 2, 1), resultLeapYearDate);
         }
@@ -593,7 +593,7 @@ namespace Aymadoka.Static.NullableDateTimeExtension
             DateTime? sourceDateTime = null;
 
             // Act
-            var result = sourceDateTime.CurrentMonthLastDay();
+            var result = sourceDateTime.GetCurrentMonthLastDay();
 
             // Assert
             Assert.Null(result);
@@ -606,7 +606,7 @@ namespace Aymadoka.Static.NullableDateTimeExtension
             DateTime? sourceDateTime = new DateTime(2025, 4, 15);
 
             // Act
-            var result = sourceDateTime.CurrentMonthLastDay();
+            var result = sourceDateTime.GetCurrentMonthLastDay();
 
             // Assert
             Assert.NotNull(result);
@@ -626,30 +626,30 @@ namespace Aymadoka.Static.NullableDateTimeExtension
 
             // Act & Assert
             // Null DateTime
-            Assert.Null(nullDateTime.CurrentMonthLastDay());
+            Assert.Null(nullDateTime.GetCurrentMonthLastDay());
 
             // Mid-month Date
-            var resultMidMonth = midMonthDate.CurrentMonthLastDay();
+            var resultMidMonth = midMonthDate.GetCurrentMonthLastDay();
             Assert.NotNull(resultMidMonth);
             Assert.Equal(new DateTime(2025, 4, 30), resultMidMonth);
 
             // Last Day of Month
-            var resultLastDayOfMonth = lastDayOfMonth.CurrentMonthLastDay();
+            var resultLastDayOfMonth = lastDayOfMonth.GetCurrentMonthLastDay();
             Assert.NotNull(resultLastDayOfMonth);
             Assert.Equal(new DateTime(2025, 4, 30), resultLastDayOfMonth);
 
             // Leap Year February
-            var resultLeapYearDate = leapYearDate.CurrentMonthLastDay();
+            var resultLeapYearDate = leapYearDate.GetCurrentMonthLastDay();
             Assert.NotNull(resultLeapYearDate);
             Assert.Equal(new DateTime(2024, 2, 29), resultLeapYearDate);
 
             // Non-Leap Year February
-            var resultNonLeapYearDate = nonLeapYearDate.CurrentMonthLastDay();
+            var resultNonLeapYearDate = nonLeapYearDate.GetCurrentMonthLastDay();
             Assert.NotNull(resultNonLeapYearDate);
             Assert.Equal(new DateTime(2023, 2, 28), resultNonLeapYearDate);
 
             // December
-            var resultDecemberDate = decemberDate.CurrentMonthLastDay();
+            var resultDecemberDate = decemberDate.GetCurrentMonthLastDay();
             Assert.NotNull(resultDecemberDate);
             Assert.Equal(new DateTime(2025, 12, 31), resultDecemberDate);
         }

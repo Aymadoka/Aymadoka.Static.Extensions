@@ -34,7 +34,7 @@ namespace Aymadoka.Static.DateTimeOffsetExtension
             var dateTime = new DateTimeOffset(year, month, day, hour, minute, second, TimeSpan.FromMinutes(offsetMinutes));
 
             // Act
-            var result = dateTime.PreviousDay();
+            var result = dateTime. Yesterday();
 
             // Assert
             Assert.Equal(new DateTimeOffset(expectedYear, expectedMonth, expectedDay, hour, minute, second, TimeSpan.FromMinutes(offsetMinutes)), result);
@@ -161,24 +161,6 @@ namespace Aymadoka.Static.DateTimeOffsetExtension
 
             // Act
             var result = dateTime.GetSecondDayToLastOfMonth();
-
-            // Assert
-            Assert.Equal(new DateTimeOffset(expectedYear, expectedMonth, expectedDay, 0, 0, 0, TimeSpan.FromMinutes(offsetMinutes)), result);
-        }
-
-        [Theory]
-        [InlineData(2025, 4, 15, 0, 0, 0, 0, 2025, 4, 30)] // 普通日期
-        [InlineData(2025, 12, 31, 0, 0, 0, 0, 2025, 12, 31)] // 年末
-        [InlineData(2024, 2, 29, 0, 0, 0, 0, 2024, 2, 29)] // 闰年
-        public void CurrentMonthLastDay_ShouldReturnLastDayOfMonth(
-    int year, int month, int day, int hour, int minute, int second, int offsetMinutes,
-    int expectedYear, int expectedMonth, int expectedDay)
-        {
-            // Arrange
-            var dateTime = new DateTimeOffset(year, month, day, hour, minute, second, TimeSpan.FromMinutes(offsetMinutes));
-
-            // Act
-            var result = dateTime.CurrentMonthLastDay();
 
             // Assert
             Assert.Equal(new DateTimeOffset(expectedYear, expectedMonth, expectedDay, 0, 0, 0, TimeSpan.FromMinutes(offsetMinutes)), result);

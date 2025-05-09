@@ -1,3 +1,5 @@
+using Aymadoka.Static.DateTimeExtension;
+
 namespace Aymadoka.Static.NullableDateTimeExtension
 {
     public class DateTimeExtensionsTest
@@ -257,7 +259,7 @@ namespace Aymadoka.Static.NullableDateTimeExtension
             var dateTime = new DateTime(year, month, day);
 
             // Act
-            var result = dateTime.GetFirstDayOfMonth();
+            var result = dateTime.CurrentMonthFirstDay();
 
             // Assert
             Assert.Equal(new DateTime(expectedYear, expectedMonth, expectedDay), result);
@@ -272,9 +274,9 @@ namespace Aymadoka.Static.NullableDateTimeExtension
             var unspecifiedDateTime = new DateTime(2025, 4, 26, 15, 30, 45, DateTimeKind.Unspecified);
 
             // Act
-            var utcResult = utcDateTime.GetFirstDayOfMonth();
-            var localResult = localDateTime.GetFirstDayOfMonth();
-            var unspecifiedResult = unspecifiedDateTime.GetFirstDayOfMonth();
+            var utcResult = utcDateTime.CurrentMonthFirstDay();
+            var localResult = localDateTime.CurrentMonthFirstDay();
+            var unspecifiedResult = unspecifiedDateTime.CurrentMonthFirstDay();
 
             // Assert
             Assert.Equal(DateTimeKind.Utc, utcResult.Kind);
@@ -416,7 +418,7 @@ namespace Aymadoka.Static.NullableDateTimeExtension
             var date = new DateTime(year, month, day);
 
             // Act
-            var result = date.IsWeekend();
+            var result = date.IsWeekendDay();
 
             // Assert
             Assert.Equal(expected, result);
@@ -434,7 +436,7 @@ namespace Aymadoka.Static.NullableDateTimeExtension
             var date = new DateTime(year, month, day);
 
             // Act
-            var result = date.IsWeekend();
+            var result = date.IsWeekendDay();
 
             // Assert
             Assert.Equal(expected, result);

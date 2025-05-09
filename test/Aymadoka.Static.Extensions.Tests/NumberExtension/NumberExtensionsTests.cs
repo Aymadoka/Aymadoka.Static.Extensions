@@ -1,3 +1,4 @@
+using Aymadoka.Static.FloatingPointExtension;
 using System.Globalization;
 using System.Numerics;
 
@@ -455,7 +456,7 @@ namespace Aymadoka.Static.NumberExtension
         [InlineData(-123.456, 3, -123.456)] // 负数，保留三位小数
         public void Keep_ShouldReturnExpectedResult_ForDouble(double value, int decimalPlaces, double expected)
         {
-            Assert.Equal(expected, value.Keep(decimalPlaces));
+            Assert.Equal(expected, value.ToKeep(decimalPlaces));
         }
 
         [Theory]
@@ -470,7 +471,7 @@ namespace Aymadoka.Static.NumberExtension
         [InlineData(-123.456f, 3, -123.456f)] // 负数，保留三位小数
         public void Keep_ShouldReturnExpectedResult_ForFloat(float value, int decimalPlaces, float expected)
         {
-            Assert.Equal(expected, value.Keep(decimalPlaces));
+            Assert.Equal(expected, value.ToKeep(decimalPlaces));
         }
 
         [Theory]

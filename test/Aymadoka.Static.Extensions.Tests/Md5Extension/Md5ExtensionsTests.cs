@@ -14,7 +14,7 @@ namespace Aymadoka.Static.Md5Extension
             string expectedHash = "098f6bcd4621d373cade4e832627b4f6"; // MD5("test") in lowercase x2 format
 
             // Act
-            string result = input.ToMd5Hash();
+            string result = input.ToMD5Hash();
 
             // Assert
             Assert.Equal(expectedHash, result);
@@ -28,7 +28,7 @@ namespace Aymadoka.Static.Md5Extension
             string expectedHash = "d41d8cd98f00b204e9800998ecf8427e"; // MD5("") in lowercase x2 format
 
             // Act
-            string result = input.ToMd5Hash();
+            string result = input.ToMD5Hash();
 
             // Assert
             Assert.Equal(expectedHash, result);
@@ -41,7 +41,7 @@ namespace Aymadoka.Static.Md5Extension
             string? input = null;
 
             // Act
-            var exception = Record.Exception(() => input.ToMd5Hash());
+            var exception = Record.Exception(() => input.ToMD5Hash());
 
             // Assert
             exception.ShouldNotBeNull();
@@ -57,7 +57,7 @@ namespace Aymadoka.Static.Md5Extension
             string expectedHash = "d653ea7ea31e77b41041e7e3d32e3e4a"; // Precomputed MD5("salt" + "test")
 
             // Act
-            string result = input.ToMd5Hash(salt);
+            string result = input.ToMD5Hash(salt);
 
             // Assert
             Assert.Equal(expectedHash, result);
@@ -72,7 +72,7 @@ namespace Aymadoka.Static.Md5Extension
             string expectedHash = "ceb20772e0c9d240c75eb26b0e37abee"; // Precomputed MD5("salt")
 
             // Act
-            string result = input.ToMd5Hash(salt);
+            string result = input.ToMD5Hash(salt);
 
             // Assert
             Assert.Equal(expectedHash, result);
@@ -87,7 +87,7 @@ namespace Aymadoka.Static.Md5Extension
             string expectedHash = "098f6bcd4621d373cade4e832627b4f6"; // Precomputed MD5("test")
 
             // Act
-            string result = input.ToMd5Hash(salt);
+            string result = input.ToMD5Hash(salt);
 
             // Assert
             Assert.Equal(expectedHash, result);
@@ -102,7 +102,7 @@ namespace Aymadoka.Static.Md5Extension
             string expectedHash = "098f6bcd4621d373cade4e832627b4f6"; // Precomputed MD5("test")
 
             // Act
-            string result = input.ToMd5Hash(salt);
+            string result = input.ToMD5Hash(salt);
 
             // Assert
             Assert.Equal(expectedHash, result);
@@ -116,7 +116,7 @@ namespace Aymadoka.Static.Md5Extension
             string salt = "salt";
 
             // Act
-            var exception = Record.Exception(() => input.ToMd5Hash(salt));
+            var exception = Record.Exception(() => input.ToMD5Hash(salt));
 
             // Assert
             exception.ShouldNotBeNull();
@@ -131,7 +131,7 @@ namespace Aymadoka.Static.Md5Extension
         public void ToMd5_WithValidStringAndFormat_ReturnsCorrectHash(string input, EnumHashFormat format, string expectedHash)
         {
             // Act
-            var result = input.ToMd5Hash(format);
+            var result = input.ToMD5Hash(format);
 
             // Assert
             Assert.Equal(expectedHash, result);
@@ -146,7 +146,7 @@ namespace Aymadoka.Static.Md5Extension
             var expectedHash = "d41d8cd98f00b204e9800998ecf8427e"; // MD5("")
 
             // Act
-            var result = input.ToMd5Hash(format);
+            var result = input.ToMD5Hash(format);
 
             // Assert
             Assert.Equal(expectedHash, result);
@@ -160,7 +160,7 @@ namespace Aymadoka.Static.Md5Extension
             var format = EnumHashFormat.x2;
 
             // Act
-            var exception = Record.Exception(() => input.ToMd5Hash(format));
+            var exception = Record.Exception(() => input.ToMD5Hash(format));
 
             // Assert
             exception.ShouldNotBeNull();
@@ -175,7 +175,7 @@ namespace Aymadoka.Static.Md5Extension
         public void ToMd5_WithValidStringSaltAndFormat_ReturnsCorrectHash(string input, string salt, EnumHashFormat format, string expectedHash)
         {
             // Act
-            string result = input.ToMd5Hash(salt, format);
+            string result = input.ToMD5Hash(salt, format);
 
             // Assert
             Assert.Equal(expectedHash, result);
@@ -191,7 +191,7 @@ namespace Aymadoka.Static.Md5Extension
             string expectedHash = "ceb20772e0c9d240c75eb26b0e37abee"; // MD5("salt")
 
             // Act
-            string result = input.ToMd5Hash(salt, format);
+            string result = input.ToMD5Hash(salt, format);
 
             // Assert
             Assert.Equal(expectedHash, result);
@@ -207,7 +207,7 @@ namespace Aymadoka.Static.Md5Extension
             string expectedHash = "098f6bcd4621d373cade4e832627b4f6"; // MD5("test")
 
             // Act
-            string result = input.ToMd5Hash(salt, format);
+            string result = input.ToMD5Hash(salt, format);
 
             // Assert
             Assert.Equal(expectedHash, result);
@@ -223,7 +223,7 @@ namespace Aymadoka.Static.Md5Extension
             string expectedHash = "098f6bcd4621d373cade4e832627b4f6"; // MD5("test")
 
             // Act
-            string result = input.ToMd5Hash(salt, format);
+            string result = input.ToMD5Hash(salt, format);
 
             // Assert
             Assert.Equal(expectedHash, result);
@@ -238,7 +238,7 @@ namespace Aymadoka.Static.Md5Extension
             EnumHashFormat format = EnumHashFormat.x2;
 
             // Act
-            var exception = Record.Exception(() => input.ToMd5Hash(salt, format));
+            var exception = Record.Exception(() => input.ToMD5Hash(salt, format));
 
             // Assert
             exception.ShouldNotBeNull();
@@ -253,7 +253,7 @@ namespace Aymadoka.Static.Md5Extension
             string expectedHash = "098f6bcd4621d373cade4e832627b4f6"; // MD5("test") in lowercase x2 format
 
             // Act
-            string result = input.ToMd5Hash();
+            string result = input.ToMD5Hash();
 
             // Assert
             Assert.Equal(expectedHash, result);
@@ -267,7 +267,7 @@ namespace Aymadoka.Static.Md5Extension
             string expectedHash = "d41d8cd98f00b204e9800998ecf8427e"; // MD5("") in lowercase x2 format
 
             // Act
-            string result = input.ToMd5Hash();
+            string result = input.ToMD5Hash();
 
             // Assert
             Assert.Equal(expectedHash, result);
@@ -280,7 +280,7 @@ namespace Aymadoka.Static.Md5Extension
             byte[]? input = null;
 
             // Act
-            var exception = Record.Exception(() => input.ToMd5Hash());
+            var exception = Record.Exception(() => input.ToMD5Hash());
 
             // Assert
             exception.ShouldNotBeNull();
@@ -296,7 +296,7 @@ namespace Aymadoka.Static.Md5Extension
             string expectedHash = "d653ea7ea31e77b41041e7e3d32e3e4a"; // Precomputed MD5("salt" + "test")
 
             // Act
-            string result = input.ToMd5Hash(salt);
+            string result = input.ToMD5Hash(salt);
 
             // Assert
             Assert.Equal(expectedHash, result);
@@ -311,7 +311,7 @@ namespace Aymadoka.Static.Md5Extension
             string expectedHash = "ceb20772e0c9d240c75eb26b0e37abee"; // Precomputed MD5("salt")
 
             // Act
-            string result = input.ToMd5Hash(salt);
+            string result = input.ToMD5Hash(salt);
 
             // Assert
             Assert.Equal(expectedHash, result);
@@ -326,7 +326,7 @@ namespace Aymadoka.Static.Md5Extension
             string expectedHash = "098f6bcd4621d373cade4e832627b4f6"; // Precomputed MD5("test")
 
             // Act
-            string result = input.ToMd5Hash(salt);
+            string result = input.ToMD5Hash(salt);
 
             // Assert
             Assert.Equal(expectedHash, result);
@@ -341,7 +341,7 @@ namespace Aymadoka.Static.Md5Extension
             string expectedHash = "098f6bcd4621d373cade4e832627b4f6"; // Precomputed MD5("test")
 
             // Act
-            string result = input.ToMd5Hash(salt);
+            string result = input.ToMD5Hash(salt);
 
             // Assert
             Assert.Equal(expectedHash, result);
@@ -355,7 +355,7 @@ namespace Aymadoka.Static.Md5Extension
             string salt = "salt";
 
             // Act
-            var exception = Record.Exception(() => input.ToMd5Hash(salt));
+            var exception = Record.Exception(() => input.ToMD5Hash(salt));
 
             // Assert
             exception.ShouldNotBeNull();
@@ -373,7 +373,7 @@ namespace Aymadoka.Static.Md5Extension
             byte[] byteArray = Encoding.UTF8.GetBytes(input);
 
             // Act
-            string result = byteArray.ToMd5Hash(format);
+            string result = byteArray.ToMD5Hash(format);
 
             // Assert
             Assert.Equal(expectedHash, result);
@@ -388,7 +388,7 @@ namespace Aymadoka.Static.Md5Extension
             string expectedHash = "d41d8cd98f00b204e9800998ecf8427e"; // MD5("")
 
             // Act
-            string result = byteArray.ToMd5Hash(format);
+            string result = byteArray.ToMD5Hash(format);
 
             // Assert
             Assert.Equal(expectedHash, result);
@@ -402,7 +402,7 @@ namespace Aymadoka.Static.Md5Extension
             EnumHashFormat format = EnumHashFormat.x2;
 
             // Act
-            var exception = Record.Exception(() => byteArray.ToMd5Hash(format));
+            var exception = Record.Exception(() => byteArray.ToMD5Hash(format));
 
             // Assert
             exception.ShouldNotBeNull();
@@ -420,7 +420,7 @@ namespace Aymadoka.Static.Md5Extension
             byte[] byteArray = Encoding.UTF8.GetBytes(input);
 
             // Act
-            string result = byteArray.ToMd5Hash(salt, format);
+            string result = byteArray.ToMD5Hash(salt, format);
 
             // Assert
             Assert.Equal(expectedHash, result);
@@ -436,7 +436,7 @@ namespace Aymadoka.Static.Md5Extension
             string expectedHash = "ceb20772e0c9d240c75eb26b0e37abee"; // MD5("salt")
 
             // Act
-            string result = byteArray.ToMd5Hash(salt, format);
+            string result = byteArray.ToMD5Hash(salt, format);
 
             // Assert
             Assert.Equal(expectedHash, result);
@@ -452,7 +452,7 @@ namespace Aymadoka.Static.Md5Extension
             string expectedHash = "098f6bcd4621d373cade4e832627b4f6"; // MD5("test")
 
             // Act
-            string result = byteArray.ToMd5Hash(salt, format);
+            string result = byteArray.ToMD5Hash(salt, format);
 
             // Assert
             Assert.Equal(expectedHash, result);
@@ -468,7 +468,7 @@ namespace Aymadoka.Static.Md5Extension
             string expectedHash = "098f6bcd4621d373cade4e832627b4f6"; // MD5("test")
 
             // Act
-            string result = byteArray.ToMd5Hash(salt, format);
+            string result = byteArray.ToMD5Hash(salt, format);
 
             // Assert
             Assert.Equal(expectedHash, result);
@@ -483,7 +483,7 @@ namespace Aymadoka.Static.Md5Extension
             EnumHashFormat format = EnumHashFormat.x2;
 
             // Act
-            var exception = Record.Exception(() => byteArray.ToMd5Hash(salt, format));
+            var exception = Record.Exception(() => byteArray.ToMD5Hash(salt, format));
 
             // Assert
             exception.ShouldNotBeNull();

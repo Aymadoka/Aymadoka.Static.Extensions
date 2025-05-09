@@ -1,3 +1,4 @@
+using Aymadoka.Static.SerializeExtension;
 using System.Text.Json;
 
 namespace Aymadoka.Static.JsonExtension

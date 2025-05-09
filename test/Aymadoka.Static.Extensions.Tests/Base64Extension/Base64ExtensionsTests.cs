@@ -1,3 +1,4 @@
+using Aymadoka.Static.EncodingExtension;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,7 @@ namespace Aymadoka.Static.Base64Extension
             var bytes = Encoding.UTF8.GetBytes("Hello, World!");
 
             // Act
-            var result = bytes.ToBase64String();
+            var result = bytes.ToBase64FromBytes();
 
             // Assert
             Assert.Equal(Convert.ToBase64String(bytes), result);
@@ -28,7 +29,7 @@ namespace Aymadoka.Static.Base64Extension
             byte[]? bytes = null;
 
             // Act & Assert
-            Assert.Throws<ArgumentNullException>(() => bytes.ToBase64String());
+            Assert.Throws<ArgumentNullException>(() => bytes.ToBase64FromBytes());
         }
 
         [Fact]
@@ -61,7 +62,7 @@ namespace Aymadoka.Static.Base64Extension
             var base64 = Convert.ToBase64String(Encoding.UTF8.GetBytes("Hello, World!"));
 
             // Act
-            var result = base64.FromBase64();
+            var result = base64.FromBase64ToBytes();
 
             // Assert
             Assert.Equal(Encoding.UTF8.GetBytes("Hello, World!"), result);
@@ -74,7 +75,7 @@ namespace Aymadoka.Static.Base64Extension
             var invalidBase64 = "InvalidBase64===";
 
             // Act & Assert
-            Assert.Throws<FormatException>(() => invalidBase64.FromBase64());
+            Assert.Throws<FormatException>(() => invalidBase64.FromBase64ToBytes());
         }
 
         [Fact]
@@ -84,7 +85,7 @@ namespace Aymadoka.Static.Base64Extension
             string? base64 = null;
 
             // Act & Assert
-            Assert.Throws<ArgumentNullException>(() => base64.FromBase64());
+            Assert.Throws<ArgumentNullException>(() => base64.FromBase64ToBytes());
         }
 
         [Fact]
