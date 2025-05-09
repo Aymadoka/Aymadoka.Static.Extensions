@@ -1,4 +1,3 @@
-using Aymadoka.Static.DeclarationExtension;
 using System;
 using System.Linq;
 using System.Reflection;
