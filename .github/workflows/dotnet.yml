@@ -1,27 +1,41 @@
 # This workflow will build a .NET project
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
 
-name: .NET Package
+name: Build and Publish NuGet Package
 
-on: [push]
+on:
+  push:
+    tags:
+      - 'v*' # 仅当提交带有类似 v1.0.0 的 tag 时触发发布流程
 
 jobs:
-  build:
+  build-and-publish:
 
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Setup .NET 9.x
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup .NET SDK 9.x
       uses: actions/setup-dotnet@v4
       with:
         # Semantic version range syntax or exact version of a dotnet version
         dotnet-version: '9.x'
+
     - name: Restore dependencies
-      run: dotnet restore
-    - name: Build
-      run: dotnet build --no-restore
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
-    - name: Pack
-      run: dotnet pack --configuration Release --output ./nupkgs
+      run: dotnet restore src/Aymadoka.Static.Extensions/Aymadoka.Static.Extensions.csproj
+
+    - name: Build project
+      run: dotnet build src/Aymadoka.Static.Extensions/Aymadoka.Static.Extensions.csproj --configuration Release --no-restore
+
+    - name: Run tests
+      run: dotnet test test/Aymadoka.Static.Extensions.Tests/Aymadoka.Static.Extensions.Tests.csproj --no-build --verbosity normal
+
+    - name: Pack NuGet package
+      run: dotnet pack src/Aymadoka.Static.Extensions/Aymadoka.Static.Extensions.csproj --configuration Release -o ./nupkgs
+
+    - name: Publish to NuGet.org
+      if: success()
+      run: |
+        dotnet nuget push ./nupkgs
