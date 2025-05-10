@@ -1,17 +1,18 @@
 using Aymadoka.Static.NumberExtension;
 using System.Numerics;
 
-namespace Aymadoka.Static.NullableNumberExtension;
-
-public static partial class NullableNumberExtensions
+namespace Aymadoka.Static.NullableNumberExtension
 {
-    public static bool IsInteger<T>(this T? source) where T : struct, INumber<T>
+    public static partial class NullableNumberExtensions
     {
-        if (!source.HasValue)
+        public static bool IsInteger<T>(this T? source) where T : struct, INumber<T>
         {
-            return false;
-        }
+            if (!source.HasValue)
+            {
+                return false;
+            }
 
-        return source.Value.IsInteger();
+            return source.Value.IsInteger();
+        }
     }
 }

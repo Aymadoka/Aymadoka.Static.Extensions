@@ -1,18 +1,19 @@
 using Aymadoka.Static.FloatingPointExtension;
 using System.Numerics;
 
-namespace Aymadoka.Static.NullableNumberExtension;
-
-public static partial class NullableNumberExtensions
+namespace Aymadoka.Static.NullableNumberExtension
 {
-    public static T? Keep<T>(this T? source, int keepPlaceCount = 2) where T : struct, IFloatingPoint<T>
+    public static partial class NullableNumberExtensions
     {
-        if (!source.HasValue)
+        public static T? Keep<T>(this T? source, int keepPlaceCount = 2) where T : struct, IFloatingPoint<T>
         {
-            return null;
-        }
+            if (!source.HasValue)
+            {
+                return null;
+            }
 
-        T value = source.Value.ToKeep(keepPlaceCount);
-        return value;
+            T value = source.Value.ToKeep(keepPlaceCount);
+            return value;
+        }
     }
 }
