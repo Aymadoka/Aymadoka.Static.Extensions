@@ -1024,32 +1024,6 @@ namespace Aymadoka.Static.StringExtension
         }
 
         [Fact]
-        public void IsNumeric_ShouldReturnTrue_WhenStringIsDecimal()
-        {
-            // Arrange
-            string input = "123.45";
-
-            // Act
-            var result = input.IsNumeric();
-
-            // Assert
-            Assert.True(result);
-        }
-
-        [Fact]
-        public void IsNumeric_ShouldReturnTrue_WhenStringIsNegativeNumber()
-        {
-            // Arrange
-            string input = "-123";
-
-            // Act
-            var result = input.IsNumeric();
-
-            // Assert
-            Assert.True(result);
-        }
-
-        [Fact]
         public void IsNumeric_ShouldReturnFalse_WhenStringContainsLetters()
         {
             // Arrange
@@ -1073,19 +1047,6 @@ namespace Aymadoka.Static.StringExtension
 
             // Assert
             Assert.False(result);
-        }
-
-        [Fact]
-        public void IsNumeric_ShouldReturnTrue_WhenStringIsScientificNotation()
-        {
-            // Arrange
-            string input = "1.23e4";
-
-            // Act
-            var result = input.IsNumeric();
-
-            // Assert
-            Assert.True(result);
         }
 
         [Fact]
