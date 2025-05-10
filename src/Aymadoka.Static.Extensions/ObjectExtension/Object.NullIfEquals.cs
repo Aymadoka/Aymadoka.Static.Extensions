@@ -1,14 +1,15 @@
-namespace Aymadoka.Static.ObjectExtension;
-
-public static partial class ObjectExtensions
+namespace Aymadoka.Static.ObjectExtension
 {
-    public static T? NullIfEquals<T>(this T @this, T value) where T : class
+    public static partial class ObjectExtensions
     {
-        if (@this.Equals(value))
+        public static T? NullIfEquals<T>(this T @this, T value) where T : class
         {
-            return null;
-        }
+            if (@this.Equals(value))
+            {
+                return null;
+            }
 
-        return @this;
+            return @this;
+        }
     }
 }

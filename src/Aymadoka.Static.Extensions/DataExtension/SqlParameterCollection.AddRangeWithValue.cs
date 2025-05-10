@@ -5,15 +5,17 @@ using System.Data;
 using System.Reflection;
 using System.Xml;
 
-namespace Aymadoka.Static.DataExtension;
-
-public static partial class DataExtensions
+namespace Aymadoka.Static.DataExtension
 {
-    public static void AddRangeWithValue(this SqlParameterCollection @this, Dictionary<string, object> values)
+
+    public static partial class DataExtensions
     {
-        foreach (var keyValuePair in values)
+        public static void AddRangeWithValue(this SqlParameterCollection @this, Dictionary<string, object> values)
         {
-            @this.AddWithValue(keyValuePair.Key, keyValuePair.Value);
+            foreach (var keyValuePair in values)
+            {
+                @this.AddWithValue(keyValuePair.Key, keyValuePair.Value);
+            }
         }
     }
 }

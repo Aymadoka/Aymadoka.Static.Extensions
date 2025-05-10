@@ -1,14 +1,15 @@
-namespace Aymadoka.Static.StringExtension;
-
-public static partial class StringExtensions
+namespace Aymadoka.Static.StringExtension
 {
-    public static string IfEmpty(this string @this, string defaultValue)
+    public static partial class StringExtensions
     {
-        if (@this.IsEmpty())
+        public static string IfEmpty(this string @this, string defaultValue)
         {
-            return defaultValue;
-        }
+            if (@this.IsEmpty())
+            {
+                return defaultValue;
+            }
 
-        return @this;
+            return @this;
+        }
     }
 }

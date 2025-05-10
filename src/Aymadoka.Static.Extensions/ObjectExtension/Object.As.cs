@@ -1,9 +1,10 @@
-namespace Aymadoka.Static.ObjectExtension;
-
-public static partial class ObjectExtensions
+namespace Aymadoka.Static.ObjectExtension
 {
-    public static T As<T>(this object @this)
+    public static partial class ObjectExtensions
     {
-        return (T)@this;
+        public static T As<T>(this object @this)
+        {
+            return (T)@this;
+        }
     }
 }

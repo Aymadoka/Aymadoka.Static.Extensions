@@ -1,9 +1,10 @@
-namespace Aymadoka.Static.StringExtension;
-
-public static partial class StringExtensions
+namespace Aymadoka.Static.StringExtension
 {
-    public static string ConvertBrToNewLine(this string @this)
+    public static partial class StringExtensions
     {
-        return @this.Replace("<br />", "\r\n").Replace("<br>", "\r\n");
+        public static string ConvertBrToNewLine(this string @this)
+        {
+            return @this.Replace("<br />", "\r\n").Replace("<br>", "\r\n");
+        }
     }
 }

@@ -3,16 +3,17 @@ using System.Text;
 using System.Xml.Linq;
 using System;
 
-namespace Aymadoka.Static.StringExtension;
-
-public static partial class StringExtensions
+namespace Aymadoka.Static.StringExtension
 {
-    public static XDocument ToXDocument(this string @this)
+    public static partial class StringExtensions
     {
-        Encoding encoding = Activator.CreateInstance<UTF8Encoding>();
-        using (var ms = new MemoryStream(encoding.GetBytes(@this)))
+        public static XDocument ToXDocument(this string @this)
         {
-            return XDocument.Load(ms);
+            Encoding encoding = Activator.CreateInstance<UTF8Encoding>();
+            using (var ms = new MemoryStream(encoding.GetBytes(@this)))
+            {
+                return XDocument.Load(ms);
+            }
         }
     }
 }

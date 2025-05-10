@@ -1,11 +1,12 @@
 using System.IO;
 
-namespace Aymadoka.Static.StringExtension;
-
-public static partial class StringExtensions
+namespace Aymadoka.Static.StringExtension
 {
-    public static DirectoryInfo ToDirectoryInfo(this string @this)
+    public static partial class StringExtensions
     {
-        return new DirectoryInfo(@this);
+        public static DirectoryInfo ToDirectoryInfo(this string @this)
+        {
+            return new DirectoryInfo(@this);
+        }
     }
 }

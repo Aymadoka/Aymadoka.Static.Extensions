@@ -6,15 +6,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Aymadoka.Static.DataExtension;
-
-public static partial class DataExtensions
+namespace Aymadoka.Static.DataExtension
 {
-    public static IEnumerable<dynamic> ExecuteExpandoObjects(this DbCommand @this)
+    public static partial class DataExtensions
     {
-        using (IDataReader reader = @this.ExecuteReader())
+        public static IEnumerable<dynamic> ExecuteExpandoObjects(this DbCommand @this)
         {
-            return reader.ToExpandoObjects();
+            using (IDataReader reader = @this.ExecuteReader())
+            {
+                return reader.ToExpandoObjects();
+            }
         }
     }
 }

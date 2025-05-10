@@ -1,16 +1,17 @@
 using System.Web;
 
-namespace Aymadoka.Static.StringExtension;
-
-public static partial class StringExtensions
+namespace Aymadoka.Static.StringExtension
 {
-    public static string JavaScriptStringEncode(this string value)
+    public static partial class StringExtensions
     {
-        return HttpUtility.JavaScriptStringEncode(value);
-    }
+        public static string JavaScriptStringEncode(this string value)
+        {
+            return HttpUtility.JavaScriptStringEncode(value);
+        }
 
-    public static string JavaScriptStringEncode(this string value, bool addDoubleQuotes)
-    {
-        return HttpUtility.JavaScriptStringEncode(value, addDoubleQuotes);
+        public static string JavaScriptStringEncode(this string value, bool addDoubleQuotes)
+        {
+            return HttpUtility.JavaScriptStringEncode(value, addDoubleQuotes);
+        }
     }
 }

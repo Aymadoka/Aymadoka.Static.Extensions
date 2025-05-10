@@ -1,11 +1,12 @@
 using System.Globalization;
 
-namespace Aymadoka.Static.CharExtension;
-
-public static partial class CharExtensions
+namespace Aymadoka.Static.CharExtension
 {
-    public static UnicodeCategory GetUnicodeCategory(this char c)
+    public static partial class CharExtensions
     {
-        return char.GetUnicodeCategory(c);
+        public static UnicodeCategory GetUnicodeCategory(this char c)
+        {
+            return char.GetUnicodeCategory(c);
+        }
     }
 }

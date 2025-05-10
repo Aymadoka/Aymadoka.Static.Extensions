@@ -1,83 +1,84 @@
 using System;
 using System.ComponentModel;
 
-namespace Aymadoka.Static.ObjectExtension;
-
-public static partial class ObjectExtensions
+namespace Aymadoka.Static.ObjectExtension
 {
-    public static T To<T>(this Object @this)
+    public static partial class ObjectExtensions
     {
-        if (@this != null)
+        public static T To<T>(this Object @this)
         {
-            Type targetType = typeof(T);
-
-            if (@this.GetType() == targetType)
+            if (@this != null)
             {
-                return (T)@this;
-            }
+                Type targetType = typeof(T);
 
-            TypeConverter converter = TypeDescriptor.GetConverter(@this);
-            if (converter != null)
-            {
-                if (converter.CanConvertTo(targetType))
+                if (@this.GetType() == targetType)
                 {
-                    return (T)converter.ConvertTo(@this, targetType);
+                    return (T)@this;
+                }
+
+                TypeConverter converter = TypeDescriptor.GetConverter(@this);
+                if (converter != null)
+                {
+                    if (converter.CanConvertTo(targetType))
+                    {
+                        return (T)converter.ConvertTo(@this, targetType);
+                    }
+                }
+
+                converter = TypeDescriptor.GetConverter(targetType);
+                if (converter != null)
+                {
+                    if (converter.CanConvertFrom(@this.GetType()))
+                    {
+                        return (T)converter.ConvertFrom(@this);
+                    }
+                }
+
+                if (@this == DBNull.Value)
+                {
+                    return (T)(object)null;
                 }
             }
 
-            converter = TypeDescriptor.GetConverter(targetType);
-            if (converter != null)
-            {
-                if (converter.CanConvertFrom(@this.GetType()))
-                {
-                    return (T)converter.ConvertFrom(@this);
-                }
-            }
-
-            if (@this == DBNull.Value)
-            {
-                return (T)(object)null;
-            }
+            return (T)@this;
         }
 
-        return (T)@this;
-    }
-
-    public static object To(this Object @this, Type type)
-    {
-        if (@this != null)
+        public static object To(this Object @this, Type type)
         {
-            Type targetType = type;
-
-            if (@this.GetType() == targetType)
+            if (@this != null)
             {
-                return @this;
-            }
+                Type targetType = type;
 
-            TypeConverter converter = TypeDescriptor.GetConverter(@this);
-            if (converter != null)
-            {
-                if (converter.CanConvertTo(targetType))
+                if (@this.GetType() == targetType)
                 {
-                    return converter.ConvertTo(@this, targetType);
+                    return @this;
+                }
+
+                TypeConverter converter = TypeDescriptor.GetConverter(@this);
+                if (converter != null)
+                {
+                    if (converter.CanConvertTo(targetType))
+                    {
+                        return converter.ConvertTo(@this, targetType);
+                    }
+                }
+
+                converter = TypeDescriptor.GetConverter(targetType);
+                if (converter != null)
+                {
+                    if (converter.CanConvertFrom(@this.GetType()))
+                    {
+                        return converter.ConvertFrom(@this);
+                    }
+                }
+
+                if (@this == DBNull.Value)
+                {
+                    return null;
                 }
             }
 
-            converter = TypeDescriptor.GetConverter(targetType);
-            if (converter != null)
-            {
-                if (converter.CanConvertFrom(@this.GetType()))
-                {
-                    return converter.ConvertFrom(@this);
-                }
-            }
-
-            if (@this == DBNull.Value)
-            {
-                return null;
-            }
+            return @this;
         }
-
-        return @this;
     }
 }

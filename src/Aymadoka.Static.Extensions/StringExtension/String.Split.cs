@@ -1,12 +1,13 @@
 using System;
 using System.IO;
 
-namespace Aymadoka.Static.StringExtension;
-
-public static partial class StringExtensions
+namespace Aymadoka.Static.StringExtension
 {
-    public static string[] Split(this string @this, string separator, StringSplitOptions option = StringSplitOptions.None)
+    public static partial class StringExtensions
     {
-        return @this.Split(new[] { separator }, option);
+        public static string[] Split(this string @this, string separator, StringSplitOptions option = StringSplitOptions.None)
+        {
+            return @this.Split(new[] { separator }, option);
+        }
     }
 }

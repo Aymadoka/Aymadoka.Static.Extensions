@@ -1,11 +1,12 @@
 using System;
 
-namespace Aymadoka.Static.DateTimeExtension;
-
-public static partial class DateTimeExtensions
+namespace Aymadoka.Static.DateTimeExtension
 {
-    public static bool IsDateEqual(this DateTime date, DateTime dateToCompare)
+    public static partial class DateTimeExtensions
     {
-        return (date.Date == dateToCompare.Date);
+        public static bool IsDateEqual(this DateTime date, DateTime dateToCompare)
+        {
+            return (date.Date == dateToCompare.Date);
+        }
     }
 }

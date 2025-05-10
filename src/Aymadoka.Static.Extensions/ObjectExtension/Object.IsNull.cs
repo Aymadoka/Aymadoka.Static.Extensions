@@ -1,11 +1,12 @@
 using System.Diagnostics.CodeAnalysis;
 
-namespace Aymadoka.Static.ObjectExtension;
-
-public static partial class ObjectExtensions
+namespace Aymadoka.Static.ObjectExtension
 {
-    public static bool IsNull<T>([NotNullWhen(false)] this T? source) where T : class
+    public static partial class ObjectExtensions
     {
-        return source == null;
+        public static bool IsNull<T>([NotNullWhen(false)] this T? source) where T : class
+        {
+            return source == null;
+        }
     }
 }

@@ -1,47 +1,48 @@
 using System.IO;
 using System.IO.Compression;
 
-namespace Aymadoka.Static.GZipExtension;
-
-public static partial class GZipExtensions
+namespace Aymadoka.Static.GZipExtension
 {
-    public static void CreateGZip(this FileInfo @this)
+    public static partial class GZipExtensions
     {
-        using (FileStream originalFileStream = @this.OpenRead())
+        public static void CreateGZip(this FileInfo @this)
         {
-            using (FileStream compressedFileStream = File.Create(@this.FullName + ".gz"))
+            using (FileStream originalFileStream = @this.OpenRead())
             {
-                using (var compressionStream = new GZipStream(compressedFileStream, CompressionMode.Compress))
+                using (FileStream compressedFileStream = File.Create(@this.FullName + ".gz"))
                 {
-                    originalFileStream.CopyTo(compressionStream);
+                    using (var compressionStream = new GZipStream(compressedFileStream, CompressionMode.Compress))
+                    {
+                        originalFileStream.CopyTo(compressionStream);
+                    }
                 }
             }
         }
-    }
 
-    public static void CreateGZip(this FileInfo @this, string destination)
-    {
-        using (FileStream originalFileStream = @this.OpenRead())
+        public static void CreateGZip(this FileInfo @this, string destination)
         {
-            using (FileStream compressedFileStream = File.Create(destination))
+            using (FileStream originalFileStream = @this.OpenRead())
             {
-                using (var compressionStream = new GZipStream(compressedFileStream, CompressionMode.Compress))
+                using (FileStream compressedFileStream = File.Create(destination))
                 {
-                    originalFileStream.CopyTo(compressionStream);
+                    using (var compressionStream = new GZipStream(compressedFileStream, CompressionMode.Compress))
+                    {
+                        originalFileStream.CopyTo(compressionStream);
+                    }
                 }
             }
         }
-    }
 
-    public static void CreateGZip(this FileInfo @this, FileInfo destination)
-    {
-        using (FileStream originalFileStream = @this.OpenRead())
+        public static void CreateGZip(this FileInfo @this, FileInfo destination)
         {
-            using (FileStream compressedFileStream = File.Create(destination.FullName))
+            using (FileStream originalFileStream = @this.OpenRead())
             {
-                using (var compressionStream = new GZipStream(compressedFileStream, CompressionMode.Compress))
+                using (FileStream compressedFileStream = File.Create(destination.FullName))
                 {
-                    originalFileStream.CopyTo(compressionStream);
+                    using (var compressionStream = new GZipStream(compressedFileStream, CompressionMode.Compress))
+                    {
+                        originalFileStream.CopyTo(compressionStream);
+                    }
                 }
             }
         }

@@ -1,11 +1,12 @@
 using System;
 
-namespace Aymadoka.Static.ArrayExtension;
-
-public static partial class ArrayExtensions
+namespace Aymadoka.Static.ArrayExtension
 {
-    public static T? FindLast<T>(this T[] array, Predicate<T> match)
+    public static partial class ArrayExtensions
     {
-        return Array.FindLast(array, match);
+        public static T? FindLast<T>(this T[] array, Predicate<T> match)
+        {
+            return Array.FindLast(array, match);
+        }
     }
 }

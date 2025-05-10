@@ -7,23 +7,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Aymadoka.Static.DataExtension;
-
-public static partial class DataExtensions
+namespace Aymadoka.Static.DataExtension
 {
-    public static dynamic ToExpandoObject(this IDataReader @this)
+
+    public static partial class DataExtensions
     {
-        Dictionary<int, KeyValuePair<int, string>> columnNames = Enumerable.Range(0, @this.FieldCount)
-            .Select(x => new KeyValuePair<int, string>(x, @this.GetName(x)))
-            .ToDictionary(pair => pair.Key);
+        public static dynamic ToExpandoObject(this IDataReader @this)
+        {
+            Dictionary<int, KeyValuePair<int, string>> columnNames = Enumerable.Range(0, @this.FieldCount)
+                .Select(x => new KeyValuePair<int, string>(x, @this.GetName(x)))
+                .ToDictionary(pair => pair.Key);
 
-        dynamic entity = new ExpandoObject();
-        var expandoDict = (IDictionary<string, object>)entity;
+            dynamic entity = new ExpandoObject();
+            var expandoDict = (IDictionary<string, object>)entity;
 
-        Enumerable.Range(0, @this.FieldCount)
-            .ToList()
-            .ForEach(x => expandoDict.Add(columnNames[x].Value, @this[x]));
+            Enumerable.Range(0, @this.FieldCount)
+                .ToList()
+                .ForEach(x => expandoDict.Add(columnNames[x].Value, @this[x]));
 
-        return entity;
+            return entity;
+        }
     }
 }

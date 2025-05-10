@@ -1,9 +1,10 @@
-namespace Aymadoka.Static.StringExtension;
-
-public static partial class StringExtensions
+namespace Aymadoka.Static.StringExtension
 {
-    public static string Intern(this string str)
+    public static partial class StringExtensions
     {
-        return string.Intern(str);
+        public static string Intern(this string str)
+        {
+            return string.Intern(str);
+        }
     }
 }

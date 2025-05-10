@@ -1,12 +1,13 @@
 using System.Globalization;
 using System;
 
-namespace Aymadoka.Static.CharExtension;
-
-public static partial class CharExtensions
+namespace Aymadoka.Static.CharExtension
 {
-    public static bool IsWhiteSpace(this char c)
+    public static partial class CharExtensions
     {
-        return char.IsWhiteSpace(c);
+        public static bool IsWhiteSpace(this char c)
+        {
+            return char.IsWhiteSpace(c);
+        }
     }
 }

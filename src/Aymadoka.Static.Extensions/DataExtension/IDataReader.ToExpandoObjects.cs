@@ -7,30 +7,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Aymadoka.Static.DataExtension;
-
-public static partial class DataExtensions
+namespace Aymadoka.Static.DataExtension
 {
-    public static IEnumerable<dynamic> ToExpandoObjects(this IDataReader @this)
+
+    public static partial class DataExtensions
     {
-        Dictionary<int, KeyValuePair<int, string>> columnNames = Enumerable.Range(0, @this.FieldCount)
-            .Select(x => new KeyValuePair<int, string>(x, @this.GetName(x)))
-            .ToDictionary(pair => pair.Key);
-
-        var list = new List<dynamic>();
-
-        while (@this.Read())
+        public static IEnumerable<dynamic> ToExpandoObjects(this IDataReader @this)
         {
-            dynamic entity = new ExpandoObject();
-            var expandoDict = (IDictionary<string, object>)entity;
+            Dictionary<int, KeyValuePair<int, string>> columnNames = Enumerable.Range(0, @this.FieldCount)
+                .Select(x => new KeyValuePair<int, string>(x, @this.GetName(x)))
+                .ToDictionary(pair => pair.Key);
 
-            Enumerable.Range(0, @this.FieldCount)
-                .ToList()
-                .ForEach(x => expandoDict.Add(columnNames[x].Value, @this[x]));
+            var list = new List<dynamic>();
 
-            list.Add(entity);
+            while (@this.Read())
+            {
+                dynamic entity = new ExpandoObject();
+                var expandoDict = (IDictionary<string, object>)entity;
+
+                Enumerable.Range(0, @this.FieldCount)
+                    .ToList()
+                    .ForEach(x => expandoDict.Add(columnNames[x].Value, @this[x]));
+
+                list.Add(entity);
+            }
+
+            return list;
         }
-
-        return list;
     }
 }

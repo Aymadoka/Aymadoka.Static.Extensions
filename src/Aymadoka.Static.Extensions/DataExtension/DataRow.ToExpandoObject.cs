@@ -8,20 +8,21 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Aymadoka.Static.DataExtension;
-
-public static partial class DataExtensions
+namespace Aymadoka.Static.DataExtension
 {
-    public static dynamic ToExpandoObject(this DataRow @this)
+    public static partial class DataExtensions
     {
-        dynamic entity = new ExpandoObject();
-        var expandoDict = (IDictionary<string, object>)entity;
-
-        foreach (DataColumn column in @this.Table.Columns)
+        public static dynamic ToExpandoObject(this DataRow @this)
         {
-            expandoDict.Add(column.ColumnName, @this[column]);
-        }
+            dynamic entity = new ExpandoObject();
+            var expandoDict = (IDictionary<string, object>)entity;
 
-        return expandoDict;
+            foreach (DataColumn column in @this.Table.Columns)
+            {
+                expandoDict.Add(column.ColumnName, @this[column]);
+            }
+
+            return expandoDict;
+        }
     }
 }

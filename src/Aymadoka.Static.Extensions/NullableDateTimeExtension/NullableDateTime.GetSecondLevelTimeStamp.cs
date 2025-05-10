@@ -1,17 +1,18 @@
 using System;
 
-namespace Aymadoka.Static.NullableDateTimeExtension;
-
-public static partial class NullableDateTimeExtensions
+namespace Aymadoka.Static.NullableDateTimeExtension
 {
-    public static long? GetSecondLevelTimeStamp(this DateTime? date)
+    public static partial class NullableDateTimeExtensions
     {
-        if (date == null)
+        public static long? GetSecondLevelTimeStamp(this DateTime? date)
         {
-            return null;
-        }
+            if (date == null)
+            {
+                return null;
+            }
 
-        var result = (long)(date - DateTime.UnixEpoch).Value.TotalSeconds;
-        return result;
+            var result = (long)(date - DateTime.UnixEpoch).Value.TotalSeconds;
+            return result;
+        }
     }
 }

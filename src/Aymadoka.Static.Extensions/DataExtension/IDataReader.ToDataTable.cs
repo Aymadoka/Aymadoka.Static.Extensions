@@ -6,14 +6,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Aymadoka.Static.DataExtension;
-
-public static partial class DataExtensions
+namespace Aymadoka.Static.DataExtension
 {
-    public static DataTable ToDataTable(this IDataReader @this)
+
+    public static partial class DataExtensions
     {
-        var dt = new DataTable();
-        dt.Load(@this);
-        return dt;
+        public static DataTable ToDataTable(this IDataReader @this)
+        {
+            var dt = new DataTable();
+            dt.Load(@this);
+            return dt;
+        }
     }
 }

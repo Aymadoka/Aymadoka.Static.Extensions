@@ -1,12 +1,13 @@
 using System;
 using System.Collections.ObjectModel;
 
-namespace Aymadoka.Static.ArrayExtension;
-
-public static partial class ArrayExtensions
+namespace Aymadoka.Static.ArrayExtension
 {
-    public static T? Find<T>(this T[] array, Predicate<T> match)
+    public static partial class ArrayExtensions
     {
-        return Array.Find(array, match);
+        public static T? Find<T>(this T[] array, Predicate<T> match)
+        {
+            return Array.Find(array, match);
+        }
     }
 }

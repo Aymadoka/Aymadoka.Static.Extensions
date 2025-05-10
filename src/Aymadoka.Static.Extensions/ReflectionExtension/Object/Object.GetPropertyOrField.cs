@@ -1,23 +1,24 @@
 using System.Reflection;
 
-namespace Aymadoka.Static.ReflectionExtension;
-
-public static partial class ObjectExtensions
+namespace Aymadoka.Static.ReflectionExtension
 {
-    public static MemberInfo GetPropertyOrField<T>(this T @this, string name)
+    public static partial class ObjectExtensions
     {
-        PropertyInfo property = @this.GetProperty(name);
-        if (property != null)
+        public static MemberInfo GetPropertyOrField<T>(this T @this, string name)
         {
-            return property;
-        }
+            PropertyInfo property = @this.GetProperty(name);
+            if (property != null)
+            {
+                return property;
+            }
 
-        FieldInfo field = @this.GetField(name);
-        if (field != null)
-        {
-            return field;
-        }
+            FieldInfo field = @this.GetField(name);
+            if (field != null)
+            {
+                return field;
+            }
 
-        return null;
+            return null;
+        }
     }
 }

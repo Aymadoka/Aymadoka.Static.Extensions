@@ -1,11 +1,12 @@
 using System;
 
-namespace Aymadoka.Static.ArrayExtension;
-
-public static partial class ArrayExtensions
+namespace Aymadoka.Static.ArrayExtension
 {
-    public static bool Exists<T>(this T[] array, Predicate<T> match)
+    public static partial class ArrayExtensions
     {
-        return Array.Exists(array, match);
+        public static bool Exists<T>(this T[] array, Predicate<T> match)
+        {
+            return Array.Exists(array, match);
+        }
     }
 }

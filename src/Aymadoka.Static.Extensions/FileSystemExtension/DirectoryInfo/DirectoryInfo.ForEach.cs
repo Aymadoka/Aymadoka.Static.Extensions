@@ -2,16 +2,17 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 
-namespace Aymadoka.Static.DirectoryInfoExtension;
-
-public static partial class DirectoryInfoExtensions
+namespace Aymadoka.Static.DirectoryInfoExtension
 {
-    public static IEnumerable<DirectoryInfo> ForEach(this IEnumerable<DirectoryInfo> @this, Action<DirectoryInfo> action)
+    public static partial class DirectoryInfoExtensions
     {
-        foreach (DirectoryInfo t in @this)
+        public static IEnumerable<DirectoryInfo> ForEach(this IEnumerable<DirectoryInfo> @this, Action<DirectoryInfo> action)
         {
-            action(t);
+            foreach (DirectoryInfo t in @this)
+            {
+                action(t);
+            }
+            return @this;
         }
-        return @this;
     }
 }

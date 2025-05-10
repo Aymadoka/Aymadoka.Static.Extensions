@@ -1,18 +1,19 @@
 using Aymadoka.Static.DateTimeExtension;
 using System;
 
-namespace Aymadoka.Static.NullableDateTimeExtension;
-
-public static partial class NullableDateTimeExtensions
+namespace Aymadoka.Static.NullableDateTimeExtension
 {
-    public static DateTime? CurrentWeekLastDay(this DateTime? @this)
+    public static partial class NullableDateTimeExtensions
     {
-        if (@this == null)
+        public static DateTime? CurrentWeekLastDay(this DateTime? @this)
         {
-            return null;
-        }
+            if (@this == null)
+            {
+                return null;
+            }
 
-        var result = @this.Value.CurrentWeekLastDay();
-        return result;
+            var result = @this.Value.CurrentWeekLastDay();
+            return result;
+        }
     }
 }

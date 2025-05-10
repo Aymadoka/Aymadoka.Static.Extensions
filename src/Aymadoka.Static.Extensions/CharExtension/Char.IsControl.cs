@@ -1,11 +1,12 @@
 using System;
 
-namespace Aymadoka.Static.CharExtension;
-
-public static partial class CharExtensions
+namespace Aymadoka.Static.CharExtension
 {
-    public static bool IsControl(this char c)
+    public static partial class CharExtensions
     {
-        return char.IsControl(c);
+        public static bool IsControl(this char c)
+        {
+            return char.IsControl(c);
+        }
     }
 }

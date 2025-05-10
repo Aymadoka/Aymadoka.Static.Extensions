@@ -1,75 +1,76 @@
 using System.Text;
 
-namespace Aymadoka.Static.StringBuilderExtension.Extract;
-
-public static partial class StringBuilderExtensions
+namespace Aymadoka.Static.StringBuilderExtension.Extract
 {
-    public static StringBuilder ExtractTriviaToken(this StringBuilder @this)
+    public static partial class StringBuilderExtensions
     {
-        return @this.ExtractTriviaToken(0);
-    }
-
-    public static StringBuilder ExtractTriviaToken(this StringBuilder @this, out int endIndex)
-    {
-        return @this.ExtractTriviaToken(0, out endIndex);
-    }
-
-    public static StringBuilder ExtractTriviaToken(this StringBuilder @this, int startIndex)
-    {
-        int endIndex;
-        return @this.ExtractTriviaToken(startIndex, out endIndex);
-    }
-
-    public static StringBuilder ExtractTriviaToken(this StringBuilder @this, int startIndex, out int endIndex)
-    {
-        var sb = new StringBuilder();
-        var pos = startIndex;
-
-        var isSpace = false;
-
-        while (pos < @this.Length)
+        public static StringBuilder ExtractTriviaToken(this StringBuilder @this)
         {
-            var ch = @this[pos];
-            pos++;
+            return @this.ExtractTriviaToken(0);
+        }
 
-            if (ch == ' ' || ch == '\r' || ch == '\n' || ch == '\t')
+        public static StringBuilder ExtractTriviaToken(this StringBuilder @this, out int endIndex)
+        {
+            return @this.ExtractTriviaToken(0, out endIndex);
+        }
+
+        public static StringBuilder ExtractTriviaToken(this StringBuilder @this, int startIndex)
+        {
+            int endIndex;
+            return @this.ExtractTriviaToken(startIndex, out endIndex);
+        }
+
+        public static StringBuilder ExtractTriviaToken(this StringBuilder @this, int startIndex, out int endIndex)
+        {
+            var sb = new StringBuilder();
+            var pos = startIndex;
+
+            var isSpace = false;
+
+            while (pos < @this.Length)
             {
-                isSpace = true;
-                sb.Append(ch);
-            }
-            else if (ch == '/' && !isSpace)
-            {
-                if (pos < @this.Length)
+                var ch = @this[pos];
+                pos++;
+
+                if (ch == ' ' || ch == '\r' || ch == '\n' || ch == '\t')
                 {
-                    ch = @this[pos];
-                    if (ch == '/')
+                    isSpace = true;
+                    sb.Append(ch);
+                }
+                else if (ch == '/' && !isSpace)
+                {
+                    if (pos < @this.Length)
                     {
-                        return @this.ExtractCommentSingleLine(startIndex, out endIndex);
-                    }
-                    if (ch == '*')
-                    {
-                        return @this.ExtractCommentMultiLine(startIndex, out endIndex);
-                    }
+                        ch = @this[pos];
+                        if (ch == '/')
+                        {
+                            return @this.ExtractCommentSingleLine(startIndex, out endIndex);
+                        }
+                        if (ch == '*')
+                        {
+                            return @this.ExtractCommentMultiLine(startIndex, out endIndex);
+                        }
 
-                    // otherwise is probably the divide operator
-                    pos--;
+                        // otherwise is probably the divide operator
+                        pos--;
+                        break;
+                    }
+                }
+                else
+                {
+                    pos -= 2;
                     break;
                 }
             }
-            else
+
+            if (isSpace)
             {
-                pos -= 2;
-                break;
+                endIndex = pos;
+                return sb;
             }
-        }
 
-        if (isSpace)
-        {
-            endIndex = pos;
-            return sb;
+            endIndex = -1;
+            return null;
         }
-
-        endIndex = -1;
-        return null;
     }
 }

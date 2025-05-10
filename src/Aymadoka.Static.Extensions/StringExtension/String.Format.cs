@@ -1,26 +1,27 @@
 using System;
 
-namespace Aymadoka.Static.StringExtension;
-
-public static partial class StringExtensions
+namespace Aymadoka.Static.StringExtension
 {
-    public static string Format(this string format, object arg0)
+    public static partial class StringExtensions
     {
-        return string.Format(format, arg0);
-    }
+        public static string Format(this string format, object arg0)
+        {
+            return string.Format(format, arg0);
+        }
 
-    public static string Format(this string format, object arg0, object arg1)
-    {
-        return string.Format(format, arg0, arg1);
-    }
+        public static string Format(this string format, object arg0, object arg1)
+        {
+            return string.Format(format, arg0, arg1);
+        }
 
-    public static string Format(this string format, object arg0, object arg1, object arg2)
-    {
-        return string.Format(format, arg0, arg1, arg2);
-    }
+        public static string Format(this string format, object arg0, object arg1, object arg2)
+        {
+            return string.Format(format, arg0, arg1, arg2);
+        }
 
-    public static string Format(this string format, object[] args)
-    {
-        return string.Format(format, args);
+        public static string Format(this string format, object[] args)
+        {
+            return string.Format(format, args);
+        }
     }
 }

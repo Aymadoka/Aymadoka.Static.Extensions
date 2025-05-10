@@ -1,11 +1,12 @@
 using System;
 
-namespace Aymadoka.Static.ArrayExtension;
-
-public static partial class ArrayExtensions
+namespace Aymadoka.Static.ArrayExtension
 {
-    public static void ForEach<T>(this T[] array, Action<T> action)
+    public static partial class ArrayExtensions
     {
-        Array.ForEach(array, action);
+        public static void ForEach<T>(this T[] array, Action<T> action)
+        {
+            Array.ForEach(array, action);
+        }
     }
 }

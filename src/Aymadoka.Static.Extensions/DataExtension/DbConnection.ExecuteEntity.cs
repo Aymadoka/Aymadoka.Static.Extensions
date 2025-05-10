@@ -6,78 +6,80 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Aymadoka.Static.DataExtension;
-
-public static partial class DataExtensions
+namespace Aymadoka.Static.DataExtension
 {
-    public static T ExecuteEntity<T>(this DbConnection @this, string cmdText, DbParameter[] parameters, CommandType commandType, DbTransaction transaction) where T : new()
+
+    public static partial class DataExtensions
     {
-        using (DbCommand command = @this.CreateCommand())
+        public static T ExecuteEntity<T>(this DbConnection @this, string cmdText, DbParameter[] parameters, CommandType commandType, DbTransaction transaction) where T : new()
         {
-            command.CommandText = cmdText;
-            command.CommandType = commandType;
-            command.Transaction = transaction;
-
-            if (parameters != null)
+            using (DbCommand command = @this.CreateCommand())
             {
-                command.Parameters.AddRange(parameters);
-            }
+                command.CommandText = cmdText;
+                command.CommandType = commandType;
+                command.Transaction = transaction;
 
-            using (IDataReader reader = command.ExecuteReader())
-            {
-                reader.Read();
-                return reader.ToEntity<T>();
+                if (parameters != null)
+                {
+                    command.Parameters.AddRange(parameters);
+                }
+
+                using (IDataReader reader = command.ExecuteReader())
+                {
+                    reader.Read();
+                    return reader.ToEntity<T>();
+                }
             }
         }
-    }
 
-    public static T ExecuteEntity<T>(this DbConnection @this, Action<DbCommand> commandFactory) where T : new()
-    {
-        using (DbCommand command = @this.CreateCommand())
+        public static T ExecuteEntity<T>(this DbConnection @this, Action<DbCommand> commandFactory) where T : new()
         {
-            commandFactory(command);
-
-            using (IDataReader reader = command.ExecuteReader())
+            using (DbCommand command = @this.CreateCommand())
             {
-                reader.Read();
-                return reader.ToEntity<T>();
+                commandFactory(command);
+
+                using (IDataReader reader = command.ExecuteReader())
+                {
+                    reader.Read();
+                    return reader.ToEntity<T>();
+                }
             }
         }
-    }
 
-    public static T ExecuteEntity<T>(this DbConnection @this, string cmdText) where T : new()
-    {
-        return @this.ExecuteEntity<T>(cmdText, null, CommandType.Text, null);
-    }
+        public static T ExecuteEntity<T>(this DbConnection @this, string cmdText) where T : new()
+        {
+            return @this.ExecuteEntity<T>(cmdText, null, CommandType.Text, null);
+        }
 
-    /// <returns>A T.</returns>
-    public static T ExecuteEntity<T>(this DbConnection @this, string cmdText, DbTransaction transaction) where T : new()
-    {
-        return @this.ExecuteEntity<T>(cmdText, null, CommandType.Text, transaction);
-    }
+        /// <returns>A T.</returns>
+        public static T ExecuteEntity<T>(this DbConnection @this, string cmdText, DbTransaction transaction) where T : new()
+        {
+            return @this.ExecuteEntity<T>(cmdText, null, CommandType.Text, transaction);
+        }
 
-    public static T ExecuteEntity<T>(this DbConnection @this, string cmdText, CommandType commandType) where T : new()
-    {
-        return @this.ExecuteEntity<T>(cmdText, null, commandType, null);
-    }
+        public static T ExecuteEntity<T>(this DbConnection @this, string cmdText, CommandType commandType) where T : new()
+        {
+            return @this.ExecuteEntity<T>(cmdText, null, commandType, null);
+        }
 
-    public static T ExecuteEntity<T>(this DbConnection @this, string cmdText, CommandType commandType, DbTransaction transaction) where T : new()
-    {
-        return @this.ExecuteEntity<T>(cmdText, null, commandType, transaction);
-    }
+        public static T ExecuteEntity<T>(this DbConnection @this, string cmdText, CommandType commandType, DbTransaction transaction) where T : new()
+        {
+            return @this.ExecuteEntity<T>(cmdText, null, commandType, transaction);
+        }
 
-    public static T ExecuteEntity<T>(this DbConnection @this, string cmdText, DbParameter[] parameters) where T : new()
-    {
-        return @this.ExecuteEntity<T>(cmdText, parameters, CommandType.Text, null);
-    }
+        public static T ExecuteEntity<T>(this DbConnection @this, string cmdText, DbParameter[] parameters) where T : new()
+        {
+            return @this.ExecuteEntity<T>(cmdText, parameters, CommandType.Text, null);
+        }
 
-    public static T ExecuteEntity<T>(this DbConnection @this, string cmdText, DbParameter[] parameters, DbTransaction transaction) where T : new()
-    {
-        return @this.ExecuteEntity<T>(cmdText, parameters, CommandType.Text, transaction);
-    }
+        public static T ExecuteEntity<T>(this DbConnection @this, string cmdText, DbParameter[] parameters, DbTransaction transaction) where T : new()
+        {
+            return @this.ExecuteEntity<T>(cmdText, parameters, CommandType.Text, transaction);
+        }
 
-    public static T ExecuteEntity<T>(this DbConnection @this, string cmdText, DbParameter[] parameters, CommandType commandType) where T : new()
-    {
-        return @this.ExecuteEntity<T>(cmdText, parameters, commandType, null);
+        public static T ExecuteEntity<T>(this DbConnection @this, string cmdText, DbParameter[] parameters, CommandType commandType) where T : new()
+        {
+            return @this.ExecuteEntity<T>(cmdText, parameters, commandType, null);
+        }
     }
 }

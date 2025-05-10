@@ -1,11 +1,12 @@
 using System;
 
-namespace Aymadoka.Static.CharExtension;
-
-public static partial class CharExtensions
+namespace Aymadoka.Static.CharExtension
 {
-    public static bool IsUpper(this char c)
+    public static partial class CharExtensions
     {
-        return char.IsUpper(c);
+        public static bool IsUpper(this char c)
+        {
+            return char.IsUpper(c);
+        }
     }
 }

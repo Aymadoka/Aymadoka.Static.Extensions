@@ -1,18 +1,19 @@
 using Aymadoka.Static.DateTimeOffsetExtension;
 using System;
 
-namespace Aymadoka.Static.NullableDateTimeOffsetExtension;
-
-public static partial class NullableDateTimeOffsetExtensions
+namespace Aymadoka.Static.NullableDateTimeOffsetExtension
 {
-    public static DateTimeOffset? ConvertTimeBySystemTimeZoneId(this DateTimeOffset? dateTimeOffset, string destinationTimeZoneId)
+    public static partial class NullableDateTimeOffsetExtensions
     {
-        if (dateTimeOffset == null)
+        public static DateTimeOffset? ConvertTimeBySystemTimeZoneId(this DateTimeOffset? dateTimeOffset, string destinationTimeZoneId)
         {
-            return null;
-        }
+            if (dateTimeOffset == null)
+            {
+                return null;
+            }
 
-        var result = dateTimeOffset.Value.ConvertTimeBySystemTimeZoneId(destinationTimeZoneId);
-        return result;
+            var result = dateTimeOffset.Value.ConvertTimeBySystemTimeZoneId(destinationTimeZoneId);
+            return result;
+        }
     }
 }

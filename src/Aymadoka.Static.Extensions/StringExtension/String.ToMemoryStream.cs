@@ -2,13 +2,14 @@ using System.IO;
 using System.Text;
 using System;
 
-namespace Aymadoka.Static.StringExtension;
-
-public static partial class StringExtensions
+namespace Aymadoka.Static.StringExtension
 {
-    public static Stream ToMemoryStream(this string @this)
+    public static partial class StringExtensions
     {
-        Encoding encoding = Activator.CreateInstance<ASCIIEncoding>();
-        return new MemoryStream(encoding.GetBytes(@this));
+        public static Stream ToMemoryStream(this string @this)
+        {
+            Encoding encoding = Activator.CreateInstance<ASCIIEncoding>();
+            return new MemoryStream(encoding.GetBytes(@this));
+        }
     }
 }

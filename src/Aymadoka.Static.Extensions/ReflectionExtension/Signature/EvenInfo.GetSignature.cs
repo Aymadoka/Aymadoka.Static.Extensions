@@ -3,12 +3,13 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 
-namespace Aymadoka.Static.ReflectionExtension;
-
-public static partial class SignatureExtensions
+namespace Aymadoka.Static.ReflectionExtension
 {
-    public static string GetSignature(this EventInfo @this)
+    public static partial class SignatureExtensions
     {
-        return null;
+        public static string GetSignature(this EventInfo @this)
+        {
+            return null;
+        }
     }
 }

@@ -1,12 +1,13 @@
 using System;
 
-namespace Aymadoka.Static.StringExtension;
-
-public static partial class StringExtensions
+namespace Aymadoka.Static.StringExtension
 {
-    public static T ToEnum<T>(this string @this)
+    public static partial class StringExtensions
     {
-        Type enumType = typeof(T);
-        return (T)Enum.Parse(enumType, @this);
+        public static T ToEnum<T>(this string @this)
+        {
+            Type enumType = typeof(T);
+            return (T)Enum.Parse(enumType, @this);
+        }
     }
 }

@@ -2,12 +2,13 @@ using System;
 using System.IO;
 using System.Security.AccessControl;
 
-namespace Aymadoka.Static.DirectoryInfoExtension;
-
-public static partial class DirectoryInfoExtensions
+namespace Aymadoka.Static.DirectoryInfoExtension
 {
-    public static DirectoryInfo EnsureDirectoryExists(this DirectoryInfo @this)
+    public static partial class DirectoryInfoExtensions
     {
-        return Directory.CreateDirectory(@this.FullName);
+        public static DirectoryInfo EnsureDirectoryExists(this DirectoryInfo @this)
+        {
+            return Directory.CreateDirectory(@this.FullName);
+        }
     }
 }

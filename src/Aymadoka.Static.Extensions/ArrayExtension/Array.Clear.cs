@@ -1,11 +1,12 @@
 using System;
 
-namespace Aymadoka.Static.ArrayExtension;
-
-public static partial class ArrayExtensions
+namespace Aymadoka.Static.ArrayExtension
 {
-    public static void Clear<T>(this T[] array, int index, int length)
+    public static partial class ArrayExtensions
     {
-        Array.Clear(array, index, length);
+        public static void Clear<T>(this T[] array, int index, int length)
+        {
+            Array.Clear(array, index, length);
+        }
     }
 }

@@ -1,9 +1,10 @@
-namespace Aymadoka.Static.StringExtension;
-
-public static partial class StringExtensions
+namespace Aymadoka.Static.StringExtension
 {
-    public static bool IsNotEmpty(this string? @this)
+    public static partial class StringExtensions
     {
-        return string.Empty != @this;
+        public static bool IsNotEmpty(this string? @this)
+        {
+            return string.Empty != @this;
+        }
     }
 }

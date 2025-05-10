@@ -1,18 +1,19 @@
 using Aymadoka.Static.DateTimeExtension;
 using System;
 
-namespace Aymadoka.Static.NullableDateTimeExtension;
-
-public static partial class NullableDateTimeExtensions
+namespace Aymadoka.Static.NullableDateTimeExtension
 {
-    public static bool IsPast(this DateTime? @this)
+    public static partial class NullableDateTimeExtensions
     {
-        if (@this == null)
+        public static bool IsPast(this DateTime? @this)
         {
-            return false;
-        }
+            if (@this == null)
+            {
+                return false;
+            }
 
-        var result = @this.Value.IsPast();
-        return result;
+            var result = @this.Value.IsPast();
+            return result;
+        }
     }
 }

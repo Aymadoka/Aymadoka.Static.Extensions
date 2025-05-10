@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace Aymadoka.Static.FileInfoExtension;
-
-public static partial class FileInfoExtensions
+namespace Aymadoka.Static.FileInfoExtension
 {
-    public static void Delete(this IEnumerable<FileInfo> @this)
+    public static partial class FileInfoExtensions
     {
-        foreach (FileInfo t in @this)
+        public static void Delete(this IEnumerable<FileInfo> @this)
         {
-            t.Delete();
+            foreach (FileInfo t in @this)
+            {
+                t.Delete();
+            }
         }
     }
 }

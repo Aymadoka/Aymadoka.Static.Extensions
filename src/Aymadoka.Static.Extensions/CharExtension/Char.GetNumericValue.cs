@@ -1,9 +1,10 @@
-namespace Aymadoka.Static.CharExtension;
-
-public static partial class CharExtensions
+namespace Aymadoka.Static.CharExtension
 {
-    public static double GetNumericValue(this char c)
+    public static partial class CharExtensions
     {
-        return char.GetNumericValue(c);
+        public static double GetNumericValue(this char c)
+        {
+            return char.GetNumericValue(c);
+        }
     }
 }

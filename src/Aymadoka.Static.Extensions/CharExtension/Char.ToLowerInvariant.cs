@@ -1,9 +1,10 @@
-namespace Aymadoka.Static.CharExtension;
-
-public static partial class CharExtensions
+namespace Aymadoka.Static.CharExtension
 {
-    public static char ToLowerInvariant(this char c)
+    public static partial class CharExtensions
     {
-        return char.ToLowerInvariant(c);
+        public static char ToLowerInvariant(this char c)
+        {
+            return char.ToLowerInvariant(c);
+        }
     }
 }

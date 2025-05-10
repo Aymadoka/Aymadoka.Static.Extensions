@@ -6,15 +6,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Aymadoka.Static.DataExtension;
-
-public static partial class DataExtensions
+namespace Aymadoka.Static.DataExtension
 {
-    public static IEnumerable<T> ExecuteEntities<T>(this DbCommand @this) where T : new()
+    public static partial class DataExtensions
     {
-        using (IDataReader reader = @this.ExecuteReader())
+        public static IEnumerable<T> ExecuteEntities<T>(this DbCommand @this) where T : new()
         {
-            return reader.ToEntities<T>();
+            using (IDataReader reader = @this.ExecuteReader())
+            {
+                return reader.ToEntities<T>();
+            }
         }
     }
 }

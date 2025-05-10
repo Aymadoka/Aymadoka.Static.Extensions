@@ -6,15 +6,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Aymadoka.Static.DataExtension;
-
-public static partial class DataExtensions
+namespace Aymadoka.Static.DataExtension
 {
-    public static void EnsureOpen(this IDbConnection @this)
+
+    public static partial class DataExtensions
     {
-        if (@this.State == ConnectionState.Closed)
+        public static void EnsureOpen(this IDbConnection @this)
         {
-            @this.Open();
+            if (@this.State == ConnectionState.Closed)
+            {
+                @this.Open();
+            }
         }
     }
 }

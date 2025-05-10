@@ -1,24 +1,25 @@
 using System.Globalization;
 using System.Text;
 
-namespace Aymadoka.Static.StringExtension;
-
-public static partial class StringExtensions
+namespace Aymadoka.Static.StringExtension
 {
-    public static string RemoveDiacritics(this string @this)
+    public static partial class StringExtensions
     {
-        string normalizedString = @this.Normalize(NormalizationForm.FormD);
-        var sb = new StringBuilder();
-
-        foreach (char t in normalizedString)
+        public static string RemoveDiacritics(this string @this)
         {
-            UnicodeCategory uc = CharUnicodeInfo.GetUnicodeCategory(t);
-            if (uc != UnicodeCategory.NonSpacingMark)
-            {
-                sb.Append(t);
-            }
-        }
+            string normalizedString = @this.Normalize(NormalizationForm.FormD);
+            var sb = new StringBuilder();
 
-        return sb.ToString().Normalize(NormalizationForm.FormC);
+            foreach (char t in normalizedString)
+            {
+                UnicodeCategory uc = CharUnicodeInfo.GetUnicodeCategory(t);
+                if (uc != UnicodeCategory.NonSpacingMark)
+                {
+                    sb.Append(t);
+                }
+            }
+
+            return sb.ToString().Normalize(NormalizationForm.FormC);
+        }
     }
 }

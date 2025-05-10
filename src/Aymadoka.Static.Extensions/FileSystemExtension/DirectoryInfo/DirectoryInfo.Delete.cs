@@ -2,15 +2,16 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 
-namespace Aymadoka.Static.DirectoryInfoExtension;
-
-public static partial class DirectoryInfoExtensions
+namespace Aymadoka.Static.DirectoryInfoExtension
 {
-    public static void Delete(this IEnumerable<DirectoryInfo> @this)
+    public static partial class DirectoryInfoExtensions
     {
-        foreach (DirectoryInfo t in @this)
+        public static void Delete(this IEnumerable<DirectoryInfo> @this)
         {
-            t.Delete();
+            foreach (DirectoryInfo t in @this)
+            {
+                t.Delete();
+            }
         }
     }
 }

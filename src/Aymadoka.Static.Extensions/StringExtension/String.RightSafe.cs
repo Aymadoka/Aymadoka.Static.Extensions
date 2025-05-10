@@ -1,11 +1,12 @@
 using System;
 
-namespace Aymadoka.Static.StringExtension;
-
-public static partial class StringExtensions
+namespace Aymadoka.Static.StringExtension
 {
-    public static string RightSafe(this string @this, int length)
+    public static partial class StringExtensions
     {
-        return @this.Substring(Math.Max(0, @this.Length - length));
+        public static string RightSafe(this string @this, int length)
+        {
+            return @this.Substring(Math.Max(0, @this.Length - length));
+        }
     }
 }

@@ -1,9 +1,10 @@
-namespace Aymadoka.Static.CharExtension;
-
-public static partial class CharExtensions
+namespace Aymadoka.Static.CharExtension
 {
-    public static int ConvertToUtf32(this char highSurrogate, char lowSurrogate)
+    public static partial class CharExtensions
     {
-        return char.ConvertToUtf32(highSurrogate, lowSurrogate);
+        public static int ConvertToUtf32(this char highSurrogate, char lowSurrogate)
+        {
+            return char.ConvertToUtf32(highSurrogate, lowSurrogate);
+        }
     }
 }

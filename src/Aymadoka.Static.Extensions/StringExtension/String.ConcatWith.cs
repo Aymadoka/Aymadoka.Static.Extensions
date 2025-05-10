@@ -1,9 +1,10 @@
-namespace Aymadoka.Static.StringExtension;
-
-public static partial class StringExtensions
+namespace Aymadoka.Static.StringExtension
 {
-    public static string ConcatWith(this string @this, params string[] values)
+    public static partial class StringExtensions
     {
-        return string.Concat(@this, string.Concat(values));
+        public static string ConcatWith(this string @this, params string[] values)
+        {
+            return string.Concat(@this, string.Concat(values));
+        }
     }
 }

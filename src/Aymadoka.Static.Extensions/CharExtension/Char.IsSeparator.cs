@@ -1,9 +1,10 @@
-namespace Aymadoka.Static.CharExtension;
-
-public static partial class CharExtensions
+namespace Aymadoka.Static.CharExtension
 {
-    public static bool IsSeparator(this char c)
+    public static partial class CharExtensions
     {
-        return char.IsSeparator(c);
+        public static bool IsSeparator(this char c)
+        {
+            return char.IsSeparator(c);
+        }
     }
 }

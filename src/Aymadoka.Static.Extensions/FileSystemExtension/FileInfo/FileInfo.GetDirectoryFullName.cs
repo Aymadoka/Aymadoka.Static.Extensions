@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace Aymadoka.Static.FileInfoExtension;
-
-public static partial class FileInfoExtensions
+namespace Aymadoka.Static.FileInfoExtension
 {
-    public static String GetDirectoryFullName(this FileInfo @this)
+    public static partial class FileInfoExtensions
     {
-        return @this.Directory.FullName;
+        public static String GetDirectoryFullName(this FileInfo @this)
+        {
+            return @this.Directory.FullName;
+        }
     }
 }

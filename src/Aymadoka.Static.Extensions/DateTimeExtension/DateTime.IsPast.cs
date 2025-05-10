@@ -1,11 +1,12 @@
 using System;
 
-namespace Aymadoka.Static.DateTimeExtension;
-
-public static partial class DateTimeExtensions
+namespace Aymadoka.Static.DateTimeExtension
 {
-    public static bool IsPast(this DateTime @this)
+    public static partial class DateTimeExtensions
     {
-        return @this < DateTime.Now;
+        public static bool IsPast(this DateTime @this)
+        {
+            return @this < DateTime.Now;
+        }
     }
 }

@@ -8,46 +8,48 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Aymadoka.Static.DataExtension;
-
-public static partial class DataExtensions
+namespace Aymadoka.Static.DataExtension
 {
-    public static IEnumerable<T> ToEntities<T>(this IDataReader @this) where T : new()
+
+    public static partial class DataExtensions
     {
-        Type type = typeof(T);
-        PropertyInfo[] properties = type.GetProperties(BindingFlags.Public | BindingFlags.Instance);
-        FieldInfo[] fields = type.GetFields(BindingFlags.Public | BindingFlags.Instance);
-
-        var list = new List<T>();
-
-        var hash = new HashSet<string>(Enumerable.Range(0, @this.FieldCount)
-            .Select(@this.GetName));
-
-        while (@this.Read())
+        public static IEnumerable<T> ToEntities<T>(this IDataReader @this) where T : new()
         {
-            var entity = new T();
+            Type type = typeof(T);
+            PropertyInfo[] properties = type.GetProperties(BindingFlags.Public | BindingFlags.Instance);
+            FieldInfo[] fields = type.GetFields(BindingFlags.Public | BindingFlags.Instance);
 
-            foreach (PropertyInfo property in properties)
+            var list = new List<T>();
+
+            var hash = new HashSet<string>(Enumerable.Range(0, @this.FieldCount)
+                .Select(@this.GetName));
+
+            while (@this.Read())
             {
-                if (hash.Contains(property.Name))
+                var entity = new T();
+
+                foreach (PropertyInfo property in properties)
                 {
-                    Type valueType = property.PropertyType;
-                    property.SetValue(entity, @this[property.Name].To(valueType), null);
+                    if (hash.Contains(property.Name))
+                    {
+                        Type valueType = property.PropertyType;
+                        property.SetValue(entity, @this[property.Name].To(valueType), null);
+                    }
                 }
+
+                foreach (FieldInfo field in fields)
+                {
+                    if (hash.Contains(field.Name))
+                    {
+                        Type valueType = field.FieldType;
+                        field.SetValue(entity, @this[field.Name].To(valueType));
+                    }
+                }
+
+                list.Add(entity);
             }
 
-            foreach (FieldInfo field in fields)
-            {
-                if (hash.Contains(field.Name))
-                {
-                    Type valueType = field.FieldType;
-                    field.SetValue(entity, @this[field.Name].To(valueType));
-                }
-            }
-
-            list.Add(entity);
+            return list;
         }
-
-        return list;
     }
 }

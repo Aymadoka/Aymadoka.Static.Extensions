@@ -1,11 +1,12 @@
 using System;
 
-namespace Aymadoka.Static.ObjectExtension;
-
-public static partial class ObjectExtensions
+namespace Aymadoka.Static.ObjectExtension
 {
-    public static bool IsDBNull<T>(this T value) where T : class
+    public static partial class ObjectExtensions
     {
-        return Convert.IsDBNull(value);
+        public static bool IsDBNull<T>(this T value) where T : class
+        {
+            return Convert.IsDBNull(value);
+        }
     }
 }

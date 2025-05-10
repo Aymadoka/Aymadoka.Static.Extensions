@@ -1,43 +1,44 @@
 using System;
 using System.Text;
 
-namespace Aymadoka.Static.StringBuilderExtension;
-
-public static partial class StringBuilderExtensions
+namespace Aymadoka.Static.StringBuilderExtension
 {
-    public static int GetIndexAfterNextDoubleQuote(this StringBuilder @this)
+    public static partial class StringBuilderExtensions
     {
-        return @this.GetIndexAfterNextDoubleQuote(0, false);
-    }
-
-    public static int GetIndexAfterNextDoubleQuote(this StringBuilder @this, bool allowEscape)
-    {
-        return @this.GetIndexAfterNextDoubleQuote(0, allowEscape);
-    }
-
-    public static int GetIndexAfterNextDoubleQuote(this StringBuilder @this, int startIndex)
-    {
-        return @this.GetIndexAfterNextDoubleQuote(startIndex, false);
-    }
-
-    public static int GetIndexAfterNextDoubleQuote(this StringBuilder @this, int startIndex, bool allowEscape)
-    {
-        while (startIndex < @this.Length)
+        public static int GetIndexAfterNextDoubleQuote(this StringBuilder @this)
         {
-            char ch = @this[startIndex];
-            startIndex++;
-
-            char nextChar;
-            if (allowEscape && ch == '\\' && startIndex < @this.Length && ((nextChar = @this[startIndex]) == '\\' || nextChar == '"'))
-            {
-                startIndex++; // Treat as escape character for \\ or \"
-            }
-            else if (ch == '"')
-            {
-                return startIndex;
-            }
+            return @this.GetIndexAfterNextDoubleQuote(0, false);
         }
 
-        return startIndex;
+        public static int GetIndexAfterNextDoubleQuote(this StringBuilder @this, bool allowEscape)
+        {
+            return @this.GetIndexAfterNextDoubleQuote(0, allowEscape);
+        }
+
+        public static int GetIndexAfterNextDoubleQuote(this StringBuilder @this, int startIndex)
+        {
+            return @this.GetIndexAfterNextDoubleQuote(startIndex, false);
+        }
+
+        public static int GetIndexAfterNextDoubleQuote(this StringBuilder @this, int startIndex, bool allowEscape)
+        {
+            while (startIndex < @this.Length)
+            {
+                char ch = @this[startIndex];
+                startIndex++;
+
+                char nextChar;
+                if (allowEscape && ch == '\\' && startIndex < @this.Length && ((nextChar = @this[startIndex]) == '\\' || nextChar == '"'))
+                {
+                    startIndex++; // Treat as escape character for \\ or \"
+                }
+                else if (ch == '"')
+                {
+                    return startIndex;
+                }
+            }
+
+            return startIndex;
+        }
     }
 }

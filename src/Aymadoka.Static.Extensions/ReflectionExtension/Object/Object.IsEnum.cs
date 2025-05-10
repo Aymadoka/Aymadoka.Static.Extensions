@@ -1,9 +1,10 @@
-namespace Aymadoka.Static.ReflectionExtension;
-
-public static partial class ObjectExtensions
+namespace Aymadoka.Static.ReflectionExtension
 {
-    public static bool IsEnum<T>(this T @this)
+    public static partial class ObjectExtensions
     {
-        return @this.GetType().IsEnum;
+        public static bool IsEnum<T>(this T @this)
+        {
+            return @this.GetType().IsEnum;
+        }
     }
 }

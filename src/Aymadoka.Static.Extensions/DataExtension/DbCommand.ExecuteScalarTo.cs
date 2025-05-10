@@ -7,12 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Aymadoka.Static.DataExtension;
-
-public static partial class DataExtensions
+namespace Aymadoka.Static.DataExtension
 {
-    public static T ExecuteScalarTo<T>(this DbCommand @this)
+    public static partial class DataExtensions
     {
-        return @this.ExecuteScalar().To<T>();
+        public static T ExecuteScalarTo<T>(this DbCommand @this)
+        {
+            return @this.ExecuteScalar().To<T>();
+        }
     }
 }

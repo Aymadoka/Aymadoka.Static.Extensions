@@ -6,15 +6,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Aymadoka.Static.DataExtension;
-
-public static partial class DataExtensions
+namespace Aymadoka.Static.DataExtension
 {
-    public static void AddRange(this DataColumnCollection @this, params string[] columns)
+    public static partial class DataExtensions
     {
-        foreach (string column in columns)
+        public static void AddRange(this DataColumnCollection @this, params string[] columns)
         {
-            @this.Add(column);
+            foreach (string column in columns)
+            {
+                @this.Add(column);
+            }
         }
     }
 }

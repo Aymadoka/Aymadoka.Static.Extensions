@@ -1,11 +1,12 @@
 using System;
 
-namespace Aymadoka.Static.DateTimeExtension;
-
-public static partial class DateTimeExtensions
+namespace Aymadoka.Static.DateTimeExtension
 {
-    public static bool Between(this DateTime @this, DateTime minValue, DateTime maxValue)
+    public static partial class DateTimeExtensions
     {
-        return minValue.CompareTo(@this) == -1 && @this.CompareTo(maxValue) == -1;
+        public static bool Between(this DateTime @this, DateTime minValue, DateTime maxValue)
+        {
+            return minValue.CompareTo(@this) == -1 && @this.CompareTo(maxValue) == -1;
+        }
     }
 }

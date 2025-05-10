@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace Aymadoka.Static.FileInfoExtension;
-
-public static partial class FileInfoExtensions
+namespace Aymadoka.Static.FileInfoExtension
 {
-    public static String ChangeExtension(this FileInfo @this, String extension)
+    public static partial class FileInfoExtensions
     {
-        return Path.ChangeExtension(@this.FullName, extension);
+        public static String ChangeExtension(this FileInfo @this, String extension)
+        {
+            return Path.ChangeExtension(@this.FullName, extension);
+        }
     }
 }

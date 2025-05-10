@@ -1,11 +1,12 @@
 using System;
 
-namespace Aymadoka.Static.ArrayExtension;
-
-public static partial class ArrayExtensions
+namespace Aymadoka.Static.ArrayExtension
 {
-    public static int ByteLength<T>(this T[] array)
+    public static partial class ArrayExtensions
     {
-        return Buffer.ByteLength(array);
+        public static int ByteLength<T>(this T[] array)
+        {
+            return Buffer.ByteLength(array);
+        }
     }
 }

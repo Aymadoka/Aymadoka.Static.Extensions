@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace Aymadoka.Static.FileInfoExtension;
-
-public static partial class FileInfoExtensions
+namespace Aymadoka.Static.FileInfoExtension
 {
-    public static void WriteAllBytes(this FileInfo @this, Byte[] bytes)
+    public static partial class FileInfoExtensions
     {
-        File.WriteAllBytes(@this.FullName, bytes);
+        public static void WriteAllBytes(this FileInfo @this, Byte[] bytes)
+        {
+            File.WriteAllBytes(@this.FullName, bytes);
+        }
     }
 }

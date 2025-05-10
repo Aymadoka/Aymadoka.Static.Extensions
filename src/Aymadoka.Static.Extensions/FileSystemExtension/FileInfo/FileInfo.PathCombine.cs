@@ -4,12 +4,13 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace Aymadoka.Static.FileInfoExtension;
-
-public static partial class FileInfoExtensions
+namespace Aymadoka.Static.FileInfoExtension
 {
-    public static string PathCombine(this IEnumerable<string> @this)
+    public static partial class FileInfoExtensions
     {
-        return Path.Combine(@this.ToArray());
+        public static string PathCombine(this IEnumerable<string> @this)
+        {
+            return Path.Combine(@this.ToArray());
+        }
     }
 }

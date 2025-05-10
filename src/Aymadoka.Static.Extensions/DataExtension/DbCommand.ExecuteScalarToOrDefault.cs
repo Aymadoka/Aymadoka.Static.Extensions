@@ -7,43 +7,44 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Aymadoka.Static.DataExtension;
-
-public static partial class DataExtensions
+namespace Aymadoka.Static.DataExtension
 {
-    public static T ExecuteScalarToOrDefault<T>(this DbCommand @this)
+    public static partial class DataExtensions
     {
-        try
+        public static T ExecuteScalarToOrDefault<T>(this DbCommand @this)
         {
-            return @this.ExecuteScalar().To<T>();
+            try
+            {
+                return @this.ExecuteScalar().To<T>();
+            }
+            catch (Exception)
+            {
+                return default(T);
+            }
         }
-        catch (Exception)
-        {
-            return default(T);
-        }
-    }
 
-    public static T ExecuteScalarToOrDefault<T>(this DbCommand @this, T defaultValue)
-    {
-        try
+        public static T ExecuteScalarToOrDefault<T>(this DbCommand @this, T defaultValue)
         {
-            return @this.ExecuteScalar().To<T>();
+            try
+            {
+                return @this.ExecuteScalar().To<T>();
+            }
+            catch (Exception)
+            {
+                return defaultValue;
+            }
         }
-        catch (Exception)
-        {
-            return defaultValue;
-        }
-    }
 
-    public static T ExecuteScalarToOrDefault<T>(this DbCommand @this, Func<DbCommand, T> defaultValueFactory)
-    {
-        try
+        public static T ExecuteScalarToOrDefault<T>(this DbCommand @this, Func<DbCommand, T> defaultValueFactory)
         {
-            return @this.ExecuteScalar().To<T>();
-        }
-        catch (Exception)
-        {
-            return defaultValueFactory(@this);
+            try
+            {
+                return @this.ExecuteScalar().To<T>();
+            }
+            catch (Exception)
+            {
+                return defaultValueFactory(@this);
+            }
         }
     }
 }

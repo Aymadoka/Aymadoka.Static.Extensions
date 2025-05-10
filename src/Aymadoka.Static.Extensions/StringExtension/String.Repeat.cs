@@ -1,22 +1,23 @@
 using System.Text;
 
-namespace Aymadoka.Static.StringExtension;
-
-public static partial class StringExtensions
+namespace Aymadoka.Static.StringExtension
 {
-    public static string Repeat(this string @this, int repeatCount)
+    public static partial class StringExtensions
     {
-        if (@this.Length == 1)
+        public static string Repeat(this string @this, int repeatCount)
         {
-            return new string(@this[0], repeatCount);
-        }
+            if (@this.Length == 1)
+            {
+                return new string(@this[0], repeatCount);
+            }
 
-        var sb = new StringBuilder(repeatCount * @this.Length);
-        while (repeatCount-- > 0)
-        {
-            sb.Append(@this);
-        }
+            var sb = new StringBuilder(repeatCount * @this.Length);
+            while (repeatCount-- > 0)
+            {
+                sb.Append(@this);
+            }
 
-        return sb.ToString();
+            return sb.ToString();
+        }
     }
 }

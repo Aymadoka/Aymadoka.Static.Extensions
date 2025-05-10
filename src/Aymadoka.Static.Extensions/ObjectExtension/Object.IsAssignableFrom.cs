@@ -1,18 +1,19 @@
 using System;
 
-namespace Aymadoka.Static.ObjectExtension;
-
-public static partial class ObjectExtensions
+namespace Aymadoka.Static.ObjectExtension
 {
-    public static bool IsAssignableFrom<T>(this object @this)
+    public static partial class ObjectExtensions
     {
-        Type type = @this.GetType();
-        return type.IsAssignableFrom(typeof(T));
-    }
+        public static bool IsAssignableFrom<T>(this object @this)
+        {
+            Type type = @this.GetType();
+            return type.IsAssignableFrom(typeof(T));
+        }
 
-    public static bool IsAssignableFrom(this object @this, Type targetType)
-    {
-        Type type = @this.GetType();
-        return type.IsAssignableFrom(targetType);
+        public static bool IsAssignableFrom(this object @this, Type targetType)
+        {
+            Type type = @this.GetType();
+            return type.IsAssignableFrom(targetType);
+        }
     }
 }

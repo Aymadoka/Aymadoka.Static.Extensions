@@ -4,12 +4,13 @@ using System.IO;
 using System.Security.AccessControl;
 using System.Text;
 
-namespace Aymadoka.Static.FileInfoExtension;
-
-public static partial class FileInfoExtensions
+namespace Aymadoka.Static.FileInfoExtension
 {
-    public static DirectoryInfo CreateDirectory(this FileInfo @this)
+    public static partial class FileInfoExtensions
     {
-        return Directory.CreateDirectory(@this.Directory.FullName);
+        public static DirectoryInfo CreateDirectory(this FileInfo @this)
+        {
+            return Directory.CreateDirectory(@this.Directory.FullName);
+        }
     }
 }

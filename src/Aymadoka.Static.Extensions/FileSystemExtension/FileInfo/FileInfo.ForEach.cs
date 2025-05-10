@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace Aymadoka.Static.FileInfoExtension;
-
-public static partial class FileInfoExtensions
+namespace Aymadoka.Static.FileInfoExtension
 {
-    public static IEnumerable<FileInfo> ForEach(this IEnumerable<FileInfo> @this, Action<FileInfo> action)
+    public static partial class FileInfoExtensions
     {
-        foreach (FileInfo t in @this)
+        public static IEnumerable<FileInfo> ForEach(this IEnumerable<FileInfo> @this, Action<FileInfo> action)
         {
-            action(t);
+            foreach (FileInfo t in @this)
+            {
+                action(t);
+            }
+            return @this;
         }
-        return @this;
     }
 }

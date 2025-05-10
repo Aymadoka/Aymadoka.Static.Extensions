@@ -4,77 +4,79 @@ using System.Collections.Generic;
 using System.Data;
 using System.Reflection;
 
-namespace Aymadoka.Static.DataExtension;
-
-public static partial class DataExtensions
+namespace Aymadoka.Static.DataExtension
 {
-    public static dynamic ExecuteExpandoObject(this SqlConnection @this, string cmdText, SqlParameter[] parameters, CommandType commandType, SqlTransaction transaction)
+
+    public static partial class DataExtensions
     {
-        using (SqlCommand command = @this.CreateCommand())
+        public static dynamic ExecuteExpandoObject(this SqlConnection @this, string cmdText, SqlParameter[] parameters, CommandType commandType, SqlTransaction transaction)
         {
-            command.CommandText = cmdText;
-            command.CommandType = commandType;
-            command.Transaction = transaction;
-
-            if (parameters != null)
+            using (SqlCommand command = @this.CreateCommand())
             {
-                command.Parameters.AddRange(parameters);
-            }
+                command.CommandText = cmdText;
+                command.CommandType = commandType;
+                command.Transaction = transaction;
 
-            using (IDataReader reader = command.ExecuteReader())
-            {
-                reader.Read();
-                return reader.ToExpandoObject();
+                if (parameters != null)
+                {
+                    command.Parameters.AddRange(parameters);
+                }
+
+                using (IDataReader reader = command.ExecuteReader())
+                {
+                    reader.Read();
+                    return reader.ToExpandoObject();
+                }
             }
         }
-    }
 
-    public static dynamic ExecuteExpandoObject(this SqlConnection @this, Action<SqlCommand> commandFactory)
-    {
-        using (SqlCommand command = @this.CreateCommand())
+        public static dynamic ExecuteExpandoObject(this SqlConnection @this, Action<SqlCommand> commandFactory)
         {
-            commandFactory(command);
-
-            using (IDataReader reader = command.ExecuteReader())
+            using (SqlCommand command = @this.CreateCommand())
             {
-                reader.Read();
-                return reader.ToExpandoObject();
+                commandFactory(command);
+
+                using (IDataReader reader = command.ExecuteReader())
+                {
+                    reader.Read();
+                    return reader.ToExpandoObject();
+                }
             }
         }
-    }
 
-    public static dynamic ExecuteExpandoObject(this SqlConnection @this, string cmdText)
-    {
-        return @this.ExecuteExpandoObject(cmdText, null, CommandType.Text, null);
-    }
+        public static dynamic ExecuteExpandoObject(this SqlConnection @this, string cmdText)
+        {
+            return @this.ExecuteExpandoObject(cmdText, null, CommandType.Text, null);
+        }
 
-    public static dynamic ExecuteExpandoObject(this SqlConnection @this, string cmdText, SqlTransaction transaction)
-    {
-        return @this.ExecuteExpandoObject(cmdText, null, CommandType.Text, transaction);
-    }
+        public static dynamic ExecuteExpandoObject(this SqlConnection @this, string cmdText, SqlTransaction transaction)
+        {
+            return @this.ExecuteExpandoObject(cmdText, null, CommandType.Text, transaction);
+        }
 
-    public static dynamic ExecuteExpandoObject(this SqlConnection @this, string cmdText, CommandType commandType)
-    {
-        return @this.ExecuteExpandoObject(cmdText, null, commandType, null);
-    }
+        public static dynamic ExecuteExpandoObject(this SqlConnection @this, string cmdText, CommandType commandType)
+        {
+            return @this.ExecuteExpandoObject(cmdText, null, commandType, null);
+        }
 
-    public static dynamic ExecuteExpandoObject(this SqlConnection @this, string cmdText, CommandType commandType, SqlTransaction transaction)
-    {
-        return @this.ExecuteExpandoObject(cmdText, null, commandType, transaction);
-    }
+        public static dynamic ExecuteExpandoObject(this SqlConnection @this, string cmdText, CommandType commandType, SqlTransaction transaction)
+        {
+            return @this.ExecuteExpandoObject(cmdText, null, commandType, transaction);
+        }
 
-    public static dynamic ExecuteExpandoObject(this SqlConnection @this, string cmdText, SqlParameter[] parameters)
-    {
-        return @this.ExecuteExpandoObject(cmdText, parameters, CommandType.Text, null);
-    }
+        public static dynamic ExecuteExpandoObject(this SqlConnection @this, string cmdText, SqlParameter[] parameters)
+        {
+            return @this.ExecuteExpandoObject(cmdText, parameters, CommandType.Text, null);
+        }
 
-    public static dynamic ExecuteExpandoObject(this SqlConnection @this, string cmdText, SqlParameter[] parameters, SqlTransaction transaction)
-    {
-        return @this.ExecuteExpandoObject(cmdText, parameters, CommandType.Text, transaction);
-    }
+        public static dynamic ExecuteExpandoObject(this SqlConnection @this, string cmdText, SqlParameter[] parameters, SqlTransaction transaction)
+        {
+            return @this.ExecuteExpandoObject(cmdText, parameters, CommandType.Text, transaction);
+        }
 
-    public static dynamic ExecuteExpandoObject(this SqlConnection @this, string cmdText, SqlParameter[] parameters, CommandType commandType)
-    {
-        return @this.ExecuteExpandoObject(cmdText, parameters, commandType, null);
+        public static dynamic ExecuteExpandoObject(this SqlConnection @this, string cmdText, SqlParameter[] parameters, CommandType commandType)
+        {
+            return @this.ExecuteExpandoObject(cmdText, parameters, commandType, null);
+        }
     }
 }

@@ -1,16 +1,17 @@
 using System;
 
-namespace Aymadoka.Static.ObjectExtension;
-
-public static partial class ObjectExtensions
+namespace Aymadoka.Static.ObjectExtension
 {
-    public static T? NullIfEqualsAny<T>(this T @this, params T[] values) where T : class
+    public static partial class ObjectExtensions
     {
-        if (Array.IndexOf(values, @this) != -1)
+        public static T? NullIfEqualsAny<T>(this T @this, params T[] values) where T : class
         {
-            return null;
-        }
+            if (Array.IndexOf(values, @this) != -1)
+            {
+                return null;
+            }
 
-        return @this;
+            return @this;
+        }
     }
 }

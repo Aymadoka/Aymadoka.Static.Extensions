@@ -1,17 +1,18 @@
 using System;
 using System.Reflection;
 
-namespace Aymadoka.Static.ParameterInfoExtension;
-
-public static partial class ParameterInfoExtensions
+namespace Aymadoka.Static.ParameterInfoExtension
 {
-    public static Boolean IsDefined(this ParameterInfo element, Type attributeType)
+    public static partial class ParameterInfoExtensions
     {
-        return Attribute.IsDefined(element, attributeType);
-    }
+        public static Boolean IsDefined(this ParameterInfo element, Type attributeType)
+        {
+            return Attribute.IsDefined(element, attributeType);
+        }
 
-    public static Boolean IsDefined(this ParameterInfo element, Type attributeType, Boolean inherit)
-    {
-        return Attribute.IsDefined(element, attributeType, inherit);
+        public static Boolean IsDefined(this ParameterInfo element, Type attributeType, Boolean inherit)
+        {
+            return Attribute.IsDefined(element, attributeType, inherit);
+        }
     }
 }

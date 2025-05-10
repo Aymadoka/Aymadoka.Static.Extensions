@@ -1,9 +1,10 @@
-namespace Aymadoka.Static.CharExtension;
-
-public static partial class CharExtensions
+namespace Aymadoka.Static.CharExtension
 {
-    public static bool IsHighSurrogate(this char c)
+    public static partial class CharExtensions
     {
-        return char.IsHighSurrogate(c);
+        public static bool IsHighSurrogate(this char c)
+        {
+            return char.IsHighSurrogate(c);
+        }
     }
 }

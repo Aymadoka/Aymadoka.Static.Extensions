@@ -1,11 +1,12 @@
 using System.Linq;
 
-namespace Aymadoka.Static.StringExtension;
-
-public static partial class StringExtensions
+namespace Aymadoka.Static.StringExtension
 {
-    public static string ExtractNumber(this string @this)
+    public static partial class StringExtensions
     {
-        return new string(@this.ToCharArray().Where(x => char.IsNumber(x)).ToArray());
+        public static string ExtractNumber(this string @this)
+        {
+            return new string(@this.ToCharArray().Where(x => char.IsNumber(x)).ToArray());
+        }
     }
 }

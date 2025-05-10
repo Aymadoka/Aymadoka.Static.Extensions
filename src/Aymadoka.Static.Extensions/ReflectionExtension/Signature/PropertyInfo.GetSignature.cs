@@ -3,28 +3,29 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 
-namespace Aymadoka.Static.ReflectionExtension;
-
-public static partial class SignatureExtensions
+namespace Aymadoka.Static.ReflectionExtension
 {
-    public static string GetSignature(this PropertyInfo @this)
+    public static partial class SignatureExtensions
     {
-        // Example: [Name | Indexer[Type]]
-
-        var indexerParameter = @this.GetIndexParameters();
-        if (indexerParameter.Length == 0)
+        public static string GetSignature(this PropertyInfo @this)
         {
-            // Name
-            return @this.Name;
+            // Example: [Name | Indexer[Type]]
+
+            var indexerParameter = @this.GetIndexParameters();
+            if (indexerParameter.Length == 0)
+            {
+                // Name
+                return @this.Name;
+            }
+            var sb = new StringBuilder();
+
+            // Indexer
+            sb.Append(@this.Name);
+            sb.Append("[");
+            sb.Append(string.Join(", ", indexerParameter.Select(x => x.ParameterType.GetShortSignature())));
+            sb.Append("]");
+
+            return sb.ToString();
         }
-        var sb = new StringBuilder();
-
-        // Indexer
-        sb.Append(@this.Name);
-        sb.Append("[");
-        sb.Append(string.Join(", ", indexerParameter.Select(x => x.ParameterType.GetShortSignature())));
-        sb.Append("]");
-
-        return sb.ToString();
     }
 }

@@ -1,11 +1,12 @@
 using System;
 
-namespace Aymadoka.Static.DateTimeOffsetExtension;
-
-public static partial class DateTimeOffsetExtensions
+namespace Aymadoka.Static.DateTimeOffsetExtension
 {
-    public static DateTimeOffset ConvertTime(this DateTimeOffset dateTimeOffset, TimeZoneInfo destinationTimeZone)
+    public static partial class DateTimeOffsetExtensions
     {
-        return TimeZoneInfo.ConvertTime(dateTimeOffset, destinationTimeZone);
+        public static DateTimeOffset ConvertTime(this DateTimeOffset dateTimeOffset, TimeZoneInfo destinationTimeZone)
+        {
+            return TimeZoneInfo.ConvertTime(dateTimeOffset, destinationTimeZone);
+        }
     }
 }

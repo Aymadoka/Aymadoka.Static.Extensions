@@ -1,30 +1,31 @@
 using System;
 
-namespace Aymadoka.Static.StringExtension;
-
-public static partial class StringExtensions
+namespace Aymadoka.Static.StringExtension
 {
-    public static bool ContainsAny(this string @this, params string[] values)
+    public static partial class StringExtensions
     {
-        foreach (string value in values)
+        public static bool ContainsAny(this string @this, params string[] values)
         {
-            if (@this.IndexOf(value) != -1)
+            foreach (string value in values)
             {
-                return true;
+                if (@this.IndexOf(value) != -1)
+                {
+                    return true;
+                }
             }
+            return false;
         }
-        return false;
-    }
 
-    public static bool ContainsAny(this string @this, StringComparison comparisonType, params string[] values)
-    {
-        foreach (string value in values)
+        public static bool ContainsAny(this string @this, StringComparison comparisonType, params string[] values)
         {
-            if (@this.IndexOf(value, comparisonType) != -1)
+            foreach (string value in values)
             {
-                return true;
+                if (@this.IndexOf(value, comparisonType) != -1)
+                {
+                    return true;
+                }
             }
+            return false;
         }
-        return false;
     }
 }

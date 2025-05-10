@@ -1,60 +1,61 @@
 using System;
 
-namespace Aymadoka.Static.ObjectExtension;
-
-public static partial class ObjectExtensions
+namespace Aymadoka.Static.ObjectExtension
 {
-    public static T? CoalesceOrDefault<T>(this T? @this, params T[] values) where T : class
+    public static partial class ObjectExtensions
     {
-        if (@this != null)
+        public static T? CoalesceOrDefault<T>(this T? @this, params T[] values) where T : class
         {
-            return @this;
-        }
-
-        foreach (T value in values)
-        {
-            if (value != null)
+            if (@this != null)
             {
-                return value;
+                return @this;
             }
-        }
 
-        return default;
-    }
+            foreach (T value in values)
+            {
+                if (value != null)
+                {
+                    return value;
+                }
+            }
+
+            return default;
+        }
     
-    public static T? CoalesceOrDefault<T>(this T? @this, Func<T?> defaultValueFactory, params T[] values) where T : class
-    {
-        if (@this != null)
+        public static T? CoalesceOrDefault<T>(this T? @this, Func<T?> defaultValueFactory, params T[] values) where T : class
         {
-            return @this;
-        }
-
-        foreach (T value in values)
-        {
-            if (value != null)
+            if (@this != null)
             {
-                return value;
+                return @this;
             }
-        }
 
-        return defaultValueFactory();
-    }
-
-    public static T? CoalesceOrDefault<T>(this T? @this, Func<T?, T?> defaultValueFactory, params T[] values) where T : class
-    {
-        if (@this != null)
-        {
-            return @this;
-        }
-
-        foreach (T value in values)
-        {
-            if (value != null)
+            foreach (T value in values)
             {
-                return value;
+                if (value != null)
+                {
+                    return value;
+                }
             }
+
+            return defaultValueFactory();
         }
 
-        return defaultValueFactory(@this);
+        public static T? CoalesceOrDefault<T>(this T? @this, Func<T?, T?> defaultValueFactory, params T[] values) where T : class
+        {
+            if (@this != null)
+            {
+                return @this;
+            }
+
+            foreach (T value in values)
+            {
+                if (value != null)
+                {
+                    return value;
+                }
+            }
+
+            return defaultValueFactory(@this);
+        }
     }
 }

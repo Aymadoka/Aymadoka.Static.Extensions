@@ -1,11 +1,12 @@
 using System.Web;
 
-namespace Aymadoka.Static.StringExtension;
-
-public static partial class StringExtensions
+namespace Aymadoka.Static.StringExtension
 {
-    public static string UrlPathEncode(this string str)
+    public static partial class StringExtensions
     {
-        return HttpUtility.UrlPathEncode(str);
+        public static string UrlPathEncode(this string str)
+        {
+            return HttpUtility.UrlPathEncode(str);
+        }
     }
 }

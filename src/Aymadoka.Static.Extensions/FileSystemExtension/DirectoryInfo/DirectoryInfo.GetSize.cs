@@ -2,12 +2,13 @@ using System;
 using System.IO;
 using System.Linq;
 
-namespace Aymadoka.Static.DirectoryInfoExtension;
-
-public static partial class DirectoryInfoExtensions
+namespace Aymadoka.Static.DirectoryInfoExtension
 {
-    public static long GetSize(this DirectoryInfo @this)
+    public static partial class DirectoryInfoExtensions
     {
-        return @this.GetFiles("*.*", SearchOption.AllDirectories).Sum(x => x.Length);
+        public static long GetSize(this DirectoryInfo @this)
+        {
+            return @this.GetFiles("*.*", SearchOption.AllDirectories).Sum(x => x.Length);
+        }
     }
 }

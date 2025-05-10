@@ -6,46 +6,48 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Aymadoka.Static.DataExtension;
-
-public static partial class DataExtensions
+namespace Aymadoka.Static.DataExtension
 {
-    public static bool ContainsColumn(this IDataReader @this, int columnIndex)
-    {
-        try
-        {
-            // Check if FieldCount is implemented first
-            return @this.FieldCount > columnIndex;
-        }
-        catch (Exception)
-        {
-            try
-            {
-                return @this[columnIndex] != null;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-        }
-    }
 
-    public static bool ContainsColumn(this IDataReader @this, string columnName)
+    public static partial class DataExtensions
     {
-        try
-        {
-            // Check if GetOrdinal is implemented first
-            return @this.GetOrdinal(columnName) != -1;
-        }
-        catch (Exception)
+        public static bool ContainsColumn(this IDataReader @this, int columnIndex)
         {
             try
             {
-                return @this[columnName] != null;
+                // Check if FieldCount is implemented first
+                return @this.FieldCount > columnIndex;
             }
             catch (Exception)
             {
-                return false;
+                try
+                {
+                    return @this[columnIndex] != null;
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+            }
+        }
+
+        public static bool ContainsColumn(this IDataReader @this, string columnName)
+        {
+            try
+            {
+                // Check if GetOrdinal is implemented first
+                return @this.GetOrdinal(columnName) != -1;
+            }
+            catch (Exception)
+            {
+                try
+                {
+                    return @this[columnName] != null;
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
             }
         }
     }

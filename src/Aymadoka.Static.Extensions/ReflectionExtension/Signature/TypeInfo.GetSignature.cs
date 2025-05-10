@@ -3,46 +3,47 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 
-namespace Aymadoka.Static.ReflectionExtension;
-
-public static partial class SignatureExtensions
+namespace Aymadoka.Static.ReflectionExtension
 {
-    public static string GetSignature(this Type @this)
+    public static partial class SignatureExtensions
     {
-        // Example: [Visibility] [Modifier] [Type] [Name] [<GenericArguments>] [:] [Inherited Class] [Inherited Interface]
-        var sb = new StringBuilder();
-
-        // Variable
-        bool hasInheritedClass = false;
-
-        // Name
-        sb.Append(@this.IsGenericType ? @this.Name.Substring(0, @this.Name.IndexOf('`')) : @this.Name);
-
-        // GenericArguments
-        if (@this.IsGenericType)
+        public static string GetSignature(this Type @this)
         {
-            Type[] arguments = @this.GetGenericArguments();
-            sb.Append("<");
-            sb.Append(string.Join(", ", arguments.Select(x =>
+            // Example: [Visibility] [Modifier] [Type] [Name] [<GenericArguments>] [:] [Inherited Class] [Inherited Interface]
+            var sb = new StringBuilder();
+
+            // Variable
+            bool hasInheritedClass = false;
+
+            // Name
+            sb.Append(@this.IsGenericType ? @this.Name.Substring(0, @this.Name.IndexOf('`')) : @this.Name);
+
+            // GenericArguments
+            if (@this.IsGenericType)
             {
-                Type[] constraints = x.GetGenericParameterConstraints();
-
-                foreach (Type constraint in constraints)
+                Type[] arguments = @this.GetGenericArguments();
+                sb.Append("<");
+                sb.Append(string.Join(", ", arguments.Select(x =>
                 {
-                    GenericParameterAttributes gpa = constraint.GenericParameterAttributes;
-                    GenericParameterAttributes variance = gpa & GenericParameterAttributes.VarianceMask;
+                    Type[] constraints = x.GetGenericParameterConstraints();
 
-                    if (variance != GenericParameterAttributes.None)
+                    foreach (Type constraint in constraints)
                     {
-                        sb.Append((variance & GenericParameterAttributes.Covariant) != 0 ? "in " : "out ");
+                        GenericParameterAttributes gpa = constraint.GenericParameterAttributes;
+                        GenericParameterAttributes variance = gpa & GenericParameterAttributes.VarianceMask;
+
+                        if (variance != GenericParameterAttributes.None)
+                        {
+                            sb.Append((variance & GenericParameterAttributes.Covariant) != 0 ? "in " : "out ");
+                        }
                     }
-                }
 
-                return x.GetShortDeclaraction();
-            })));
-            sb.Append(">");
+                    return x.GetShortDeclaraction();
+                })));
+                sb.Append(">");
+            }
+
+            return sb.ToString();
         }
-
-        return sb.ToString();
     }
 }

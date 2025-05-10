@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace Aymadoka.Static.FileInfoExtension;
-
-public static partial class FileInfoExtensions
+namespace Aymadoka.Static.FileInfoExtension
 {
-    public static Boolean IsPathRooted(this FileInfo @this)
+    public static partial class FileInfoExtensions
     {
-        return Path.IsPathRooted(@this.FullName);
+        public static Boolean IsPathRooted(this FileInfo @this)
+        {
+            return Path.IsPathRooted(@this.FullName);
+        }
     }
 }

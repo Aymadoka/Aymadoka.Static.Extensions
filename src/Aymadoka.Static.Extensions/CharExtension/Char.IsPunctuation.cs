@@ -1,9 +1,10 @@
-namespace Aymadoka.Static.CharExtension;
-
-public static partial class CharExtensions
+namespace Aymadoka.Static.CharExtension
 {
-    public static bool IsPunctuation(this char c)
+    public static partial class CharExtensions
     {
-        return char.IsPunctuation(c);
+        public static bool IsPunctuation(this char c)
+        {
+            return char.IsPunctuation(c);
+        }
     }
 }

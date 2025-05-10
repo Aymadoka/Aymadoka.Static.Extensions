@@ -1,25 +1,26 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Aymadoka.Static.CharExtension;
-
-public static partial class CharExtensions
+namespace Aymadoka.Static.CharExtension
 {
-    public static IEnumerable<char> To(this char @this, char toCharacter)
+    public static partial class CharExtensions
     {
-        bool reverseRequired = (@this > toCharacter);
-
-        char first = reverseRequired ? toCharacter : @this;
-        char last = reverseRequired ? @this : toCharacter;
-
-        IEnumerable<char> result = Enumerable.Range(first, last - first + 1).Select(charCode => (char)charCode);
-
-        if (reverseRequired)
+        public static IEnumerable<char> To(this char @this, char toCharacter)
         {
-            result = result.Reverse();
+            bool reverseRequired = (@this > toCharacter);
+
+            char first = reverseRequired ? toCharacter : @this;
+            char last = reverseRequired ? @this : toCharacter;
+
+            IEnumerable<char> result = Enumerable.Range(first, last - first + 1).Select(charCode => (char)charCode);
+
+            if (reverseRequired)
+            {
+                result = result.Reverse();
+            }
+
+
+            return result;
         }
-
-
-        return result;
     }
 }

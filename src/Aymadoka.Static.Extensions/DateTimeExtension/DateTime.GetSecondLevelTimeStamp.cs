@@ -1,12 +1,13 @@
 using System;
 
-namespace Aymadoka.Static.DateTimeExtension;
-
-public static partial class DateTimeExtensions
+namespace Aymadoka.Static.DateTimeExtension
 {
-    public static long GetSecondLevelTimeStamp(this DateTime date)
+    public static partial class DateTimeExtensions
     {
-        var result = (long)(date - DateTime.UnixEpoch).TotalSeconds;
-        return result;
+        public static long GetSecondLevelTimeStamp(this DateTime date)
+        {
+            var result = (long)(date - DateTime.UnixEpoch).TotalSeconds;
+            return result;
+        }
     }
 }

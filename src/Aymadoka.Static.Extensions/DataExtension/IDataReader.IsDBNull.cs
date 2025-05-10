@@ -6,12 +6,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Aymadoka.Static.DataExtension;
-
-public static partial class DataExtensions
+namespace Aymadoka.Static.DataExtension
 {
-    public static bool IsDBNull(this IDataReader @this, string name)
+
+    public static partial class DataExtensions
     {
-        return @this.IsDBNull(@this.GetOrdinal(name));
+        public static bool IsDBNull(this IDataReader @this, string name)
+        {
+            return @this.IsDBNull(@this.GetOrdinal(name));
+        }
     }
 }

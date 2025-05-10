@@ -1,16 +1,17 @@
 using System.Reflection;
 
-namespace Aymadoka.Static.ReflectionExtension;
-
-public static partial class ObjectExtensions
+namespace Aymadoka.Static.ReflectionExtension
 {
-    public static PropertyInfo GetProperty<T>(this T @this, string name)
+    public static partial class ObjectExtensions
     {
-        return @this.GetType().GetProperty(name);
-    }
+        public static PropertyInfo GetProperty<T>(this T @this, string name)
+        {
+            return @this.GetType().GetProperty(name);
+        }
 
-    public static PropertyInfo GetProperty<T>(this T @this, string name, BindingFlags bindingAttr)
-    {
-        return @this.GetType().GetProperty(name, bindingAttr);
+        public static PropertyInfo GetProperty<T>(this T @this, string name, BindingFlags bindingAttr)
+        {
+            return @this.GetType().GetProperty(name, bindingAttr);
+        }
     }
 }

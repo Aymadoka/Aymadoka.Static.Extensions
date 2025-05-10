@@ -2,53 +2,54 @@ using System.IO;
 using System.IO.Compression;
 using System.Text;
 
-namespace Aymadoka.Static.GZipExtension;
-
-public static partial class GZipExtensions
+namespace Aymadoka.Static.GZipExtension
 {
-    public static string DecompressGZip(this byte[] @this)
+    public static partial class GZipExtensions
     {
-        const int bufferSize = 1024;
-        using (var memoryStream = new MemoryStream(@this))
+        public static string DecompressGZip(this byte[] @this)
         {
-            using (var zipStream = new GZipStream(memoryStream, CompressionMode.Decompress))
+            const int bufferSize = 1024;
+            using (var memoryStream = new MemoryStream(@this))
             {
-                // Memory stream for storing the decompressed bytes
-                using (var outStream = new MemoryStream())
+                using (var zipStream = new GZipStream(memoryStream, CompressionMode.Decompress))
                 {
-                    var buffer = new byte[bufferSize];
-                    int totalBytes = 0;
-                    int readBytes;
-                    while ((readBytes = zipStream.Read(buffer, 0, bufferSize)) > 0)
+                    // Memory stream for storing the decompressed bytes
+                    using (var outStream = new MemoryStream())
                     {
-                        outStream.Write(buffer, 0, readBytes);
-                        totalBytes += readBytes;
+                        var buffer = new byte[bufferSize];
+                        int totalBytes = 0;
+                        int readBytes;
+                        while ((readBytes = zipStream.Read(buffer, 0, bufferSize)) > 0)
+                        {
+                            outStream.Write(buffer, 0, readBytes);
+                            totalBytes += readBytes;
+                        }
+                        return Encoding.Default.GetString(outStream.GetBuffer(), 0, totalBytes);
                     }
-                    return Encoding.Default.GetString(outStream.GetBuffer(), 0, totalBytes);
                 }
             }
         }
-    }
 
-    public static string DecompressGZip(this byte[] @this, Encoding encoding)
-    {
-        const int bufferSize = 1024;
-        using (var memoryStream = new MemoryStream(@this))
+        public static string DecompressGZip(this byte[] @this, Encoding encoding)
         {
-            using (var zipStream = new GZipStream(memoryStream, CompressionMode.Decompress))
+            const int bufferSize = 1024;
+            using (var memoryStream = new MemoryStream(@this))
             {
-                // Memory stream for storing the decompressed bytes
-                using (var outStream = new MemoryStream())
+                using (var zipStream = new GZipStream(memoryStream, CompressionMode.Decompress))
                 {
-                    var buffer = new byte[bufferSize];
-                    int totalBytes = 0;
-                    int readBytes;
-                    while ((readBytes = zipStream.Read(buffer, 0, bufferSize)) > 0)
+                    // Memory stream for storing the decompressed bytes
+                    using (var outStream = new MemoryStream())
                     {
-                        outStream.Write(buffer, 0, readBytes);
-                        totalBytes += readBytes;
+                        var buffer = new byte[bufferSize];
+                        int totalBytes = 0;
+                        int readBytes;
+                        while ((readBytes = zipStream.Read(buffer, 0, bufferSize)) > 0)
+                        {
+                            outStream.Write(buffer, 0, readBytes);
+                            totalBytes += readBytes;
+                        }
+                        return encoding.GetString(outStream.GetBuffer(), 0, totalBytes);
                     }
-                    return encoding.GetString(outStream.GetBuffer(), 0, totalBytes);
                 }
             }
         }

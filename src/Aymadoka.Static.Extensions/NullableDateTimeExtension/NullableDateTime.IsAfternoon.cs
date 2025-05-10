@@ -1,18 +1,19 @@
 using Aymadoka.Static.DateTimeExtension;
 using System;
 
-namespace Aymadoka.Static.NullableDateTimeExtension;
-
-public static partial class NullableDateTimeExtensions
+namespace Aymadoka.Static.NullableDateTimeExtension
 {
-    public static bool IsAfternoon(this DateTime? @this)
+    public static partial class NullableDateTimeExtensions
     {
-        if (@this == null)
+        public static bool IsAfternoon(this DateTime? @this)
         {
-            return false;
-        }
+            if (@this == null)
+            {
+                return false;
+            }
 
-        var result = @this.Value.IsAfternoon();
-        return result;
+            var result = @this.Value.IsAfternoon();
+            return result;
+        }
     }
 }

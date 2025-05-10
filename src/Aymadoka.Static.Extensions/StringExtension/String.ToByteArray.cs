@@ -1,13 +1,14 @@
 using System.Text;
 using System;
 
-namespace Aymadoka.Static.StringExtension;
-
-public static partial class StringExtensions
+namespace Aymadoka.Static.StringExtension
 {
-    public static byte[] ToByteArray(this string @this)
+    public static partial class StringExtensions
     {
-        var encoding = Activator.CreateInstance<UTF8Encoding>();
-        return encoding.GetBytes(@this);
+        public static byte[] ToByteArray(this string @this)
+        {
+            var encoding = Activator.CreateInstance<UTF8Encoding>();
+            return encoding.GetBytes(@this);
+        }
     }
 }

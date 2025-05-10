@@ -1,17 +1,18 @@
 using Aymadoka.Static.DateTimeOffsetExtension;
 using System;
 
-namespace Aymadoka.Static.NullableDateTimeOffsetExtension;
-
-public static partial class NullableDateTimeOffsetExtensions
+namespace Aymadoka.Static.NullableDateTimeOffsetExtension
 {
-    public static TimeSpan? ToEpochTimeSpan(this DateTimeOffset? @this)
+    public static partial class NullableDateTimeOffsetExtensions
     {
-        if (@this == null)
+        public static TimeSpan? ToEpochTimeSpan(this DateTimeOffset? @this)
         {
-            return null;
-        }
+            if (@this == null)
+            {
+                return null;
+            }
 
-        return @this.Value.ToEpochTimeSpan();
+            return @this.Value.ToEpochTimeSpan();
+        }
     }
 }

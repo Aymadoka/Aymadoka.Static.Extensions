@@ -1,17 +1,18 @@
 using System.Text;
 using System.Web;
 
-namespace Aymadoka.Static.StringExtension;
-
-public static partial class StringExtensions
+namespace Aymadoka.Static.StringExtension
 {
-    public static byte[] UrlEncodeToBytes(this string str)
+    public static partial class StringExtensions
     {
-        return HttpUtility.UrlEncodeToBytes(str);
-    }
+        public static byte[] UrlEncodeToBytes(this string str)
+        {
+            return HttpUtility.UrlEncodeToBytes(str);
+        }
 
-    public static byte[] UrlEncodeToBytes(this string str, Encoding e)
-    {
-        return HttpUtility.UrlEncodeToBytes(str, e);
+        public static byte[] UrlEncodeToBytes(this string str, Encoding e)
+        {
+            return HttpUtility.UrlEncodeToBytes(str, e);
+        }
     }
 }

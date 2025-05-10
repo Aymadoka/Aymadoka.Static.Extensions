@@ -1,12 +1,13 @@
 using System;
 
-namespace Aymadoka.Static.DateTimeExtension;
-
-public static partial class DateTimeExtensions
+namespace Aymadoka.Static.DateTimeExtension
 {
-    public static bool IsWeekDay(this DateTime @this)
+    public static partial class DateTimeExtensions
     {
-        var result = !@this.IsWeekendDay();
-        return result;
+        public static bool IsWeekDay(this DateTime @this)
+        {
+            var result = !@this.IsWeekendDay();
+            return result;
+        }
     }
 }

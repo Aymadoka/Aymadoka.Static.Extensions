@@ -1,9 +1,10 @@
-namespace Aymadoka.Static.CharExtension;
-
-public static partial class CharExtensions
+namespace Aymadoka.Static.CharExtension
 {
-    public static bool IsLetterOrDigit(this char c)
+    public static partial class CharExtensions
     {
-        return char.IsLetterOrDigit(c);
+        public static bool IsLetterOrDigit(this char c)
+        {
+            return char.IsLetterOrDigit(c);
+        }
     }
 }

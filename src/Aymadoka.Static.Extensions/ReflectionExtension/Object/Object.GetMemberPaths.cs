@@ -2,34 +2,35 @@ using System.Collections.Generic;
 using System;
 using System.Reflection;
 
-namespace Aymadoka.Static.ReflectionExtension;
-
-public static partial class ObjectExtensions
+namespace Aymadoka.Static.ReflectionExtension
 {
-    public static MemberInfo[] GetMemberPaths<T>(this T @this, string path)
+    public static partial class ObjectExtensions
     {
-        Type lastType = @this.GetType();
-        string[] paths = path.Split('.');
-
-        var memberPaths = new List<MemberInfo>();
-
-        foreach (string item in paths)
+        public static MemberInfo[] GetMemberPaths<T>(this T @this, string path)
         {
-            PropertyInfo propertyInfo = lastType.GetProperty(item);
-            FieldInfo fieldInfo = lastType.GetField(item);
+            Type lastType = @this.GetType();
+            string[] paths = path.Split('.');
 
-            if (propertyInfo != null)
+            var memberPaths = new List<MemberInfo>();
+
+            foreach (string item in paths)
             {
-                memberPaths.Add(propertyInfo);
-                lastType = propertyInfo.PropertyType;
+                PropertyInfo propertyInfo = lastType.GetProperty(item);
+                FieldInfo fieldInfo = lastType.GetField(item);
+
+                if (propertyInfo != null)
+                {
+                    memberPaths.Add(propertyInfo);
+                    lastType = propertyInfo.PropertyType;
+                }
+                if (fieldInfo != null)
+                {
+                    memberPaths.Add(fieldInfo);
+                    lastType = fieldInfo.FieldType;
+                }
             }
-            if (fieldInfo != null)
-            {
-                memberPaths.Add(fieldInfo);
-                lastType = fieldInfo.FieldType;
-            }
+
+            return memberPaths.ToArray();
         }
-
-        return memberPaths.ToArray();
     }
 }

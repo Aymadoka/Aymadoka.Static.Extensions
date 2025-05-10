@@ -1,28 +1,29 @@
-namespace Aymadoka.Static.StringExtension;
-
-public static partial class StringExtensions
+namespace Aymadoka.Static.StringExtension
 {
-    public static string Truncate(this string @this, int maxLength)
+    public static partial class StringExtensions
     {
-        const string suffix = "...";
-
-        if (@this == null || @this.Length <= maxLength)
+        public static string Truncate(this string @this, int maxLength)
         {
-            return @this;
+            const string suffix = "...";
+
+            if (@this == null || @this.Length <= maxLength)
+            {
+                return @this;
+            }
+
+            int strLength = maxLength - suffix.Length;
+            return @this.Substring(0, strLength) + suffix;
         }
 
-        int strLength = maxLength - suffix.Length;
-        return @this.Substring(0, strLength) + suffix;
-    }
-
-    public static string Truncate(this string @this, int maxLength, string suffix)
-    {
-        if (@this == null || @this.Length <= maxLength)
+        public static string Truncate(this string @this, int maxLength, string suffix)
         {
-            return @this;
-        }
+            if (@this == null || @this.Length <= maxLength)
+            {
+                return @this;
+            }
 
-        int strLength = maxLength - suffix.Length;
-        return @this.Substring(0, strLength) + suffix;
+            int strLength = maxLength - suffix.Length;
+            return @this.Substring(0, strLength) + suffix;
+        }
     }
 }

@@ -1,14 +1,15 @@
 using System.IO;
 
-namespace Aymadoka.Static.StreamReaderExtension;
-
-public static partial class StreamReaderExtensions
+namespace Aymadoka.Static.StreamReaderExtension
 {
-    public static void SkipLines(this StreamReader @this, int skipCount)
+    public static partial class StreamReaderExtensions
     {
-        for (var i = 0; i < skipCount && !@this.EndOfStream; i++)
+        public static void SkipLines(this StreamReader @this, int skipCount)
         {
-            @this.ReadLine();
+            for (var i = 0; i < skipCount && !@this.EndOfStream; i++)
+            {
+                @this.ReadLine();
+            }
         }
     }
 }

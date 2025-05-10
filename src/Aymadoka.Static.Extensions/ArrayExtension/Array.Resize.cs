@@ -1,12 +1,13 @@
 using System;
 
-namespace Aymadoka.Static.ArrayExtension;
-
-public static partial class ArrayExtensions
+namespace Aymadoka.Static.ArrayExtension
 {
-    public static byte[] Resize(this byte[] @this, int newSize)
+    public static partial class ArrayExtensions
     {
-        Array.Resize(ref @this, newSize);
-        return @this;
+        public static byte[] Resize(this byte[] @this, int newSize)
+        {
+            Array.Resize(ref @this, newSize);
+            return @this;
+        }
     }
 }

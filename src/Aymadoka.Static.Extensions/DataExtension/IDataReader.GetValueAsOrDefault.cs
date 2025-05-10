@@ -6,79 +6,81 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Aymadoka.Static.DataExtension;
-
-public static partial class DataExtensions
+namespace Aymadoka.Static.DataExtension
 {
-    public static T GetValueAsOrDefault<T>(this IDataReader @this, int index)
-    {
-        try
-        {
-            return (T)@this.GetValue(index);
-        }
-        catch
-        {
-            return default(T);
-        }
-    }
 
-    public static T GetValueAsOrDefault<T>(this IDataReader @this, int index, T defaultValue)
+    public static partial class DataExtensions
     {
-        try
+        public static T GetValueAsOrDefault<T>(this IDataReader @this, int index)
         {
-            return (T)@this.GetValue(index);
+            try
+            {
+                return (T)@this.GetValue(index);
+            }
+            catch
+            {
+                return default(T);
+            }
         }
-        catch
-        {
-            return defaultValue;
-        }
-    }
 
-    public static T GetValueAsOrDefault<T>(this IDataReader @this, int index, Func<IDataReader, int, T> defaultValueFactory)
-    {
-        try
+        public static T GetValueAsOrDefault<T>(this IDataReader @this, int index, T defaultValue)
         {
-            return (T)@this.GetValue(index);
+            try
+            {
+                return (T)@this.GetValue(index);
+            }
+            catch
+            {
+                return defaultValue;
+            }
         }
-        catch
-        {
-            return defaultValueFactory(@this, index);
-        }
-    }
 
-    public static T GetValueAsOrDefault<T>(this IDataReader @this, string columnName)
-    {
-        try
+        public static T GetValueAsOrDefault<T>(this IDataReader @this, int index, Func<IDataReader, int, T> defaultValueFactory)
         {
-            return (T)@this.GetValue(@this.GetOrdinal(columnName));
+            try
+            {
+                return (T)@this.GetValue(index);
+            }
+            catch
+            {
+                return defaultValueFactory(@this, index);
+            }
         }
-        catch
-        {
-            return default(T);
-        }
-    }
 
-    public static T GetValueAsOrDefault<T>(this IDataReader @this, string columnName, T defaultValue)
-    {
-        try
+        public static T GetValueAsOrDefault<T>(this IDataReader @this, string columnName)
         {
-            return (T)@this.GetValue(@this.GetOrdinal(columnName));
+            try
+            {
+                return (T)@this.GetValue(@this.GetOrdinal(columnName));
+            }
+            catch
+            {
+                return default(T);
+            }
         }
-        catch
-        {
-            return defaultValue;
-        }
-    }
 
-    public static T GetValueAsOrDefault<T>(this IDataReader @this, string columnName, Func<IDataReader, string, T> defaultValueFactory)
-    {
-        try
+        public static T GetValueAsOrDefault<T>(this IDataReader @this, string columnName, T defaultValue)
         {
-            return (T)@this.GetValue(@this.GetOrdinal(columnName));
+            try
+            {
+                return (T)@this.GetValue(@this.GetOrdinal(columnName));
+            }
+            catch
+            {
+                return defaultValue;
+            }
         }
-        catch
+
+        public static T GetValueAsOrDefault<T>(this IDataReader @this, string columnName, Func<IDataReader, string, T> defaultValueFactory)
         {
-            return defaultValueFactory(@this, columnName);
+            try
+            {
+                return (T)@this.GetValue(@this.GetOrdinal(columnName));
+            }
+            catch
+            {
+                return defaultValueFactory(@this, columnName);
+            }
         }
     }
 }

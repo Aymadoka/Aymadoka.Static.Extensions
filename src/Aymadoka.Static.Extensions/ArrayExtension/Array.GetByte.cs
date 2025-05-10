@@ -1,11 +1,12 @@
 using System;
 
-namespace Aymadoka.Static.ArrayExtension;
-
-public static partial class ArrayExtensions
+namespace Aymadoka.Static.ArrayExtension
 {
-    public static byte GetByte<T>(this T[] array, int index)
+    public static partial class ArrayExtensions
     {
-        return Buffer.GetByte(array, index);
+        public static byte GetByte<T>(this T[] array, int index)
+        {
+            return Buffer.GetByte(array, index);
+        }
     }
 }

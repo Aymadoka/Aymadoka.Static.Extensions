@@ -1,9 +1,10 @@
-namespace Aymadoka.Static.CharExtension;
-
-public static partial class CharExtensions
+namespace Aymadoka.Static.CharExtension
 {
-    public static string Repeat(this char @this, int repeatCount)
+    public static partial class CharExtensions
     {
-        return new string(@this, repeatCount);
+        public static string Repeat(this char @this, int repeatCount)
+        {
+            return new string(@this, repeatCount);
+        }
     }
 }

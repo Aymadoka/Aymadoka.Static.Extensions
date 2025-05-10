@@ -6,12 +6,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Aymadoka.Static.DataExtension;
-
-public static partial class DataExtensions
+namespace Aymadoka.Static.DataExtension
 {
-    public static bool IsConnectionOpen(this DbConnection @this)
+
+    public static partial class DataExtensions
     {
-        return @this.State == ConnectionState.Open;
+        public static bool IsConnectionOpen(this DbConnection @this)
+        {
+            return @this.State == ConnectionState.Open;
+        }
     }
 }

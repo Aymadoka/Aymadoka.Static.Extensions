@@ -1,17 +1,18 @@
 using System.IO;
 using System.Web;
 
-namespace Aymadoka.Static.StringExtension;
-
-public static partial class StringExtensions
+namespace Aymadoka.Static.StringExtension
 {
-    public static string HtmlAttributeEncode(this string s)
+    public static partial class StringExtensions
     {
-        return HttpUtility.HtmlAttributeEncode(s);
-    }
+        public static string HtmlAttributeEncode(this string s)
+        {
+            return HttpUtility.HtmlAttributeEncode(s);
+        }
 
-    public static void HtmlAttributeEncode(this string s, TextWriter output)
-    {
-        HttpUtility.HtmlAttributeEncode(s, output);
+        public static void HtmlAttributeEncode(this string s, TextWriter output)
+        {
+            HttpUtility.HtmlAttributeEncode(s, output);
+        }
     }
 }

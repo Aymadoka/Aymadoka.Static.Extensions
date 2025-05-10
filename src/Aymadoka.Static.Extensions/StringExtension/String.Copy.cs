@@ -1,16 +1,17 @@
 using System;
 
-namespace Aymadoka.Static.StringExtension;
-
-public static partial class StringExtensions
+namespace Aymadoka.Static.StringExtension
 {
-    public static string? Copy(this string? str)
+    public static partial class StringExtensions
     {
-        if (str == null)
+        public static string? Copy(this string? str)
         {
-            return null;
-        }
+            if (str == null)
+            {
+                return null;
+            }
 
-        return new string(str.ToCharArray());
+            return new string(str.ToCharArray());
+        }
     }
 }

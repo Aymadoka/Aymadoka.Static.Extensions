@@ -1,11 +1,12 @@
 using System;
 
-namespace Aymadoka.Static.ObjectExtension;
-
-public static partial class ObjectExtensions
+namespace Aymadoka.Static.ObjectExtension
 {
-    public static bool In<T>(this T @this, params T[] values)
+    public static partial class ObjectExtensions
     {
-        return Array.IndexOf(values, @this) != -1;
+        public static bool In<T>(this T @this, params T[] values)
+        {
+            return Array.IndexOf(values, @this) != -1;
+        }
     }
 }

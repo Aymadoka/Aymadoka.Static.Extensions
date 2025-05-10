@@ -5,31 +5,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Aymadoka.Static.DataExtension;
-
-public static partial class DataExtensions
+namespace Aymadoka.Static.DataExtension
 {
-    public static DbParameter[] ToDbParameters(this IDictionary<string, object> @this, DbCommand command)
+    public static partial class DataExtensions
     {
-        return @this.Select(x =>
+        public static DbParameter[] ToDbParameters(this IDictionary<string, object> @this, DbCommand command)
         {
-            DbParameter parameter = command.CreateParameter();
-            parameter.ParameterName = x.Key;
-            parameter.Value = x.Value;
-            return parameter;
-        }).ToArray();
-    }
+            return @this.Select(x =>
+            {
+                DbParameter parameter = command.CreateParameter();
+                parameter.ParameterName = x.Key;
+                parameter.Value = x.Value;
+                return parameter;
+            }).ToArray();
+        }
 
-    public static DbParameter[] ToDbParameters(this IDictionary<string, object> @this, DbConnection connection)
-    {
-        DbCommand command = connection.CreateCommand();
-
-        return @this.Select(x =>
+        public static DbParameter[] ToDbParameters(this IDictionary<string, object> @this, DbConnection connection)
         {
-            DbParameter parameter = command.CreateParameter();
-            parameter.ParameterName = x.Key;
-            parameter.Value = x.Value;
-            return parameter;
-        }).ToArray();
+            DbCommand command = connection.CreateCommand();
+
+            return @this.Select(x =>
+            {
+                DbParameter parameter = command.CreateParameter();
+                parameter.ParameterName = x.Key;
+                parameter.Value = x.Value;
+                return parameter;
+            }).ToArray();
+        }
     }
 }

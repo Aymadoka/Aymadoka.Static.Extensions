@@ -1,20 +1,21 @@
 using System;
 using System.Text;
 
-namespace Aymadoka.Static.StringBuilderExtension;
-
-public static partial class StringBuilderExtensions
+namespace Aymadoka.Static.StringBuilderExtension
 {
-    public static StringBuilder AppendLineIf<T>(this StringBuilder @this, Func<T, bool> predicate, params T[] values)
+    public static partial class StringBuilderExtensions
     {
-        foreach (var value in values)
+        public static StringBuilder AppendLineIf<T>(this StringBuilder @this, Func<T, bool> predicate, params T[] values)
         {
-            if (predicate(value))
+            foreach (var value in values)
             {
-                @this.AppendLine(value.ToString());
+                if (predicate(value))
+                {
+                    @this.AppendLine(value.ToString());
+                }
             }
-        }
 
-        return @this;
+            return @this;
+        }
     }
 }

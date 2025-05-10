@@ -1,18 +1,19 @@
 using System;
 
-namespace Aymadoka.Static.DateTimeExtension;
-
-public static partial class DateTimeExtensions
+namespace Aymadoka.Static.DateTimeExtension
 {
-    public static int Age(this DateTime @this)
+    public static partial class DateTimeExtensions
     {
-        if (DateTime.Today.Month < @this.Month ||
-            DateTime.Today.Month == @this.Month &&
-            DateTime.Today.Day < @this.Day)
+        public static int Age(this DateTime @this)
         {
-            return DateTime.Today.Year - @this.Year - 1;
-        }
+            if (DateTime.Today.Month < @this.Month ||
+                DateTime.Today.Month == @this.Month &&
+                DateTime.Today.Day < @this.Day)
+            {
+                return DateTime.Today.Year - @this.Year - 1;
+            }
 
-        return DateTime.Today.Year - @this.Year;
+            return DateTime.Today.Year - @this.Year;
+        }
     }
 }

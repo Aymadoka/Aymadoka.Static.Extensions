@@ -1,11 +1,12 @@
 using System;
 
-namespace Aymadoka.Static.CharExtension;
-
-public static partial class CharExtensions
+namespace Aymadoka.Static.CharExtension
 {
-    public static bool IsLowSurrogate(this char c)
+    public static partial class CharExtensions
     {
-        return char.IsLowSurrogate(c);
+        public static bool IsLowSurrogate(this char c)
+        {
+            return char.IsLowSurrogate(c);
+        }
     }
 }

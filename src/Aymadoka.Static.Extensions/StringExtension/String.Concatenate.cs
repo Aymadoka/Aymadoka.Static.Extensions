@@ -2,30 +2,31 @@ using System.Collections.Generic;
 using System.Text;
 using System;
 
-namespace Aymadoka.Static.StringExtension;
-
-public static partial class StringExtensions
+namespace Aymadoka.Static.StringExtension
 {
-    public static string Concatenate(this IEnumerable<string> @this)
+    public static partial class StringExtensions
     {
-        var sb = new StringBuilder();
-
-        foreach (var s in @this)
+        public static string Concatenate(this IEnumerable<string> @this)
         {
-            sb.Append(s);
+            var sb = new StringBuilder();
+
+            foreach (var s in @this)
+            {
+                sb.Append(s);
+            }
+
+            return sb.ToString();
         }
 
-        return sb.ToString();
-    }
-
-    public static string Concatenate<T>(this IEnumerable<T> source, Func<T, string> func)
-    {
-        var sb = new StringBuilder();
-        foreach (var item in source)
+        public static string Concatenate<T>(this IEnumerable<T> source, Func<T, string> func)
         {
-            sb.Append(func(item));
-        }
+            var sb = new StringBuilder();
+            foreach (var item in source)
+            {
+                sb.Append(func(item));
+            }
 
-        return sb.ToString();
+            return sb.ToString();
+        }
     }
 }

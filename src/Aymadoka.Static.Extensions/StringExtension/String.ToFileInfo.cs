@@ -1,11 +1,12 @@
 using System.IO;
 
-namespace Aymadoka.Static.StringExtension;
-
-public static partial class StringExtensions
+namespace Aymadoka.Static.StringExtension
 {
-    public static FileInfo ToFileInfo(this string @this)
+    public static partial class StringExtensions
     {
-        return new FileInfo(@this);
+        public static FileInfo ToFileInfo(this string @this)
+        {
+            return new FileInfo(@this);
+        }
     }
 }

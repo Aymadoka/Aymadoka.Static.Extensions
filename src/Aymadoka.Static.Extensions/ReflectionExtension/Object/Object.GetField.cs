@@ -1,16 +1,17 @@
 using System.Reflection;
 
-namespace Aymadoka.Static.ReflectionExtension;
-
-public static partial class ObjectExtensions
+namespace Aymadoka.Static.ReflectionExtension
 {
-    public static FieldInfo GetField<T>(this T @this, string name)
+    public static partial class ObjectExtensions
     {
-        return @this.GetType().GetField(name);
-    }
+        public static FieldInfo GetField<T>(this T @this, string name)
+        {
+            return @this.GetType().GetField(name);
+        }
 
-    public static FieldInfo GetField<T>(this T @this, string name, BindingFlags bindingAttr)
-    {
-        return @this.GetType().GetField(name, bindingAttr);
+        public static FieldInfo GetField<T>(this T @this, string name, BindingFlags bindingAttr)
+        {
+            return @this.GetType().GetField(name, bindingAttr);
+        }
     }
 }

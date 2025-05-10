@@ -1,9 +1,10 @@
-namespace Aymadoka.Static.CharExtension;
-
-public static partial class CharExtensions
+namespace Aymadoka.Static.CharExtension
 {
-    public static string ToString(this char c)
+    public static partial class CharExtensions
     {
-        return char.ToString(c);
+        public static string ToString(this char c)
+        {
+            return char.ToString(c);
+        }
     }
 }

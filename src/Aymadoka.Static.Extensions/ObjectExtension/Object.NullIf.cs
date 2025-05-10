@@ -1,16 +1,17 @@
 using System;
 
-namespace Aymadoka.Static.ObjectExtension;
-
-public static partial class ObjectExtensions
+namespace Aymadoka.Static.ObjectExtension
 {
-    public static T? NullIf<T>(this T @this, Func<T, bool> predicate) where T : class
+    public static partial class ObjectExtensions
     {
-        if (predicate(@this))
+        public static T? NullIf<T>(this T @this, Func<T, bool> predicate) where T : class
         {
-            return null;
-        }
+            if (predicate(@this))
+            {
+                return null;
+            }
 
-        return @this;
+            return @this;
+        }
     }
 }

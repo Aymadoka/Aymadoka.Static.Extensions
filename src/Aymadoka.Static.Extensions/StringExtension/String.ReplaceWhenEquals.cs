@@ -1,9 +1,10 @@
-namespace Aymadoka.Static.StringExtension;
-
-public static partial class StringExtensions
+namespace Aymadoka.Static.StringExtension
 {
-    public static string ReplaceWhenEquals(this string @this, string oldValue, string newValue)
+    public static partial class StringExtensions
     {
-        return @this == oldValue ? newValue : @this;
+        public static string ReplaceWhenEquals(this string @this, string oldValue, string newValue)
+        {
+            return @this == oldValue ? newValue : @this;
+        }
     }
 }

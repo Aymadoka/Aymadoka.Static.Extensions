@@ -1,11 +1,12 @@
 using System;
 
-namespace Aymadoka.Static.ArrayExtension;
-
-public static partial class ArrayExtensions
+namespace Aymadoka.Static.ArrayExtension
 {
-    public static void SetByte<T>(this T[] array, int index, byte value)
+    public static partial class ArrayExtensions
     {
-        Buffer.SetByte(array, index, value);
+        public static void SetByte<T>(this T[] array, int index, byte value)
+        {
+            Buffer.SetByte(array, index, value);
+        }
     }
 }

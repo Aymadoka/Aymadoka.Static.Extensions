@@ -1,11 +1,12 @@
-namespace Aymadoka.Static.StringExtension;
-
-public static partial class StringExtensions
+namespace Aymadoka.Static.StringExtension
 {
-    public static string Replace(this string @this, int startIndex, int length, string value)
+    public static partial class StringExtensions
     {
-        @this = @this.Remove(startIndex, length).Insert(startIndex, value);
+        public static string Replace(this string @this, int startIndex, int length, string value)
+        {
+            @this = @this.Remove(startIndex, length).Insert(startIndex, value);
 
-        return @this;
+            return @this;
+        }
     }
 }

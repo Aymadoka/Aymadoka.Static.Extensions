@@ -8,43 +8,44 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Aymadoka.Static.DataExtension;
-
-public static partial class DataExtensions
+namespace Aymadoka.Static.DataExtension
 {
-    public static IEnumerable<T> ToEntities<T>(this DataTable @this) where T : new()
+    public static partial class DataExtensions
     {
-        Type type = typeof(T);
-        PropertyInfo[] properties = type.GetProperties(BindingFlags.Public | BindingFlags.Instance);
-        FieldInfo[] fields = type.GetFields(BindingFlags.Public | BindingFlags.Instance);
-
-        var list = new List<T>();
-
-        foreach (DataRow dr in @this.Rows)
+        public static IEnumerable<T> ToEntities<T>(this DataTable @this) where T : new()
         {
-            var entity = new T();
+            Type type = typeof(T);
+            PropertyInfo[] properties = type.GetProperties(BindingFlags.Public | BindingFlags.Instance);
+            FieldInfo[] fields = type.GetFields(BindingFlags.Public | BindingFlags.Instance);
 
-            foreach (PropertyInfo property in properties)
+            var list = new List<T>();
+
+            foreach (DataRow dr in @this.Rows)
             {
-                if (@this.Columns.Contains(property.Name))
+                var entity = new T();
+
+                foreach (PropertyInfo property in properties)
                 {
-                    Type valueType = property.PropertyType;
-                    property.SetValue(entity, dr[property.Name].To(valueType), null);
+                    if (@this.Columns.Contains(property.Name))
+                    {
+                        Type valueType = property.PropertyType;
+                        property.SetValue(entity, dr[property.Name].To(valueType), null);
+                    }
                 }
+
+                foreach (FieldInfo field in fields)
+                {
+                    if (@this.Columns.Contains(field.Name))
+                    {
+                        Type valueType = field.FieldType;
+                        field.SetValue(entity, dr[field.Name].To(valueType));
+                    }
+                }
+
+                list.Add(entity);
             }
 
-            foreach (FieldInfo field in fields)
-            {
-                if (@this.Columns.Contains(field.Name))
-                {
-                    Type valueType = field.FieldType;
-                    field.SetValue(entity, dr[field.Name].To(valueType));
-                }
-            }
-
-            list.Add(entity);
+            return list;
         }
-
-        return list;
     }
 }

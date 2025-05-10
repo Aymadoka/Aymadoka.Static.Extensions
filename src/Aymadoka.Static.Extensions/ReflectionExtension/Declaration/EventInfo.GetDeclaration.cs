@@ -1,11 +1,12 @@
 using System.Reflection;
 
-namespace Aymadoka.Static.ReflectionExtension;
-
-public static partial class DeclarationExtensions
+namespace Aymadoka.Static.ReflectionExtension
 {
-    public static string? GetDeclaraction(this EventInfo @this)
+    public static partial class DeclarationExtensions
     {
-        return null;
+        public static string? GetDeclaraction(this EventInfo @this)
+        {
+            return null;
+        }
     }
 }

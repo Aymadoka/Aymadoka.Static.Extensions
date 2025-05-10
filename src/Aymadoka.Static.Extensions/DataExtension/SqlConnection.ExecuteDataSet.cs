@@ -3,81 +3,83 @@ using System;
 using System.Data;
 using System.Reflection;
 
-namespace Aymadoka.Static.DataExtension;
-
-public static partial class DataExtensions
+namespace Aymadoka.Static.DataExtension
 {
-    public static DataSet ExecuteDataSet(this SqlConnection @this, string cmdText, SqlParameter[] parameters, CommandType commandType, SqlTransaction transaction)
+
+    public static partial class DataExtensions
     {
-        using (SqlCommand command = @this.CreateCommand())
+        public static DataSet ExecuteDataSet(this SqlConnection @this, string cmdText, SqlParameter[] parameters, CommandType commandType, SqlTransaction transaction)
         {
-            command.CommandText = cmdText;
-            command.CommandType = commandType;
-            command.Transaction = transaction;
-
-            if (parameters != null)
+            using (SqlCommand command = @this.CreateCommand())
             {
-                command.Parameters.AddRange(parameters);
-            }
+                command.CommandText = cmdText;
+                command.CommandType = commandType;
+                command.Transaction = transaction;
 
-            var ds = new DataSet();
-            using (var dataAdapter = new SqlDataAdapter(command))
-            {
-                dataAdapter.Fill(ds);
-            }
+                if (parameters != null)
+                {
+                    command.Parameters.AddRange(parameters);
+                }
 
-            return ds;
+                var ds = new DataSet();
+                using (var dataAdapter = new SqlDataAdapter(command))
+                {
+                    dataAdapter.Fill(ds);
+                }
+
+                return ds;
+            }
         }
-    }
 
-    public static DataSet ExecuteDataSet(this SqlConnection @this, Action<SqlCommand> commandFactory)
-    {
-        using (SqlCommand command = @this.CreateCommand())
+        public static DataSet ExecuteDataSet(this SqlConnection @this, Action<SqlCommand> commandFactory)
         {
-            commandFactory(command);
-
-            var ds = new DataSet();
-            using (var dataAdapter = new SqlDataAdapter(command))
+            using (SqlCommand command = @this.CreateCommand())
             {
-                dataAdapter.Fill(ds);
+                commandFactory(command);
+
+                var ds = new DataSet();
+                using (var dataAdapter = new SqlDataAdapter(command))
+                {
+                    dataAdapter.Fill(ds);
+                }
+
+                return ds;
             }
-
-            return ds;
         }
-    }
 
-    public static DataSet ExecuteDataSet(this SqlConnection @this, string cmdText)
-    {
-        return @this.ExecuteDataSet(cmdText, null, CommandType.Text, null);
-    }
+        public static DataSet ExecuteDataSet(this SqlConnection @this, string cmdText)
+        {
+            return @this.ExecuteDataSet(cmdText, null, CommandType.Text, null);
+        }
 
-    public static DataSet ExecuteDataSet(this SqlConnection @this, string cmdText, SqlTransaction transaction)
-    {
-        return @this.ExecuteDataSet(cmdText, null, CommandType.Text, transaction);
-    }
+        public static DataSet ExecuteDataSet(this SqlConnection @this, string cmdText, SqlTransaction transaction)
+        {
+            return @this.ExecuteDataSet(cmdText, null, CommandType.Text, transaction);
+        }
 
-    public static DataSet ExecuteDataSet(this SqlConnection @this, string cmdText, CommandType commandType)
-    {
-        return @this.ExecuteDataSet(cmdText, null, commandType, null);
-    }
+        public static DataSet ExecuteDataSet(this SqlConnection @this, string cmdText, CommandType commandType)
+        {
+            return @this.ExecuteDataSet(cmdText, null, commandType, null);
+        }
 
-    public static DataSet ExecuteDataSet(this SqlConnection @this, string cmdText, CommandType commandType, SqlTransaction transaction)
-    {
-        return @this.ExecuteDataSet(cmdText, null, commandType, transaction);
-    }
+        public static DataSet ExecuteDataSet(this SqlConnection @this, string cmdText, CommandType commandType, SqlTransaction transaction)
+        {
+            return @this.ExecuteDataSet(cmdText, null, commandType, transaction);
+        }
 
-    public static DataSet ExecuteDataSet(this SqlConnection @this, string cmdText, SqlParameter[] parameters)
-    {
-        return @this.ExecuteDataSet(cmdText, parameters, CommandType.Text, null);
-    }
+        public static DataSet ExecuteDataSet(this SqlConnection @this, string cmdText, SqlParameter[] parameters)
+        {
+            return @this.ExecuteDataSet(cmdText, parameters, CommandType.Text, null);
+        }
 
-    public static DataSet ExecuteDataSet(this SqlConnection @this, string cmdText, SqlParameter[] parameters, SqlTransaction transaction)
-    {
-        return @this.ExecuteDataSet(cmdText, parameters, CommandType.Text, transaction);
-    }
+        public static DataSet ExecuteDataSet(this SqlConnection @this, string cmdText, SqlParameter[] parameters, SqlTransaction transaction)
+        {
+            return @this.ExecuteDataSet(cmdText, parameters, CommandType.Text, transaction);
+        }
 
-    public static DataSet ExecuteDataSet(this SqlConnection @this, string cmdText, SqlParameter[] parameters, CommandType commandType)
-    {
-        return @this.ExecuteDataSet(cmdText, parameters, commandType, null);
+        public static DataSet ExecuteDataSet(this SqlConnection @this, string cmdText, SqlParameter[] parameters, CommandType commandType)
+        {
+            return @this.ExecuteDataSet(cmdText, parameters, commandType, null);
+        }
     }
 }

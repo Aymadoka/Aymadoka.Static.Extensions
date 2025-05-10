@@ -1,16 +1,17 @@
 using System.Globalization;
 
-namespace Aymadoka.Static.CharExtension;
-
-public static partial class CharExtensions
+namespace Aymadoka.Static.CharExtension
 {
-    public static char ToUpper(this char c, CultureInfo culture)
+    public static partial class CharExtensions
     {
-        return char.ToUpper(c, culture);
-    }
+        public static char ToUpper(this char c, CultureInfo culture)
+        {
+            return char.ToUpper(c, culture);
+        }
 
-    public static char ToUpper(this char c)
-    {
-        return char.ToUpper(c);
+        public static char ToUpper(this char c)
+        {
+            return char.ToUpper(c);
+        }
     }
 }

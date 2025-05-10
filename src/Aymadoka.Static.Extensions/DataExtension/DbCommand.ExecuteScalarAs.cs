@@ -6,12 +6,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Aymadoka.Static.DataExtension;
-
-public static partial class DataExtensions
+namespace Aymadoka.Static.DataExtension
 {
-    public static T ExecuteScalarAs<T>(this DbCommand @this)
+    public static partial class DataExtensions
     {
-        return (T)@this.ExecuteScalar();
+        public static T ExecuteScalarAs<T>(this DbCommand @this)
+        {
+            return (T)@this.ExecuteScalar();
+        }
     }
 }

@@ -1,26 +1,27 @@
 using System;
 
-namespace Aymadoka.Static.ReflectionExtension;
-
-public static partial class ObjectExtensions
+namespace Aymadoka.Static.ReflectionExtension
 {
-    public static bool IsTypeOrInheritsOf<T>(this T @this, Type type)
+    public static partial class ObjectExtensions
     {
-        Type objectType = @this.GetType();
-
-        while (true)
+        public static bool IsTypeOrInheritsOf<T>(this T @this, Type type)
         {
-            if (objectType.Equals(type))
-            {
-                return true;
-            }
+            Type objectType = @this.GetType();
 
-            if ((objectType == objectType.BaseType) || (objectType.BaseType == null))
+            while (true)
             {
-                return false;
-            }
+                if (objectType.Equals(type))
+                {
+                    return true;
+                }
 
-            objectType = objectType.BaseType;
+                if ((objectType == objectType.BaseType) || (objectType.BaseType == null))
+                {
+                    return false;
+                }
+
+                objectType = objectType.BaseType;
+            }
         }
     }
 }

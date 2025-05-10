@@ -1,9 +1,10 @@
-namespace Aymadoka.Static.ReflectionExtension;
-
-public static partial class ObjectExtensions
+namespace Aymadoka.Static.ReflectionExtension
 {
-    public static bool IsClass<T>(this T @this)
+    public static partial class ObjectExtensions
     {
-        return @this.GetType().IsClass;
+        public static bool IsClass<T>(this T @this)
+        {
+            return @this.GetType().IsClass;
+        }
     }
 }

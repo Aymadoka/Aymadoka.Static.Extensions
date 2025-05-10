@@ -1,18 +1,19 @@
 using Aymadoka.Static.DateTimeExtension;
 using System;
 
-namespace Aymadoka.Static.NullableDateTimeExtension;
-
-public static partial class NullableDateTimeExtensions
+namespace Aymadoka.Static.NullableDateTimeExtension
 {
-    public static TimeSpan Elapsed(this DateTime? datetime)
+    public static partial class NullableDateTimeExtensions
     {
-        if (datetime == null)
+        public static TimeSpan Elapsed(this DateTime? datetime)
         {
-            throw new ArgumentNullException(nameof(datetime));
-        }
+            if (datetime == null)
+            {
+                throw new ArgumentNullException(nameof(datetime));
+            }
 
-        var result = datetime.Value.Elapsed();
-        return result;
+            var result = datetime.Value.Elapsed();
+            return result;
+        }
     }
 }

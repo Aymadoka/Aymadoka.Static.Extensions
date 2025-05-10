@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace Aymadoka.Static.FileInfoExtension;
-
-public static partial class FileInfoExtensions
+namespace Aymadoka.Static.FileInfoExtension
 {
-    public static String[] ReadAllLines(this FileInfo @this)
+    public static partial class FileInfoExtensions
     {
-        return File.ReadAllLines(@this.FullName);
-    }
+        public static String[] ReadAllLines(this FileInfo @this)
+        {
+            return File.ReadAllLines(@this.FullName);
+        }
 
-    public static String[] ReadAllLines(this FileInfo @this, Encoding encoding)
-    {
-        return File.ReadAllLines(@this.FullName, encoding);
+        public static String[] ReadAllLines(this FileInfo @this, Encoding encoding)
+        {
+            return File.ReadAllLines(@this.FullName, encoding);
+        }
     }
 }

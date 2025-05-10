@@ -1,22 +1,23 @@
-namespace Aymadoka.Static.ObjectExtension;
-
-public static partial class ObjectExtensions
+namespace Aymadoka.Static.ObjectExtension
 {
-    public static T? Coalesce<T>(this T? @this, params T[] values) where T : class
+    public static partial class ObjectExtensions
     {
-        if (@this != null)
+        public static T? Coalesce<T>(this T? @this, params T[] values) where T : class
         {
-            return @this;
-        }
-
-        foreach (T value in values)
-        {
-            if (value != null)
+            if (@this != null)
             {
-                return value;
+                return @this;
             }
-        }
 
-        return null;
+            foreach (T value in values)
+            {
+                if (value != null)
+                {
+                    return value;
+                }
+            }
+
+            return null;
+        }
     }
 }

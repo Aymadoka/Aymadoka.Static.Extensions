@@ -1,11 +1,12 @@
 using System;
 
-namespace Aymadoka.Static.DateTimeOffsetExtension;
-
-public static partial class DateTimeOffsetExtensions
+namespace Aymadoka.Static.DateTimeOffsetExtension
 {
-    public static TimeSpan ToEpochTimeSpan(this DateTimeOffset @this)
+    public static partial class DateTimeOffsetExtensions
     {
-        return @this.Subtract(DateTimeOffset.UnixEpoch);
+        public static TimeSpan ToEpochTimeSpan(this DateTimeOffset @this)
+        {
+            return @this.Subtract(DateTimeOffset.UnixEpoch);
+        }
     }
 }

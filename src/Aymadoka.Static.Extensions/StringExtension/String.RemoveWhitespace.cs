@@ -1,19 +1,20 @@
 using System.Linq;
 
-namespace Aymadoka.Static.StringExtension;
-
-public static partial class StringExtensions
+namespace Aymadoka.Static.StringExtension
 {
-    /// <summary>移除字符串中的所有空白字符</summary>
-    /// <param name="value">要处理的字符串</param>
-    /// <returns>移除空白字符后的字符串；如果输入为 null 或空字符串，则返回原字符串</returns>
-    public static string? RemoveWhitespace(this string? value)
+    public static partial class StringExtensions
     {
-        if (value.IsNullOrEmpty())
+        /// <summary>移除字符串中的所有空白字符</summary>
+        /// <param name="value">要处理的字符串</param>
+        /// <returns>移除空白字符后的字符串；如果输入为 null 或空字符串，则返回原字符串</returns>
+        public static string? RemoveWhitespace(this string? value)
         {
-            return value;
-        }
+            if (value.IsNullOrEmpty())
+            {
+                return value;
+            }
 
-        return string.Concat(value.Where(c => !char.IsWhiteSpace(c)));
+            return string.Concat(value.Where(c => !char.IsWhiteSpace(c)));
+        }
     }
 }

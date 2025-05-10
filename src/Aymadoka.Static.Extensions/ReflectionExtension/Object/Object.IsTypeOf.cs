@@ -1,11 +1,12 @@
 using System;
 
-namespace Aymadoka.Static.ReflectionExtension;
-
-public static partial class ObjectExtensions
+namespace Aymadoka.Static.ReflectionExtension
 {
-    public static bool IsTypeOf<T>(this T @this, Type type)
+    public static partial class ObjectExtensions
     {
-        return @this.GetType() == type;
+        public static bool IsTypeOf<T>(this T @this, Type type)
+        {
+            return @this.GetType() == type;
+        }
     }
 }

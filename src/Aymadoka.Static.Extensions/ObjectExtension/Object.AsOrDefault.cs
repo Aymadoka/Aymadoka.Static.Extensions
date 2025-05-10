@@ -1,46 +1,47 @@
 using System;
 
-namespace Aymadoka.Static.ObjectExtension;
-
-public static partial class ObjectExtensions
+namespace Aymadoka.Static.ObjectExtension
 {
-    public static T? AsOrDefault<T>(this object? @this)
+    public static partial class ObjectExtensions
     {
-        if (@this is T value)
+        public static T AsOrDefault<T>(this object? @this)
         {
-            return value;
+            if (@this is T value)
+            {
+                return value;
+            }
+
+            return default(T);
         }
 
-        return default;
-    }
-
-    public static T? AsOrDefault<T>(this object? @this, T defaultValue)
-    {
-        if (@this is T value)
+        public static T AsOrDefault<T>(this object? @this, T defaultValue)
         {
-            return value;
+            if (@this is T value)
+            {
+                return value;
+            }
+
+            return defaultValue;
         }
 
-        return defaultValue;
-    }
-
-    public static T? AsOrDefault<T>(this object? @this, Func<T> defaultValueFactory)
-    {
-        if (@this is T value)
+        public static T AsOrDefault<T>(this object? @this, Func<T> defaultValueFactory)
         {
-            return value;
+            if (@this is T value)
+            {
+                return value;
+            }
+
+            return defaultValueFactory();
         }
 
-        return defaultValueFactory();
-    }
-
-    public static T AsOrDefault<T>(this object @this, Func<object, T> defaultValueFactory)
-    {
-        if (@this is T value)
+        public static T AsOrDefault<T>(this object @this, Func<object, T> defaultValueFactory)
         {
-            return value;
-        }
+            if (@this is T value)
+            {
+                return value;
+            }
 
-        return defaultValueFactory(@this);
+            return defaultValueFactory(@this);
+        }
     }
 }

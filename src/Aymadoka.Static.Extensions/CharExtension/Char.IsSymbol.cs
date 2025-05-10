@@ -1,9 +1,10 @@
-namespace Aymadoka.Static.CharExtension;
-
-public static partial class CharExtensions
+namespace Aymadoka.Static.CharExtension
 {
-    public static bool IsSymbol(this char c)
+    public static partial class CharExtensions
     {
-        return char.IsSymbol(c);
+        public static bool IsSymbol(this char c)
+        {
+            return char.IsSymbol(c);
+        }
     }
 }

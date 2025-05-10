@@ -1,13 +1,14 @@
 using System.Xml;
 
-namespace Aymadoka.Static.StringExtension;
-
-public static partial class StringExtensions
+namespace Aymadoka.Static.StringExtension
 {
-    public static XmlDocument ToXmlDocument(this string @this)
+    public static partial class StringExtensions
     {
-        var doc = new XmlDocument();
-        doc.LoadXml(@this);
-        return doc;
+        public static XmlDocument ToXmlDocument(this string @this)
+        {
+            var doc = new XmlDocument();
+            doc.LoadXml(@this);
+            return doc;
+        }
     }
 }

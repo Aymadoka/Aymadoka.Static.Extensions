@@ -1,25 +1,23 @@
 using System.Text.Json;
-using System.Text.Json.Serialization;
 
-namespace Aymadoka.Static.ObjectExtension;
-
-public static partial class ObjectExtensions
+namespace Aymadoka.Static.ObjectExtension
 {
-    public static T? DeepClone<T>(this T? @this) where T : class
+    public static partial class ObjectExtensions
     {
-        if (@this == null)
+        public static T? DeepClone<T>(this T? @this) where T : class
         {
-            return null;
+            if (@this == null)
+            {
+                return null;
+            }
+
+            var options = new JsonSerializerOptions
+            {
+                WriteIndented = false,
+            };
+
+            var json = JsonSerializer.Serialize(@this, options);
+            return JsonSerializer.Deserialize<T>(json, options)!;
         }
-
-        var options = new JsonSerializerOptions
-        {
-            WriteIndented = false,
-            TypeInfoResolver = null,
-            ReferenceHandler = ReferenceHandler.IgnoreCycles
-        };
-
-        var json = JsonSerializer.Serialize(@this, options);
-        return JsonSerializer.Deserialize<T>(json, options)!;
     }
 }

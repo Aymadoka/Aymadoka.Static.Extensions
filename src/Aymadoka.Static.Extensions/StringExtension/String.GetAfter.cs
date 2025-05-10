@@ -1,14 +1,15 @@
-namespace Aymadoka.Static.StringExtension;
-
-public static partial class StringExtensions
+namespace Aymadoka.Static.StringExtension
 {
-    public static string GetAfter(this string @this, string value)
+    public static partial class StringExtensions
     {
-        if (@this.IndexOf(value) == -1)
+        public static string GetAfter(this string @this, string value)
         {
-            return "";
-        }
+            if (@this.IndexOf(value) == -1)
+            {
+                return "";
+            }
 
-        return @this.Substring(@this.IndexOf(value) + value.Length);
+            return @this.Substring(@this.IndexOf(value) + value.Length);
+        }
     }
 }

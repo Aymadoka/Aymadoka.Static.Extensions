@@ -3,54 +3,55 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace Aymadoka.Static.FileInfoExtension;
-
-public static partial class FileInfoExtensions
+namespace Aymadoka.Static.FileInfoExtension
 {
-    public static string ReadToEnd(this FileInfo @this)
+    public static partial class FileInfoExtensions
     {
-        using (FileStream stream = File.Open(@this.FullName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+        public static string ReadToEnd(this FileInfo @this)
         {
-            using (var reader = new StreamReader(stream, Encoding.Default))
+            using (FileStream stream = File.Open(@this.FullName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
-                return reader.ReadToEnd();
+                using (var reader = new StreamReader(stream, Encoding.Default))
+                {
+                    return reader.ReadToEnd();
+                }
             }
         }
-    }
 
-    public static string ReadToEnd(this FileInfo @this, long position)
-    {
-        using (FileStream stream = File.Open(@this.FullName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+        public static string ReadToEnd(this FileInfo @this, long position)
         {
-            stream.Position = position;
-
-            using (var reader = new StreamReader(stream, Encoding.Default))
+            using (FileStream stream = File.Open(@this.FullName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
-                return reader.ReadToEnd();
+                stream.Position = position;
+
+                using (var reader = new StreamReader(stream, Encoding.Default))
+                {
+                    return reader.ReadToEnd();
+                }
             }
         }
-    }
 
-    public static string ReadToEnd(this FileInfo @this, Encoding encoding)
-    {
-        using (FileStream stream = File.Open(@this.FullName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+        public static string ReadToEnd(this FileInfo @this, Encoding encoding)
         {
-            using (var reader = new StreamReader(stream, encoding))
+            using (FileStream stream = File.Open(@this.FullName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
-                return reader.ReadToEnd();
+                using (var reader = new StreamReader(stream, encoding))
+                {
+                    return reader.ReadToEnd();
+                }
             }
         }
-    }
 
-    public static string ReadToEnd(this FileInfo @this, Encoding encoding, long position)
-    {
-        using (FileStream stream = File.Open(@this.FullName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+        public static string ReadToEnd(this FileInfo @this, Encoding encoding, long position)
         {
-            stream.Position = position;
-
-            using (var reader = new StreamReader(stream, encoding))
+            using (FileStream stream = File.Open(@this.FullName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
-                return reader.ReadToEnd();
+                stream.Position = position;
+
+                using (var reader = new StreamReader(stream, encoding))
+                {
+                    return reader.ReadToEnd();
+                }
             }
         }
     }

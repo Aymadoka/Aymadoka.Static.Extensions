@@ -1,11 +1,12 @@
 using System;
 
-namespace Aymadoka.Static.ArrayExtension;
-
-public static partial class ArrayExtensions
+namespace Aymadoka.Static.ArrayExtension
 {
-    public static void BlockCopy<T>(this T[] src, int srcOffset, T[] dst, int dstOffset, int count)
+    public static partial class ArrayExtensions
     {
-        Buffer.BlockCopy(src, srcOffset, dst, dstOffset, count);
+        public static void BlockCopy<T>(this T[] src, int srcOffset, T[] dst, int dstOffset, int count)
+        {
+            Buffer.BlockCopy(src, srcOffset, dst, dstOffset, count);
+        }
     }
 }

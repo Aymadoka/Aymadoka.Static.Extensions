@@ -1,14 +1,15 @@
-namespace Aymadoka.Static.StringExtension;
-
-public static partial class StringExtensions
+namespace Aymadoka.Static.StringExtension
 {
-    public static string ReplaceByEmpty(this string @this, params string[] values)
+    public static partial class StringExtensions
     {
-        foreach (string value in values)
+        public static string ReplaceByEmpty(this string @this, params string[] values)
         {
-            @this = @this.Replace(value, "");
-        }
+            foreach (string value in values)
+            {
+                @this = @this.Replace(value, "");
+            }
 
-        return @this;
+            return @this;
+        }
     }
 }

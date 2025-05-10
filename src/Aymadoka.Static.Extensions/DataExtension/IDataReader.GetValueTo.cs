@@ -7,17 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Aymadoka.Static.DataExtension;
-
-public static partial class DataExtensions
+namespace Aymadoka.Static.DataExtension
 {
-    public static T GetValueTo<T>(this IDataReader @this, int index)
-    {
-        return @this.GetValue(index).To<T>();
-    }
 
-    public static T GetValueTo<T>(this IDataReader @this, string columnName)
+    public static partial class DataExtensions
     {
-        return @this.GetValue(@this.GetOrdinal(columnName)).To<T>();
+        public static T GetValueTo<T>(this IDataReader @this, int index)
+        {
+            return @this.GetValue(index).To<T>();
+        }
+
+        public static T GetValueTo<T>(this IDataReader @this, string columnName)
+        {
+            return @this.GetValue(@this.GetOrdinal(columnName)).To<T>();
+        }
     }
 }

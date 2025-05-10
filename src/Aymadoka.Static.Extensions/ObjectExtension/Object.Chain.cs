@@ -1,13 +1,14 @@
 using System;
 
-namespace Aymadoka.Static.ObjectExtension;
-
-public static partial class ObjectExtensions
+namespace Aymadoka.Static.ObjectExtension
 {
-    public static T Chain<T>(this T @this, Action<T> action)
+    public static partial class ObjectExtensions
     {
-        action(@this);
+        public static T Chain<T>(this T @this, Action<T> action)
+        {
+            action(@this);
 
-        return @this;
+            return @this;
+        }
     }
 }

@@ -1,17 +1,18 @@
 using System;
 using System.Reflection;
 
-namespace Aymadoka.Static.ParameterInfoExtension;
-
-public static partial class ParameterInfoExtensions
+namespace Aymadoka.Static.ParameterInfoExtension
 {
-    public static Attribute GetCustomAttribute(this ParameterInfo element, Type attributeType)
+    public static partial class ParameterInfoExtensions
     {
-        return Attribute.GetCustomAttribute(element, attributeType);
-    }
+        public static Attribute GetCustomAttribute(this ParameterInfo element, Type attributeType)
+        {
+            return Attribute.GetCustomAttribute(element, attributeType);
+        }
 
-    public static Attribute GetCustomAttribute(this ParameterInfo element, Type attributeType, Boolean inherit)
-    {
-        return Attribute.GetCustomAttribute(element, attributeType, inherit);
+        public static Attribute GetCustomAttribute(this ParameterInfo element, Type attributeType, Boolean inherit)
+        {
+            return Attribute.GetCustomAttribute(element, attributeType, inherit);
+        }
     }
 }

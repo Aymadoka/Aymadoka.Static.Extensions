@@ -1,16 +1,17 @@
 using System.Reflection;
 
-namespace Aymadoka.Static.ReflectionExtension;
-
-public static partial class ObjectExtensions
+namespace Aymadoka.Static.ReflectionExtension
 {
-    public static MethodInfo GetMethod<T>(this T @this, string name)
+    public static partial class ObjectExtensions
     {
-        return @this.GetType().GetMethod(name);
-    }
+        public static MethodInfo GetMethod<T>(this T @this, string name)
+        {
+            return @this.GetType().GetMethod(name);
+        }
 
-    public static MethodInfo GetMethod<T>(this T @this, string name, BindingFlags bindingAttr)
-    {
-        return @this.GetType().GetMethod(name, bindingAttr);
+        public static MethodInfo GetMethod<T>(this T @this, string name, BindingFlags bindingAttr)
+        {
+            return @this.GetType().GetMethod(name, bindingAttr);
+        }
     }
 }

@@ -1,16 +1,17 @@
 using System;
 
-namespace Aymadoka.Static.ArrayExtension;
-
-public static partial class ArrayExtensions
+namespace Aymadoka.Static.ArrayExtension
 {
-    public static void Reverse<T>(this T[] array)
+    public static partial class ArrayExtensions
     {
-        Array.Reverse(array);
-    }
+        public static void Reverse<T>(this T[] array)
+        {
+            Array.Reverse(array);
+        }
 
-    public static void Reverse<T>(this T[] array, int index, int length)
-    {
-        Array.Reverse(array, index, length);
+        public static void Reverse<T>(this T[] array, int index, int length)
+        {
+            Array.Reverse(array, index, length);
+        }
     }
 }

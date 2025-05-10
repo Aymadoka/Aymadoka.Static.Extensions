@@ -6,12 +6,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Aymadoka.Static.DataExtension;
-
-public static partial class DataExtensions
+namespace Aymadoka.Static.DataExtension
 {
-    public static DataRow FirstRow(this DataTable @this)
+    public static partial class DataExtensions
     {
-        return @this.Rows[0];
+        public static DataRow FirstRow(this DataTable @this)
+        {
+            return @this.Rows[0];
+        }
     }
 }
