@@ -1,11 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFramework>net9.0</TargetFramework> 
 		<Nullable>enable</Nullable>
 		<RootNamespace>Aymadoka.Static</RootNamespace>
 		<PackageId>Aymadoka.Static.Extensions</PackageId>
-		<Version>0.0.9</Version>
+		<Version>0.0.6-alpha</Version>
 		<Authors>Aymadoka</Authors>
 		<Description>
 			This is a basic extension library.
