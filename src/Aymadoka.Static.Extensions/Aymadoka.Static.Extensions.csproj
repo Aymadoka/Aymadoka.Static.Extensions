@@ -5,7 +5,7 @@
 		<Nullable>enable</Nullable>
 		<RootNamespace>Aymadoka.Static</RootNamespace>
 		<PackageId>Aymadoka.Static.Extensions</PackageId>
-		<Version>0.0.8-alpha</Version>
+		<Version>0.0.9-alpha</Version>
 		<Authors>Aymadoka</Authors>
 		<Description>
 			This is a basic extension library.
@@ -20,9 +20,9 @@
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.3" />
 		<PackageReference Include="Microsoft.Extensions.Caching.Abstractions" Version="9.0.4" />
-		<None Include="..\..\icon.png">
+		<None Include="icon.png">
 			<Pack>True</Pack>
-			<PackagePath>..\..\icon.png</PackagePath>
+			<PackagePath>icon.png</PackagePath>
 		</None>
 	</ItemGroup>
 
