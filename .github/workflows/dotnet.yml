@@ -6,11 +6,10 @@ name: Build and Publish NuGet Package
 on:
   push:
     tags:
-      - 'v*' # 仅当提交带有类似 v1.0.0 的 tag 时触发发布流程
+      - 'v*'  # 仅当提交带有类似 v1.0.0 的 tag 时触发发布流程
 
 jobs:
   build-and-publish:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -20,24 +19,22 @@ jobs:
     - name: Setup .NET SDK 9.x
       uses: actions/setup-dotnet@v4
       with:
-        # Semantic version range syntax or exact version of a dotnet version
         dotnet-version: '9.x'
 
     - name: Restore dependencies
-      run: |
-        dotnet restore src/Aymadoka.Static.Extensions/Aymadoka.Static.Extensions.csproj
-        dotnet restore test/Aymadoka.Static.Extensions.Tests/Aymadoka.Static.Extensions.Tests.csproj
+      run: dotnet restore
 
     - name: Build project
-      run: dotnet build src/Aymadoka.Static.Extensions/Aymadoka.Static.Extensions.csproj --configuration Release --no-restore
+      run: dotnet build --configuration Release --no-restore
 
     - name: Run tests
-      run: dotnet test test/Aymadoka.Static.Extensions.Tests/Aymadoka.Static.Extensions.Tests.csproj --no-build --verbosity normal
+      run: dotnet test test/Aymadoka.Static.Extensions.Tests/Aymadoka.Static.Extensions.Tests.csproj --no-build --verbosity detailed
 
     - name: Pack NuGet package
       run: dotnet pack src/Aymadoka.Static.Extensions/Aymadoka.Static.Extensions.csproj --configuration Release -o ./nupkgs
 
     - name: Publish to NuGet.org
       if: success()
-      run: |
-        dotnet nuget push ./nupkgs
+      env:
+        NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+      run: dotnet nuget push ./nupkgs/*.nupkg --api-key $NUGET_API_KEY --source https://api.nuget.org/v3/index.json
