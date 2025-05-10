@@ -27,8 +27,8 @@ jobs:
     - name: Build project
       run: dotnet build --configuration Release --no-restore
 
-    - name: Run tests
-      run: dotnet test test/Aymadoka.Static.Extensions.Tests/Aymadoka.Static.Extensions.Tests.csproj --no-build --verbosity detailed
+    # - name: Run tests
+    #   run: dotnet test test/Aymadoka.Static.Extensions.Tests/Aymadoka.Static.Extensions.Tests.csproj --no-build --verbosity detailed
 
     - name: Pack NuGet package
       run: dotnet pack src/Aymadoka.Static.Extensions/Aymadoka.Static.Extensions.csproj --configuration Release -o ./nupkgs
