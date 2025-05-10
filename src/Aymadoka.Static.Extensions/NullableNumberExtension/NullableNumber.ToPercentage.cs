@@ -1,24 +1,72 @@
-using Aymadoka.Static.FloatingPointExtension;
 using System.Globalization;
-using System.Numerics;
 
 namespace Aymadoka.Static.NullableNumberExtension
 {
     public static partial class NullableNumberExtensions
     {
-        public static string? ToPercentage<T>(this T? source, int decimalPlaces = 2) where T : struct, IFloatingPoint<T>
-        {
-            return source.ToPercentage(decimalPlaces, null);
-        }
-
-        public static string? ToPercentage<T>(this T? source, int decimalPlaces, CultureInfo? culture = null) where T : struct, IFloatingPoint<T>
+        public static string? ToPercentage(this float? source, int places)
         {
             if (!source.HasValue)
             {
                 return null;
             }
 
-            var result = source.Value.ToPercentage(decimalPlaces, culture);
+            var result = source.ToPercentage(places);
+            return result;
+        }
+
+        public static string? ToPercentage(this float? source, int places, CultureInfo? culture)
+        {
+            if (!source.HasValue)
+            {
+                return null;
+            }
+
+            var result = source.ToPercentage(places, culture);
+            return result;
+        }
+
+        public static string? ToPercentage(this double? source, int places)
+        {
+            if (!source.HasValue)
+            {
+                return null;
+            }
+
+            var result = source.ToPercentage(places);
+            return result;
+        }
+
+        public static string? ToPercentage(this double? source, int places, CultureInfo? culture)
+        {
+            if (!source.HasValue)
+            {
+                return null;
+            }
+
+            var result = source.ToPercentage(places, culture);
+            return result;
+        }
+
+        public static string? ToPercentage(this decimal? source, int places)
+        {
+            if (!source.HasValue)
+            {
+                return null;
+            }
+
+            var result = source.ToPercentage(places);
+            return result;
+        }
+
+        public static string? ToPercentage(this decimal? source, int places, CultureInfo? culture)
+        {
+            if (!source.HasValue)
+            {
+                return null;
+            }
+
+            var result = source.ToPercentage(places, culture);
             return result;
         }
     }

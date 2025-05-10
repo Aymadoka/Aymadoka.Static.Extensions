@@ -1,15 +1,62 @@
-using System.Numerics;
-
 namespace Aymadoka.Static.NumberExtension
 {
     public static partial class NumberExtensions
     {
-        /// <summary>判断小数值是否为正数</summary>
-        /// <param name="source">需要判断的原始小数值</param>
-        /// <returns>如果是正数返回 true，否则返回 false</returns>
-        public static bool IsPositive<T>(this T source) where T : struct, INumber<T>
+        // static bool IsPositive<T>(this T source) where T : struct, INumber<T>
+
+        public static bool IsPositive(this sbyte @this)
         {
-            return source > T.One;
+            return @this > 0;
+        }
+
+        public static bool IsPositive(this byte @this)
+        {
+            return @this > 0;
+        }
+
+        public static bool IsPositive(this short @this)
+        {
+            return @this > 0;
+        }
+
+        public static bool IsPositive(this ushort @this)
+        {
+            return @this > 0;
+        }
+
+        public static bool IsPositive(this int @this)
+        {
+            return @this > 0;
+        }
+
+        public static bool IsPositive(this uint @this)
+        {
+            return @this > 0;
+        }
+
+        public static bool IsPositive(this long @this)
+        {
+            return @this > 0;
+        }
+
+        public static bool IsPositive(this ulong @this)
+        {
+            return @this > 0;
+        }
+
+        public static bool IsPositive(this float @this)
+        {
+            return @this > 0;
+        }
+
+        public static bool IsPositive(this double @this)
+        {
+            return @this > 0;
+        }
+
+        public static bool IsPositive(this decimal @this)
+        {
+            return @this > 0;
         }
     }
 }

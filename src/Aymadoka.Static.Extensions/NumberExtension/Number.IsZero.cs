@@ -1,15 +1,68 @@
-using System.Numerics;
+using System;
 
 namespace Aymadoka.Static.NumberExtension
 {
     public static partial class NumberExtensions
     {
-        /// <summary>判断小数值是否为零</summary>
-        /// <param name="source">需要判断的原始小数值</param>
-        /// <returns>如果是零返回 true，否则返回 false</returns>
-        public static bool IsZero<T>(this T source) where T : struct, INumber<T>
+        // static bool IsZero<T>(this T source) where T : struct, INumber<T>
+
+        public static bool IsZero(this sbyte @this)
         {
-            return source == T.One;
+            return @this == 0;
+        }
+
+        public static bool IsZero(this byte @this)
+        {
+            return @this == 0;
+        }
+
+        public static bool IsZero(this short @this)
+        {
+            return @this == 0;
+        }
+
+        public static bool IsZero(this ushort @this)
+        {
+            return @this == 0;
+        }
+
+        public static bool IsZero(this int @this)
+        {
+            return @this == 0;
+        }
+
+        public static bool IsZero(this uint @this)
+        {
+            return @this == 0;
+        }
+
+        public static bool IsZero(this long @this)
+        {
+            return @this == 0;
+        }
+
+        public static bool IsZero(this ulong @this)
+        {
+            return @this == 0;
+        }
+
+        public static bool IsZero(this float @this)
+        {
+            // 定义一个小的容差值
+            const float epsilon = 1e-6f;
+            return Math.Abs(@this) < epsilon;
+        }
+
+        public static bool IsZero(this double @this)
+        {
+            // 定义一个小的容差值
+            const double epsilon = 1e-9; 
+            return Math.Abs(@this) < epsilon;
+        }
+
+        public static bool IsZero(this decimal @this)
+        {
+            return @this == 0;
         }
     }
 }

@@ -1,12 +1,17 @@
-using System.Numerics;
-
 namespace Aymadoka.Static.NumberExtension
 {
     public static partial class NumberExtensions
     {
-        public static bool IsNaN<T>(this T d) where T : struct, INumber<T>
+        //  static bool IsNaN<T>(this T d) where T : struct, INumber<T>
+
+        public static bool IsNaN(this float @this)
         {
-            return T.IsNaN(d);
+            return float.IsNaN(@this);
+        }
+
+        public static bool IsNaN(this double @this)
+        {
+            return double.IsNaN(@this);
         }
     }
 }

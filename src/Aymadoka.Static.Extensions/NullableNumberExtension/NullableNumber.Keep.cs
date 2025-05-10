@@ -1,19 +1,40 @@
-using Aymadoka.Static.FloatingPointExtension;
-using System.Numerics;
+using Aymadoka.Static.NumberExtension;
 
 namespace Aymadoka.Static.NullableNumberExtension
 {
     public static partial class NullableNumberExtensions
     {
-        public static T? Keep<T>(this T? source, int keepPlaceCount = 2) where T : struct, IFloatingPoint<T>
+        public static float? ToKeep(this float? @this, int keepPlaceCount = 2)
         {
-            if (!source.HasValue)
+            if (!@this.HasValue)
             {
                 return null;
             }
 
-            T value = source.Value.ToKeep(keepPlaceCount);
-            return value;
+            var result = @this.Value.ToKeep(keepPlaceCount);
+            return result;
+        }
+
+        public static double? ToKeep(this double? @this, int keepPlaceCount = 2)
+        {
+            if (!@this.HasValue)
+            {
+                return null;
+            }
+
+            var result = @this.Value.ToKeep(keepPlaceCount);
+            return result;
+        }
+
+        public static decimal? ToKeep(this decimal? @this, int keepPlaceCount = 2)
+        {
+            if (!@this.HasValue)
+            {
+                return null;
+            }
+
+            var result = @this.Value.ToKeep(keepPlaceCount);
+            return result;
         }
     }
 }

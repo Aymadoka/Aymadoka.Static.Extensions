@@ -1,15 +1,69 @@
-using System.Numerics;
+using System;
 
 namespace Aymadoka.Static.NumberExtension
 {
     public static partial class NumberExtensions
     {
-        /// <summary>获取小数值的绝对值</summary>
-        /// <param name="source">需要处理的原始小数值</param>
-        /// <returns>小数值的绝对值</returns>
-        public static T AbsoluteValue<T>(this T source) where T : struct, INumber<T>
+        // static T AbsoluteValue<T>(this T source) where T : struct, INumber<T>
+
+        public static sbyte AbsoluteValue(this sbyte @this)
         {
-            return T.Abs(source);
+            var result = Math.Abs(@this);
+            return result;
+        }
+
+        public static short AbsoluteValue(this byte @this)
+        {
+            var result = Math.Abs(@this);
+            return result;
+        }
+
+        public static short AbsoluteValue(this short @this)
+        {
+            var result = Math.Abs(@this);
+            return result;
+        }
+
+        public static int AbsoluteValue(this ushort @this)
+        {
+            var result = Math.Abs(@this);
+            return result;
+        }
+
+        public static int AbsoluteValue(this int @this)
+        {
+            var result = Math.Abs(@this);
+            return result;
+        }
+
+        public static long AbsoluteValue(this uint @this)
+        {
+            var result = Math.Abs(@this);
+            return result;
+        }
+
+        public static long AbsoluteValue(this long @this)
+        {
+            var result = Math.Abs(@this);
+            return result;
+        }
+
+        public static float AbsoluteValue(this float @this)
+        {
+            var result = Math.Abs(@this);
+            return result;
+        }
+
+        public static double AbsoluteValue(this double @this)
+        {
+            var result = Math.Abs(@this);
+            return result;
+        }
+
+        public static decimal AbsoluteValue(this decimal @this)
+        {
+            var result = Math.Abs(@this);
+            return result;
         }
     }
 }

@@ -1,12 +1,17 @@
-using System.Numerics;
-
 namespace Aymadoka.Static.NumberExtension
 {
     public static partial class NumberExtensions
     {
-        public static bool IsPositiveInfinity<T>(this T d) where T : struct, INumber<T>
+        // static bool IsPositiveInfinity<T>(this T d) where T : struct, INumber<T>
+
+        public static bool IsPositiveInfinity(this float @this)
         {
-            return T.IsPositiveInfinity(d);
+            return float.IsPositiveInfinity(@this);
+        }
+
+        public static bool IsPositiveInfinity(this double @this)
+        {
+            return double.IsPositiveInfinity(@this);
         }
     }
 }

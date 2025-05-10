@@ -1,14 +1,110 @@
 using Aymadoka.Static.NumberExtension;
-using System.Numerics;
 
 namespace Aymadoka.Static.NullableNumberExtension
 {
     public static partial class NullableNumberExtensions
     {
-        /// <summary>判断小数值是否为零</summary>
-        /// <param name="source">需要判断的原始小数值</param>
-        /// <returns>如果是零返回 true，否则返回 false</returns>
-        public static bool IsZero<T>(this T? source) where T : struct, INumber<T>
+        public static bool IsZero(this sbyte? source)
+        {
+            if (!source.HasValue)
+            {
+                return false;
+            }
+
+            return source.Value.IsZero();
+        }
+
+        public static bool IsZero(this byte? source)
+        {
+            if (!source.HasValue)
+            {
+                return false;
+            }
+
+            return source.Value.IsZero();
+        }
+
+        public static bool IsZero(this short? source)
+        {
+            if (!source.HasValue)
+            {
+                return false;
+            }
+
+            return source.Value.IsZero();
+        }
+
+        public static bool IsZero(this ushort? source)
+        {
+            if (!source.HasValue)
+            {
+                return false;
+            }
+
+            return source.Value.IsZero();
+        }
+
+        public static bool IsZero(this int? source)
+        {
+            if (!source.HasValue)
+            {
+                return false;
+            }
+
+            return source.Value.IsZero();
+        }
+
+        public static bool IsZero(this uint? source)
+        {
+            if (!source.HasValue)
+            {
+                return false;
+            }
+
+            return source.Value.IsZero();
+        }
+
+        public static bool IsZero(this long? source)
+        {
+            if (!source.HasValue)
+            {
+                return false;
+            }
+
+            return source.Value.IsZero();
+        }
+
+        public static bool IsZero(this ulong? source)
+        {
+            if (!source.HasValue)
+            {
+                return false;
+            }
+
+            return source.Value.IsZero();
+        }
+
+        public static bool IsZero(this float? source)
+        {
+            if (!source.HasValue)
+            {
+                return false;
+            }
+
+            return source.Value.IsZero();
+        }
+
+        public static bool IsZero(this double? source)
+        {
+            if (!source.HasValue)
+            {
+                return false;
+            }
+
+            return source.Value.IsZero();
+        }
+
+        public static bool IsZero(this decimal? source)
         {
             if (!source.HasValue)
             {

@@ -1,15 +1,62 @@
-using System.Numerics;
-
 namespace Aymadoka.Static.NumberExtension
 {
     public static partial class NumberExtensions
     {
-        /// <summary>判断小数值是否为负数</summary>
-        /// <param name="source">需要判断的原始小数值</param>
-        /// <returns>如果是负数返回 true，否则返回 false</returns>
-        public static bool IsNegative<T>(this T source) where T : struct, INumber<T>
+        // static bool IsNegative<T>(this T source) where T : struct, INumber<T>
+
+        public static bool IsNegative(this sbyte @this)
         {
-            return source < T.One;
+            return @this < 0;
+        }
+
+        public static bool IsNegative(this byte @this)
+        {
+            return @this < 0;
+        }
+
+        public static bool IsNegative(this short @this)
+        {
+            return @this < 0;
+        }
+
+        public static bool IsNegative(this ushort @this)
+        {
+            return @this < 0;
+        }
+
+        public static bool IsNegative(this int @this)
+        {
+            return @this < 0;
+        }
+
+        public static bool IsNegative(this uint @this)
+        {
+            return @this < 0;
+        }
+
+        public static bool IsNegative(this long @this)
+        {
+            return @this < 0;
+        }
+
+        public static bool IsNegative(this ulong @this)
+        {
+            return @this < 0;
+        }
+
+        public static bool IsNegative(this float @this)
+        {
+            return @this < 0;
+        }
+
+        public static bool IsNegative(this double @this)
+        {
+            return @this < 0;
+        }
+
+        public static bool IsNegative(this decimal @this)
+        {
+            return @this < 0;
         }
     }
 }

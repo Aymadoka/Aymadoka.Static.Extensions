@@ -1,21 +1,119 @@
 using Aymadoka.Static.NumberExtension;
-using System.Numerics;
 
 namespace Aymadoka.Static.NullableNumberExtension
 {
     public static partial class NullableNumberExtensions
     {
-        /// <summary>获取小数值的绝对值</summary>
-        /// <param name="source">需要处理的原始小数值</param>
-        /// <returns>小数值的绝对值</returns>
-        public static T? AbsoluteValue<T>(this T? source) where T : struct, INumber<T>
+        // static T? AbsoluteValue<T>(this T? source) where T : struct, INumber<T>
+
+        public static sbyte? AbsoluteValue(this sbyte? @this)
         {
-            if (!source.HasValue)
+            if (!@this.HasValue)
             {
-                return source;
+                return @this;
             }
 
-            return source.Value.AbsoluteValue();
+            var result = @this.Value.AbsoluteValue();
+            return result;
+        }
+
+        public static short? AbsoluteValue(this byte? @this)
+        {
+            if (!@this.HasValue)
+            {
+                return @this;
+            }
+
+            var result = @this.Value.AbsoluteValue();
+            return result;
+        }
+
+        public static short? AbsoluteValue(this short? @this)
+        {
+            if (!@this.HasValue)
+            {
+                return @this;
+            }
+
+            var result = @this.Value.AbsoluteValue();
+            return result;
+        }
+
+        public static int? AbsoluteValue(this ushort? @this)
+        {
+            if (!@this.HasValue)
+            {
+                return @this;
+            }
+
+            var result = @this.Value.AbsoluteValue();
+            return result;
+        }
+
+        public static int? AbsoluteValue(this int? @this)
+        {
+            if (!@this.HasValue)
+            {
+                return @this;
+            }
+
+            var result = @this.Value.AbsoluteValue();
+            return result;
+        }
+
+        public static long? AbsoluteValue(this uint? @this)
+        {
+            if (!@this.HasValue)
+            {
+                return @this;
+            }
+
+            var result = @this.Value.AbsoluteValue();
+            return result;
+        }
+
+        public static long? AbsoluteValue(this long? @this)
+        {
+            if (!@this.HasValue)
+            {
+                return @this;
+            }
+
+            var result = @this.Value.AbsoluteValue();
+            return result;
+        }
+
+        public static float? AbsoluteValue(this float? @this)
+        {
+            if (!@this.HasValue)
+            {
+                return @this;
+            }
+
+            var result = @this.Value.AbsoluteValue();
+            return result;
+        }
+
+        public static double? AbsoluteValue(this double? @this)
+        {
+            if (!@this.HasValue)
+            {
+                return @this;
+            }
+
+            var result = @this.Value.AbsoluteValue();
+            return result;
+        }
+
+        public static decimal? AbsoluteValue(this decimal? @this)
+        {
+            if (!@this.HasValue)
+            {
+                return @this;
+            }
+
+            var result = @this.Value.AbsoluteValue();
+            return result;
         }
     }
 }

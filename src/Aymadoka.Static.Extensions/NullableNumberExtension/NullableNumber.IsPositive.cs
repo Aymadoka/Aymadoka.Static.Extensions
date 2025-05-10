@@ -1,21 +1,130 @@
 using Aymadoka.Static.NumberExtension;
-using System.Numerics;
 
 namespace Aymadoka.Static.NullableNumberExtension
 {
     public static partial class NullableNumberExtensions
     {
-        /// <summary>判断小数值是否为正数</summary>
-        /// <param name="source">需要判断的原始小数值</param>
-        /// <returns>如果是正数返回 true，否则返回 false</returns>
-        public static bool IsPositive<T>(this T? source) where T : struct, INumber<T>
+        // static bool IsPositive<T>(this T? source) where T : struct, INumber<T>
+
+        public static bool IsPositive(this sbyte? @this)
         {
-            if (!source.HasValue)
+            if (!@this.HasValue)
             {
                 return false;
             }
 
-            return source.Value.IsPositive();
+            var result = @this.Value.IsPositive();
+            return result;
+        }
+
+        public static bool IsPositive(this byte? @this)
+        {
+            if (!@this.HasValue)
+            {
+                return false;
+            }
+
+            var result = @this.Value.IsPositive();
+            return result;
+        }
+
+        public static bool IsPositive(this short? @this)
+        {
+            if (!@this.HasValue)
+            {
+                return false;
+            }
+
+            var result = @this.Value.IsPositive();
+            return result;
+        }
+
+        public static bool IsPositive(this ushort? @this)
+        {
+            if (!@this.HasValue)
+            {
+                return false;
+            }
+
+            var result = @this.Value.IsPositive();
+            return result;
+        }
+
+        public static bool IsPositive(this int? @this)
+        {
+            if (!@this.HasValue)
+            {
+                return false;
+            }
+
+            var result = @this.Value.IsPositive();
+            return result;
+        }
+
+        public static bool IsPositive(this uint? @this)
+        {
+            if (!@this.HasValue)
+            {
+                return false;
+            }
+
+            var result = @this.Value.IsPositive();
+            return result;
+        }
+
+        public static bool IsPositive(this long? @this)
+        {
+            if (!@this.HasValue)
+            {
+                return false;
+            }
+
+            var result = @this.Value.IsPositive();
+            return result;
+        }
+
+        public static bool IsPositive(this ulong? @this)
+        {
+            if (!@this.HasValue)
+            {
+                return false;
+            }
+
+            var result = @this.Value.IsPositive();
+            return result;
+        }
+
+        public static bool IsPositive(this float? @this)
+        {
+            if (!@this.HasValue)
+            {
+                return false;
+            }
+
+            var result = @this.Value.IsPositive();
+            return result;
+        }
+
+        public static bool IsPositive(this double? @this)
+        {
+            if (!@this.HasValue)
+            {
+                return false;
+            }
+
+            var result = @this.Value.IsPositive();
+            return result;
+        }
+
+        public static bool IsPositive(this decimal? @this)
+        {
+            if (!@this.HasValue)
+            {
+                return false;
+            }
+
+            var result = @this.Value.IsPositive();
+            return result;
         }
     }
 }
