@@ -24,7 +24,9 @@ jobs:
         dotnet-version: '9.x'
 
     - name: Restore dependencies
-      run: dotnet restore src/Aymadoka.Static.Extensions/Aymadoka.Static.Extensions.csproj
+      run: |
+        dotnet restore src/Aymadoka.Static.Extensions/Aymadoka.Static.Extensions.csproj
+        dotnet restore test/Aymadoka.Static.Extensions.Tests/Aymadoka.Static.Extensions.Tests.csproj
 
     - name: Build project
       run: dotnet build src/Aymadoka.Static.Extensions/Aymadoka.Static.Extensions.csproj --configuration Release --no-restore
