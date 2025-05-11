@@ -14,7 +14,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "config", "config", "{8D92DB
 	ProjectSection(SolutionItems) = preProject
 		.gitattributes = .gitattributes
 		.gitignore = .gitignore
-		.github\workflows\dotnet.yml = .github\workflows\dotnet.yml
+		.github\workflows\build-and-publish-nuget.yml = .github\workflows\build-and-publish-nuget.yml
+		.github\workflows\build-test-cases.yml = .github\workflows\build-test-cases.yml
 		README.md = README.md
 	EndProjectSection
 EndProject
