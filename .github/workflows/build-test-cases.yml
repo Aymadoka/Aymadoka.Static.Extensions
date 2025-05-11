@@ -6,7 +6,7 @@ name: Build Test Cases
 on:
   push:
     tags:
-      - 'v*'  # 仅当提交带有类似 v1.0.0 的 tag 时触发发布流程
+      - 'v*'
 
 jobs:
   build-test:
@@ -23,5 +23,15 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
 
+    - name: Clean project
+      run: dotnet clean
+
+    - name: Build project
+      run: dotnet build --configuration Debug
+
+    - name: List test output files
+      run: ls -R test/Aymadoka.Static.Extensions.Tests/bin/Debug/net9.0
+
     - name: Run tests
-      run: dotnet test test/Aymadoka.Static.Extensions.Tests/Aymadoka.Static.Extensions.Tests.csproj --no-build --verbosity detailed
+      run: dotnet test test/Aymadoka.Static.Extensions.Tests/Aymadoka.Static.Extensions.Tests.csproj --verbosity detailed
+
