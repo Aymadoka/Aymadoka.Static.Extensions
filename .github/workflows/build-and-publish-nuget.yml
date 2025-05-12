@@ -21,11 +21,11 @@ jobs:
       with:
         dotnet-version: '9.x'
 
-    - name: Restore dependencies
-      run: dotnet restore
+    - name: Restore dependencies for Aymadoka.Static.Extensions
+      run: dotnet restore src/Aymadoka.Static.Extensions/Aymadoka.Static.Extensions.csproj
 
     - name: Build project
-      run: dotnet build --configuration Release --no-restore
+      run: dotnet build src/Aymadoka.Static.Extensions/Aymadoka.Static.Extensions.csproj --configuration Release --no-restore
 
     # - name: Run tests
     #   run: dotnet test test/Aymadoka.Static.Extensions.Tests/Aymadoka.Static.Extensions.Tests.csproj --no-build --verbosity detailed

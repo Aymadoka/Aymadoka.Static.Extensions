@@ -6,7 +6,7 @@
 		<RootNamespace>Aymadoka.Static</RootNamespace>
 
 		<PackageId>Aymadoka.Static.Extensions</PackageId>
-		<Version>0.1.10-alpha</Version>
+		<Version>0.1.11-alpha</Version>
 		<Authors>Aymadoka</Authors>
 		<PackageTags>extensions;extension;encrypt;capital;static</PackageTags>
 		<PackageIcon>icon.png</PackageIcon>
