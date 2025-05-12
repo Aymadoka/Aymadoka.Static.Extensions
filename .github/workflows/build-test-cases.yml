@@ -5,8 +5,9 @@ name: Build Test Cases
 
 on:
   push:
-    tags:
-      - 'v*'
+    branches:
+      - main
+      - develop
 
 jobs:
   build-test:
