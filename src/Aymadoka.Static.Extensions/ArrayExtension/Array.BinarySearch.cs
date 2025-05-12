@@ -15,11 +15,6 @@ namespace Aymadoka.Static.ArrayExtension
         /// <exception cref="ArgumentNullException">当 <paramref name="this"/> 为 null 时抛出。</exception>
         public static int BinarySearch<T>(this T[] @this, T value)
         {
-            if (@this == null)
-            {
-                throw new ArgumentNullException(nameof(@this), "The input array cannot be empty.");
-            }
-
             var result = Array.BinarySearch(@this, value);
             return result;
         }
@@ -36,11 +31,6 @@ namespace Aymadoka.Static.ArrayExtension
         /// <exception cref="ArgumentOutOfRangeException">当 <paramref name="index"/> 或 <paramref name="length"/> 超出范围时抛出。</exception>
         public static int BinarySearch<T>(this T[] @this, int index, int length, T value)
         {
-            if (@this == null)
-            {
-                throw new ArgumentNullException(nameof(@this), "The input array cannot be empty.");
-            }
-
             var result = Array.BinarySearch(@this, index, length, value);
             return result;
         }
@@ -56,11 +46,6 @@ namespace Aymadoka.Static.ArrayExtension
         /// <exception cref="ArgumentNullException">当 <paramref name="this"/> 为 null 时抛出。</exception>
         public static int BinarySearch<T>(this T[] @this, T value, IComparer comparer)
         {
-            if (@this == null)
-            {
-                throw new ArgumentNullException(nameof(@this), "The input array cannot be empty.");
-            }
-
             var result = Array.BinarySearch(@this, value, comparer);
             return result;
         }
@@ -79,11 +64,6 @@ namespace Aymadoka.Static.ArrayExtension
         /// <exception cref="ArgumentOutOfRangeException">当 <paramref name="index"/> 或 <paramref name="length"/> 超出范围时抛出。</exception>
         public static int BinarySearch<T>(this T[] @this, int index, int length, T value, IComparer comparer)
         {
-            if (@this == null)
-            {
-                throw new ArgumentNullException(nameof(@this), "The input array cannot be empty.");
-            }
-
             var result = Array.BinarySearch(@this, index, length, value, comparer);
             return result;
         }

@@ -8,7 +8,7 @@
 
 	<PropertyGroup>
 		<PackageId>Aymadoka.Static.Extensions</PackageId>
-		<Version>0.1.6-alpha</Version>
+		<Version>0.1.7-alpha</Version>
 		<Authors>Aymadoka</Authors>
 		<PackageTags>extensions;extension;encrypt;capital;static</PackageTags>
 		<PackageIcon>icon.png</PackageIcon>

@@ -82,68 +82,64 @@ namespace Aymadoka.Static.ArrayExtension
             int length = 10;
 
             // Act & Assert
-            Assert.Throws<ArgumentOutOfRangeException>(() => array.BinarySearch(index, length, valueToSearch));
+            Assert.Throws<ArgumentException>(() => array.BinarySearch(index, length, valueToSearch));
         }
 
-        //[Fact]
-        //public void BinarySearch_WithComparer_ShouldReturnIndex_WhenValueExists()
-        //{
-        //    // Arrange
-        //    string[] array = { "apple", "banana", "cherry" };
-        //    string valueToSearch = "banana";
-        //    IComparer comparer = StringComparer.OrdinalIgnoreCase;
+        [Fact]
+        public void BinarySearch_WithComparer_ShouldReturnIndex_WhenValueExists()
+        {
+            // Arrange
+            string[] array = { "apple", "banana", "cherry" };
+            string valueToSearch = "banana";
 
-        //    // Act
-        //    int result = array.BinarySearch(valueToSearch, comparer);
+            // Act
+            int result = array.BinarySearch(valueToSearch, StringComparer.OrdinalIgnoreCase);
 
-        //    // Assert
-        //    Assert.Equal(1, result);
-        //}
+            // Assert
+            Assert.Equal(1, result);
+        }
 
-        //[Fact]
-        //public void BinarySearch_WithComparer_ShouldReturnNegative_WhenValueDoesNotExist()
-        //{
-        //    // Arrange
-        //    string[] array = { "apple", "banana", "cherry" };
-        //    string valueToSearch = "grape";
-        //    IComparer comparer = StringComparer.OrdinalIgnoreCase;
+        [Fact]
+        public void BinarySearch_WithComparer_ShouldReturnNegative_WhenValueDoesNotExist()
+        {
+            // Arrange
+            string[] array = { "apple", "banana", "cherry" };
+            string valueToSearch = "grape";
 
-        //    // Act
-        //    int result = array.BinarySearch(valueToSearch, comparer);
+            // Act
+            int result = array.BinarySearch(valueToSearch, StringComparer.OrdinalIgnoreCase);
 
-        //    // Assert
-        //    Assert.True(result < 0);
-        //}
+            // Assert
+            Assert.True(result < 0);
+        }
 
-        //[Fact]
-        //public void BinarySearch_WithRangeAndComparer_ShouldReturnIndex_WhenValueExists()
-        //{
-        //    // Arrange
-        //    string[] array = { "apple", "banana", "cherry", "date" };
-        //    string valueToSearch = "cherry";
-        //    int index = 1;
-        //    int length = 2;
-        //    IComparer comparer = StringComparer.OrdinalIgnoreCase;
+        [Fact]
+        public void BinarySearch_WithRangeAndComparer_ShouldReturnIndex_WhenValueExists()
+        {
+            // Arrange
+            string[] array = { "apple", "banana", "cherry", "date" };
+            string valueToSearch = "cherry";
+            int index = 1;
+            int length = 2;
+            
+            // Act
+            int result = array.BinarySearch(index, length, valueToSearch, StringComparer.OrdinalIgnoreCase);
 
-        //    // Act
-        //    int result = array.BinarySearch(index, length, valueToSearch, comparer);
+            // Assert
+            Assert.Equal(2, result);
+        }
 
-        //    // Assert
-        //    Assert.Equal(2, result);
-        //}
-
-        //[Fact]
-        //public void BinarySearch_WithRangeAndComparer_ShouldThrowArgumentNullException_WhenArrayIsNull()
-        //{
-        //    // Arrange
-        //    string[] array = null;
-        //    string valueToSearch = "cherry";
-        //    int index = 0;
-        //    int length = 1;
-        //    IComparer comparer = StringComparer.OrdinalIgnoreCase;
-
-        //    // Act & Assert
-        //    Assert.Throws<ArgumentNullException>(() => array.BinarySearch(index, length, valueToSearch, comparer));
-        //}
+        [Fact]
+        public void BinarySearch_WithRangeAndComparer_ShouldThrowArgumentNullException_WhenArrayIsNull()
+        {
+            // Arrange
+            string[] array = null;
+            string valueToSearch = "cherry";
+            int index = 0;
+            int length = 1;
+            
+            // Act & Assert
+            Assert.Throws<ArgumentNullException>(() => array.BinarySearch(index, length, valueToSearch, StringComparer.OrdinalIgnoreCase));
+        }
     }
 }
