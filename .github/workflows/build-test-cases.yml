@@ -29,14 +29,9 @@ jobs:
     - name: Build project
       run: dotnet build --configuration Debug
 
-    - name: Verify test output
+    - name: List test output files
       run: ls -R test/Aymadoka.Static.Extensions.Tests/bin/Debug/net9.0
 
     - name: Run tests
-      run: dotnet test test/Aymadoka.Static.Extensions.Tests/Aymadoka.Static.Extensions.Tests.csproj --logger "trx;LogFileName=test_results.trx" --verbosity diagnostic
+      run: dotnet test test/Aymadoka.Static.Extensions.Tests/Aymadoka.Static.Extensions.Tests.csproj --verbosity detailed
 
-    - name: Upload test results
-      uses: actions/upload-artifact@v3
-      with:
-        name: Test Results
-        path: test/Aymadoka.Static.Extensions.Tests/TestResults/
