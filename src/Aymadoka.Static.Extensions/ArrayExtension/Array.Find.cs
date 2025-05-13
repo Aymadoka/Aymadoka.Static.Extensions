@@ -1,13 +1,21 @@
 using System;
-using System.Collections.ObjectModel;
 
 namespace Aymadoka.Static.ArrayExtension
 {
     public static partial class ArrayExtensions
     {
-        public static T Find<T>(this T[] array, Predicate<T> match)
+        /// <summary>
+        /// 在数组中查找第一个匹配指定条件的元素。
+        /// </summary>
+        /// <typeparam name="T">数组元素的类型。</typeparam>
+        /// <param name="this">要搜索的数组。</param>
+        /// <param name="match">用于定义要查找元素的条件的谓词。</param>
+        /// <returns>返回数组中第一个匹配条件的元素；如果未找到，则返回类型 <typeparamref name="T"/> 的默认值。</returns>
+        /// <exception cref="ArgumentNullException">如果 <paramref name="this"/> 或 <paramref name="match"/> 为 null，则抛出此异常。</exception>
+        public static T Find<T>(this T[] @this, Predicate<T> match)
         {
-            return Array.Find(array, match);
+            var result = Array.Find(@this, match);
+            return result;
         }
     }
 }

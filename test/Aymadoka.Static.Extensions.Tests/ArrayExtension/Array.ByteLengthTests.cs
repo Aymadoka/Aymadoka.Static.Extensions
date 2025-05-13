@@ -72,7 +72,7 @@ namespace Aymadoka.Static.ArrayExtension
 
             // Act & Assert
             var exception = Assert.Throws<ArgumentException>(() => array.ByteLength());
-            Assert.Equal("Object must be an array of primitives or DateTime. (Parameter 'array')", exception.Message);
+            Assert.Equal("Object must be an array of primitives or DateTime. (Parameter 'this')", exception.Message);
         }
     }
 }
