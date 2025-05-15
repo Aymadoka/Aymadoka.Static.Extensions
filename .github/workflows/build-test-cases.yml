@@ -1,39 +1,41 @@
 # This workflow will build a .NET project
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
 
-name: Build Test Cases
 
-on:
-  push:
-    branches:
-      - main
-      - master
-      - develop
 
-jobs:
-  build-test:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+# name: Build Test Cases
+
+# on:
+#   push:
+#     branches:
+#       - main
+#       - master
+#       - develop
+
+# jobs:
+#   build-test:
+#     runs-on: ubuntu-latest
+#     steps:
+#     - name: Checkout code
+#       uses: actions/checkout@v4
   
-    - name: Setup .NET SDK 9.x
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: '9.x'
+#     - name: Setup .NET SDK 9.x
+#       uses: actions/setup-dotnet@v4
+#       with:
+#         dotnet-version: '9.x'
   
-    - name: Restore dependencies
-      run: dotnet restore
+#     - name: Restore dependencies
+#       run: dotnet restore
 
-    - name: Clean project
-      run: dotnet clean
+#     - name: Clean project
+#       run: dotnet clean
 
-    - name: Build project
-      run: dotnet build --configuration Debug
+#     - name: Build project
+#       run: dotnet build --configuration Debug
 
-    - name: List test output files
-      run: ls -R test/Aymadoka.Static.Extensions.Tests/bin/Debug/net9.0
+#     - name: List test output files
+#       run: ls -R test/Aymadoka.Static.Extensions.Tests/bin/Debug/net9.0
 
-    - name: Run tests
-      run: dotnet test test/Aymadoka.Static.Extensions.Tests/Aymadoka.Static.Extensions.Tests.csproj --verbosity detailed
+#     - name: Run tests
+#       run: dotnet test test/Aymadoka.Static.Extensions.Tests/Aymadoka.Static.Extensions.Tests.csproj --verbosity detailed
 

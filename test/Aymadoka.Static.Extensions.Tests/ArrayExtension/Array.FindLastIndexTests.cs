@@ -163,3 +163,7 @@ namespace Aymadoka.Static.ArrayExtension
         }
     }
 }
+
+//请帮我完成 #file:'Array.ForEach.cs'  中函数的注释
+
+//当前测试用例使用 xunit 测试 netstandard2.1 的项目，请帮我生成    基于 Arrange-Act-Assert 模式     的测试用例
