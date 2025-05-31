@@ -1,5 +1,5 @@
-using System.Data;
 using System;
+using System.Data;
 
 namespace Aymadoka.Static.StringExtension
 {

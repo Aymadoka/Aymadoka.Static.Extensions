@@ -1,7 +1,7 @@
+using Aymadoka.Static.HashExtension;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
-using Aymadoka.Static.HashExtension;
 
 namespace Aymadoka.Static.StreamExtension
 {

@@ -16,7 +16,7 @@ namespace Aymadoka.Static.ArrayExtension
         {
             Array.Reverse(array);
         }
-        
+
         /// <summary>
         /// 反转一维数组中指定范围内元素的顺序。
         /// </summary>

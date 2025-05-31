@@ -21,7 +21,7 @@ namespace Aymadoka.Static.ObjectExtension
 
             return default;
         }
-    
+
         public static T? CoalesceOrDefault<T>(this T? @this, Func<T?> defaultValueFactory, params T[] values) where T : class
         {
             if (@this != null)

@@ -20,7 +20,7 @@ namespace Aymadoka.Static.NullableNumberExtension
 
         public static string? ToCurrency(this byte? @this, CultureInfo? culture = null)
         {
-             if (!@this.HasValue)
+            if (!@this.HasValue)
             {
                 return null;
             }

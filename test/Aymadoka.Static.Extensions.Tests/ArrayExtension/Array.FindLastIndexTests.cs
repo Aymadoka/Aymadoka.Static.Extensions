@@ -126,7 +126,7 @@ namespace Aymadoka.Static.ArrayExtension
 
             // Act
             int result = ArrayExtensions.FindLastIndex(array, 4, 2, x => x == 100);
-            
+
             // Assert
             Assert.Equal(-1, result);
         }

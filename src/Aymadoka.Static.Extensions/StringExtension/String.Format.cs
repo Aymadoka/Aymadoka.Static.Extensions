@@ -1,5 +1,3 @@
-using System;
-
 namespace Aymadoka.Static.StringExtension
 {
     public static partial class StringExtensions

@@ -56,7 +56,7 @@ namespace Aymadoka.Static.NumberExtension
         public static bool IsZero(this double @this)
         {
             // 定义一个小的容差值
-            const double epsilon = 1e-9; 
+            const double epsilon = 1e-9;
             return Math.Abs(@this) < epsilon;
         }
 

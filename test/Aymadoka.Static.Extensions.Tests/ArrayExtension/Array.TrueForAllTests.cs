@@ -7,7 +7,7 @@ namespace Aymadoka.Static.ArrayExtension
         public void TrueForAll_AllMatch_ReturnsTrue()
         {
 
-            
+
 
             int[] arr = { 2, 4, 6 };
             bool result = ArrayExtensions.TrueForAll(arr, x => x % 2 == 0);
