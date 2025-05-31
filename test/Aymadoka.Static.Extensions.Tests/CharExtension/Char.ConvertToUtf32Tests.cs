@@ -1,3 +1,5 @@
+using Shouldly;
+
 namespace Aymadoka.Static.CharExtension
 {
     public class Char_ConvertToUtf32Tests
@@ -21,7 +23,13 @@ namespace Aymadoka.Static.CharExtension
             char high = 'A';
             char low = 'B';
 
-            Assert.Throws<ArgumentException>(() => high.ConvertToUtf32(low));
+            // Act
+            var exception = Record.Exception(() => high.ConvertToUtf32(low));
+
+            // Assert
+            exception.ShouldNotBeNull();
+            exception.ShouldBeOfType<ArgumentOutOfRangeException>();
+            exception.ShouldBeAssignableTo<ArgumentException>();
         }
     }
 }
