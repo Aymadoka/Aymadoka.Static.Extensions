@@ -7,7 +7,7 @@
 		
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<PackageId>Aymadoka.Static.Extensions</PackageId>
-		<Version>0.1.14-alpha</Version>
+		<Version>0.1.18-alpha</Version>
 		<Authors>Aymadoka</Authors>
 		<PackageTags>extensions;extension;encrypt;capital;static</PackageTags>
 		<PackageIcon>icon.png</PackageIcon>
