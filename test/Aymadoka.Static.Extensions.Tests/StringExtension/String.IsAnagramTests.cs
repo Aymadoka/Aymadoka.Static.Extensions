@@ -1,0 +1,9 @@
+using System.Linq;
+
+namespace Aymadoka.Static.StringExtension
+{
+    public class String_IsAnagramTests
+    {
+     
+    }
+}

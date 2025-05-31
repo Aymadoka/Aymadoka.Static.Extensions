@@ -14,6 +14,11 @@ namespace Aymadoka.Static.ArrayExtension
         /// <exception cref="ArgumentNullException">当 <paramref name="this"/> 为 null 时抛出。</exception>
         public static ReadOnlyCollection<T> AsReadOnly<T>(this T[] @this)
         {
+            if (@this == null)
+            {
+                throw new ArgumentNullException(nameof(@this));
+            }
+
             var result = Array.AsReadOnly(@this);
             return result;
         }
