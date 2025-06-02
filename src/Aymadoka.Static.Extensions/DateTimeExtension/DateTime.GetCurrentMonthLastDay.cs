@@ -4,9 +4,11 @@ namespace Aymadoka.Static.DateTimeExtension
 {
     public static partial class DateTimeExtensions
     {
-        /// <summary>获取指定日期所在月份的最后一天</summary>
-        /// <param name="this">源日期</param>
-        /// <returns>源日期所在月份的最后一天，保留时间部分</returns>
+        /// <summary>
+        /// 获取当前日期所在月份的最后一天
+        /// </summary>
+        /// <param name="this">要获取月份最后一天的日期</param>
+        /// <returns>当前日期所在月份的最后一天</returns>
         public static DateTime GetCurrentMonthLastDay(this DateTime @this)
         {
             var result = @this.CurrentMonthFirstDay().AddMonths(1).AddDays(-1);

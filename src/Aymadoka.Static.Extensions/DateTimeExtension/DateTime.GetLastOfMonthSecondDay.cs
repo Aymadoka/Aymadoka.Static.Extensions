@@ -4,9 +4,11 @@ namespace Aymadoka.Static.DateTimeExtension
 {
     public static partial class DateTimeExtensions
     {
-        /// <summary>获取指定日期所在月份的倒数第二天</summary>
-        /// <param name="this">源日期</param>
-        /// <returns>源日期所在月份的倒数第二天，保留时间部分</returns>
+        /// <summary>
+        /// 获取当前日期所在月份的倒数第二天的日期
+        /// </summary>
+        /// <param name="this">要操作的 <see cref="DateTime"/> 实例</param>
+        /// <returns>该月份倒数第二天的 <see cref="DateTime"/></returns>
         public static DateTime GetLastOfMonthSecondDay(this DateTime @this)
         {
             var result = @this.CurrentMonthFirstDay().AddMonths(1).AddDays(-2);
