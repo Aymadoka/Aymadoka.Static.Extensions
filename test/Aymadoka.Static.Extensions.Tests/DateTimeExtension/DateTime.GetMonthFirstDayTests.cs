@@ -1,13 +1,13 @@
 namespace Aymadoka.Static.DateTimeExtension
 {
-    public class DateTime_CurrentMonthFirstDayTests
+    public class DateTime_GetMonthFirstDayTests
     {
         [Theory]
         [InlineData(2024, 6, 15, 2024, 6, 1)]
         [InlineData(2020, 2, 29, 2020, 2, 1)]
         [InlineData(2023, 1, 1, 2023, 1, 1)]
         [InlineData(2023, 12, 31, 2023, 12, 1)]
-        public void CurrentMonthFirstDay_ReturnsFirstDayOfMonth(
+        public void GetMonthFirstDay_ReturnsFirstDayOfMonth(
             int year, int month, int day,
             int expectedYear, int expectedMonth, int expectedDay)
         {
@@ -16,7 +16,7 @@ namespace Aymadoka.Static.DateTimeExtension
             var expected = new DateTime(expectedYear, expectedMonth, expectedDay);
 
             // Act
-            var result = date.CurrentMonthFirstDay();
+            var result = date.GetMonthFirstDay();
 
             // Assert
             Assert.Equal(expected, result);

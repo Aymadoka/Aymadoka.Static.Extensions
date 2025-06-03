@@ -21,8 +21,8 @@ namespace Aymadoka.Static.DateTimeExtension
         [Fact]
         public void GetSecondLevelTimeStamp_ShouldHandleLocalTime()
         {
-            var utcDate = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-            var localDate = utcDate.ToLocalTime();
+            var utcDate = DateTime.UnixEpoch;
+            var localDate = DateTime.SpecifyKind(utcDate.ToLocalTime(), DateTimeKind.Local);
             var timestampUtc = utcDate.GetSecondLevelTimeStamp();
             var timestampLocal = localDate.GetSecondLevelTimeStamp();
             Assert.Equal(timestampUtc, timestampLocal);

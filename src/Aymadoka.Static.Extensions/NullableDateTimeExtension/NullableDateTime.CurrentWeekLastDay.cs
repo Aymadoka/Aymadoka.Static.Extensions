@@ -12,7 +12,7 @@ namespace Aymadoka.Static.NullableDateTimeExtension
                 return null;
             }
 
-            var result = @this.Value.CurrentWeekLastDay();
+            var result = @this.Value.GetWeekLastDay();
             return result;
         }
     }

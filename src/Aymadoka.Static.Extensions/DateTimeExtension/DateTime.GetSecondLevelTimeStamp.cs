@@ -11,8 +11,9 @@ namespace Aymadoka.Static.DateTimeExtension
         /// <returns>自 Unix 纪元以来的秒数</returns>
         public static long GetSecondLevelTimeStamp(this DateTime date)
         {
-            var result = (long)(date - DateTime.UnixEpoch).TotalSeconds;
-            return result;
+            // 确保时间为 UTC
+            var utcDateTime = date.Kind == DateTimeKind.Utc ? date : date.ToUniversalTime();
+            return (long)(utcDateTime - DateTime.UnixEpoch).TotalSeconds;
         }
     }
 }

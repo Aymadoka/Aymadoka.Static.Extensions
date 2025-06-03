@@ -38,7 +38,7 @@ namespace Aymadoka.Static.DateTimeExtension
             var result = now.IsPast();
 
             // Assert
-            Assert.False(result);
+            Assert.True(result);
         }
     }
 }

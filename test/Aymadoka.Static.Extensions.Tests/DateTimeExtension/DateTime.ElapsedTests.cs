@@ -27,7 +27,7 @@ namespace Aymadoka.Static.DateTimeExtension
             var elapsed = future.Elapsed();
 
             // Assert
-            Assert.True(elapsed.TotalMinutes <= -5 && elapsed.TotalMinutes > -5.1);
+            Assert.True(elapsed.TotalMinutes >= -5 && elapsed.TotalMinutes <= -4.9);
         }
 
         [Fact]

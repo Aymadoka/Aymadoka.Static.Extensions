@@ -21,7 +21,7 @@ namespace Aymadoka.Static.NullableDateTimeOffsetExtension
                 return null;
             }
 
-            var result = @this.Value.CurrentMonthFirstDay();
+            var result = @this.Value.GetFirstDayOfMonth();
             return result;
         }
     }

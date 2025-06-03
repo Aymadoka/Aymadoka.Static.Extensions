@@ -11,7 +11,7 @@ namespace Aymadoka.Static.DateTimeExtension
         /// <returns>下一个月的第一天的 <see cref="DateTime"/> 实例</returns>
         public static DateTime GetNextMonthFirstDay(this DateTime @this)
         {
-            var result = @this.CurrentMonthFirstDay().AddMonths(1);
+            var result = @this.GetMonthFirstDay().AddMonths(1);
             return result;
         }
     }

@@ -11,7 +11,7 @@ namespace Aymadoka.Static.DateTimeExtension
         /// <returns>上个月的第一天</returns>
         public static DateTime GetLastMonthFirstDay(this DateTime @this)
         {
-            var result = @this.CurrentMonthFirstDay().AddMonths(-1);
+            var result = @this.GetMonthFirstDay().AddMonths(-1);
             return result;
         }
     }

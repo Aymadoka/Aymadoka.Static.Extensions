@@ -11,7 +11,7 @@ namespace Aymadoka.Static.DateTimeExtension
         /// <returns>该月份倒数第二天的 <see cref="DateTime"/></returns>
         public static DateTime GetLastOfMonthSecondDay(this DateTime @this)
         {
-            var result = @this.CurrentMonthFirstDay().AddMonths(1).AddDays(-2);
+            var result = @this.GetMonthFirstDay().AddMonths(1).AddDays(-2);
             return result;
         }
     }

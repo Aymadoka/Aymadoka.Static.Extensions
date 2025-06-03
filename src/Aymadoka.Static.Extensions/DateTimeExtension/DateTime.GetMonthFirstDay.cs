@@ -9,7 +9,7 @@ namespace Aymadoka.Static.DateTimeExtension
         /// </summary>
         /// <param name="this">要获取月份第一天的日期</param>
         /// <returns>当前日期所在月份的第一天</returns>
-        public static DateTime CurrentMonthFirstDay(this DateTime @this)
+        public static DateTime GetMonthFirstDay(this DateTime @this)
         {
             var result = @this.AddDays(1 - @this.Day);
             return result;

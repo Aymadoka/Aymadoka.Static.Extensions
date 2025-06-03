@@ -14,7 +14,7 @@ namespace Aymadoka.Static.DateTimeOffsetExtension
         /// </remarks>
         public static DateTimeOffset GetSecondDayToLastOfMonth(this DateTimeOffset @this)
         {
-            var result = @this.CurrentMonthFirstDay().AddMonths(1).AddDays(-2);
+            var result = @this.GetFirstDayOfMonth().AddMonths(1).AddDays(-2);
             return result;
         }
     }
