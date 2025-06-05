@@ -5,16 +5,10 @@ namespace Aymadoka.Static.DateTimeOffsetExtension
     public static partial class DateTimeOffsetExtensions
     {
         /// <summary>
-        /// 移除 <see cref="DateTimeOffset"/> 的时间部分，仅保留日期部分。
+        /// 移除 <see cref="DateTimeOffset"/> 的时间部分，仅保留日期部分（时分秒均为零）
         /// </summary>
-        /// <param name="this">要移除时间部分的 <see cref="DateTimeOffset"/>。</param>
-        /// <returns>仅包含日期部分的 <see cref="DateTimeOffset"/>。</returns>
-        /// <remarks>
-        ///     <list type="bullet">
-        ///         <item>返回的 <see cref="DateTimeOffset"/> 的时间部分将被设置为 00:00:00。</item>
-        ///         <item>保留原始的时区偏移量。/item> 
-        ///     </list>
-        /// </remarks>
+        /// <param name="this">要处理的 <see cref="DateTimeOffset"/> 实例</param>
+        /// <returns>仅包含日期部分的 <see cref="DateTimeOffset"/></returns>
         public static DateTimeOffset RemoveTime(this DateTimeOffset @this)
         {
             var timeOfDay = @this.TimeOfDay;

@@ -9,7 +9,7 @@ namespace Aymadoka.Static.DateTimeOffsetExtension
         [InlineData(2022, 12, 31, 8, 0, 0, 0, "2022-12-01T08:00:00+00:00")]
         [InlineData(2024, 6, 1, 0, 0, 0, 0, "2024-06-01T00:00:00+00:00")]
         public void GetFirstDayOfMonth_ReturnsFirstDayOfMonth(
-            int year, int month, int day, int hour, int minute, int second, int offsetMinutes, string expectedIso)
+    int year, int month, int day, int hour, int minute, int second, int offsetMinutes, string expectedIso)
         {
             var offset = TimeSpan.FromMinutes(offsetMinutes);
             var input = new DateTimeOffset(year, month, day, hour, minute, second, offset);

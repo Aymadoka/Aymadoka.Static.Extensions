@@ -5,13 +5,10 @@ namespace Aymadoka.Static.DateTimeOffsetExtension
     public static partial class DateTimeOffsetExtensions
     {
         /// <summary>
-        /// 获取 <see cref="DateTimeOffset"/> 所在日期的下一个月的第一天日期。
+        /// 获取指定 <see cref="DateTimeOffset"/> 的下一个月的第一天
         /// </summary>
-        /// <param name="this">要获取下一个月第一天的 <see cref="DateTimeOffset"/>。</param>
-        /// <returns>下一个月第一天的 <see cref="DateTimeOffset"/>。</returns>
-        /// <remarks>
-        /// - 返回的 <see cref="DateTimeOffset"/> 保留原始的时区偏移量。
-        /// </remarks>
+        /// <param name="this">要获取下一个月第一天的 <see cref="DateTimeOffset"/> 实例</param>
+        /// <returns>下一个月第一天的 <see cref="DateTimeOffset"/></returns>
         public static DateTimeOffset GetFirstDayOfNextMonth(this DateTimeOffset @this)
         {
             var result = @this.GetFirstDayOfMonth().AddMonths(1);

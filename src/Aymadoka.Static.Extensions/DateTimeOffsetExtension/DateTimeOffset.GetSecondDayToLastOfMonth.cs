@@ -5,13 +5,10 @@ namespace Aymadoka.Static.DateTimeOffsetExtension
     public static partial class DateTimeOffsetExtensions
     {
         /// <summary>
-        /// 获取 <see cref="DateTimeOffset"/> 所在月份的倒数第二天日期。
+        /// 获取指定 <see cref="DateTimeOffset"/> 所在月份的倒数第二天
         /// </summary>
-        /// <param name="this">要获取倒数第二天的 <see cref="DateTimeOffset"/>。</param>
-        /// <returns>所在月份倒数第二天的 <see cref="DateTimeOffset"/>。</returns>
-        /// <remarks>
-        /// - 返回的 <see cref="DateTimeOffset"/> 保留原始的时区偏移量。
-        /// </remarks>
+        /// <param name="this">要操作的 <see cref="DateTimeOffset"/> 实例</param>
+        /// <returns>该月份倒数第二天的 <see cref="DateTimeOffset"/></returns>
         public static DateTimeOffset GetSecondDayToLastOfMonth(this DateTimeOffset @this)
         {
             var result = @this.GetFirstDayOfMonth().AddMonths(1).AddDays(-2);
