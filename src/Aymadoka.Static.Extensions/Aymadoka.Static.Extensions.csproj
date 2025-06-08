@@ -30,7 +30,7 @@ Using this library can significantly improve development efficiency and reduce t
 
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.3" />
+		<PackageReference Include="System.Text.Json" Version="9.0.5" />
 		<PackageReference Include="Microsoft.Extensions.Caching.Abstractions" Version="9.0.4" />
 		<None Include="icon.png">
 			<Pack>True</Pack>
