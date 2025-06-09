@@ -4,6 +4,14 @@ namespace Aymadoka.Static.DictionaryExtension
 {
     public static partial class DictionaryExtensions
     {
+        /// <summary>
+        /// 判断字典是否包含所有指定的键。
+        /// </summary>
+        /// <typeparam name="TKey">字典键的类型。</typeparam>
+        /// <typeparam name="TValue">字典值的类型。</typeparam>
+        /// <param name="this">要检查的字典实例。</param>
+        /// <param name="keys">要检查的键集合。</param>
+        /// <returns>如果字典包含所有指定的键，则返回 true；否则返回 false。</returns>
         public static bool ContainsAllKey<TKey, TValue>(this IDictionary<TKey, TValue> @this, params TKey[] keys)
         {
             foreach (TKey value in keys)
