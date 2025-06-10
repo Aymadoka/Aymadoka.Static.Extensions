@@ -9,7 +9,7 @@ namespace Aymadoka.Static.DateTimeExtension
         /// </summary>
         /// <param name="this">要获取月份最后一天的日期</param>
         /// <returns>当前日期所在月份的最后一天</returns>
-        public static DateTime GetCurrentMonthLastDay(this DateTime @this)
+        public static DateTime GetMonthLastDay(this DateTime @this)
         {
             var result = @this.GetMonthFirstDay().AddMonths(1).AddDays(-1);
             return result;

@@ -30,4 +30,5 @@ namespace Aymadoka.Static.GuidExtension
                 Assert.False(result);
             }
         }
+    }
 }

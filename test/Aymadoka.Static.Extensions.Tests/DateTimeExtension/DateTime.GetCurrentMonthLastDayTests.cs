@@ -14,7 +14,7 @@ namespace Aymadoka.Static.DateTimeExtension
         {
             var date = new DateTime(year, month, day);
             var expected = new DateTime(expectedYear, expectedMonth, expectedDay);
-            var actual = date.GetCurrentMonthLastDay();
+            var actual = date.GetMonthLastDay();
             Assert.Equal(expected, actual);
         }
     }

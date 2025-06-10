@@ -5,7 +5,7 @@ namespace Aymadoka.Static.NullableDateTimeExtension
 {
     public static partial class NullableDateTimeExtensions
     {
-        public static DateTime? CurrentWeekLastDay(this DateTime? @this)
+        public static DateTime? GetWeekLastDay(this DateTime? @this, DayOfWeek weekStartsOn)
         {
             if (@this == null)
             {
@@ -13,6 +13,13 @@ namespace Aymadoka.Static.NullableDateTimeExtension
             }
 
             var result = @this.Value.GetWeekLastDay();
+            return result;
+        }
+
+        public static DateTime? GetWeekLastDay(this DateTime? @this)
+        {
+            var weekStartsOn = DayOfWeek.Monday;
+            var result = @this.GetWeekLastDay(weekStartsOn);
             return result;
         }
     }

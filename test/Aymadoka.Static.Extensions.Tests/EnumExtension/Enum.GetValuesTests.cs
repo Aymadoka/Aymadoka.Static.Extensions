@@ -8,6 +8,7 @@ namespace Aymadoka.Static.EnumExtension
             Second = 2,
             Third = 3
         }
+        enum EmptyEnum { }
 
         [Fact]
         public void GetValues_ReturnsAllEnumValues()
@@ -25,14 +26,14 @@ namespace Aymadoka.Static.EnumExtension
         [Fact]
         public void GetValues_ReturnsEmptyArrayForEmptyEnum()
         {
-                    // Arrange
-                    enum EmptyEnum { }
+            // Arrange
 
-        // Act
-        var values = EnumExtensions.GetValues<EmptyEnum>();
 
-        // Assert
-        Assert.Empty(values);
-                }
-}
+            // Act
+            var values = EnumExtensions.GetValues<EmptyEnum>();
+
+            // Assert
+            Assert.Empty(values);
+        }
+    }
 }
