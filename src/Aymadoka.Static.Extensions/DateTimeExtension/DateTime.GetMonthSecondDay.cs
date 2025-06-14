@@ -9,7 +9,7 @@ namespace Aymadoka.Static.DateTimeExtension
         /// </summary>
         /// <param name="this">要操作的 <see cref="DateTime"/> 实例</param>
         /// <returns>该月份倒数第二天的 <see cref="DateTime"/></returns>
-        public static DateTime GetLastOfMonthSecondDay(this DateTime @this)
+        public static DateTime GetMonthSecondDay(this DateTime @this)
         {
             var result = @this.GetMonthFirstDay().AddMonths(1).AddDays(-2);
             return result;

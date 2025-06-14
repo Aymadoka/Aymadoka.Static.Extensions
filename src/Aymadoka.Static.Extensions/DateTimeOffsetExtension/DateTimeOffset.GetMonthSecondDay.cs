@@ -9,9 +9,9 @@ namespace Aymadoka.Static.DateTimeOffsetExtension
         /// </summary>
         /// <param name="this">要操作的 <see cref="DateTimeOffset"/> 实例</param>
         /// <returns>该月份倒数第二天的 <see cref="DateTimeOffset"/></returns>
-        public static DateTimeOffset GetSecondDayToLastOfMonth(this DateTimeOffset @this)
+        public static DateTimeOffset GetMonthSecondDay(this DateTimeOffset @this)
         {
-            var result = @this.GetFirstDayOfMonth().AddMonths(1).AddDays(-2);
+            var result = @this.GetMonthFirstDay().AddMonths(1).AddDays(-2);
             return result;
         }
     }

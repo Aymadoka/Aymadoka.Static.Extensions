@@ -9,9 +9,9 @@ namespace Aymadoka.Static.DateTimeOffsetExtension
         /// </summary>
         /// <param name="this">要操作的 <see cref="DateTimeOffset"/> 实例</param>
         /// <returns>上个月的第一天（时间部分与原始值相同）</returns>
-        public static DateTimeOffset GetFirstDayOfLastMonth(this DateTimeOffset @this)
+        public static DateTimeOffset GetLastMonthFirstDay(this DateTimeOffset @this)
         {
-            var result = @this.GetFirstDayOfMonth().AddMonths(-1);
+            var result = @this.GetMonthFirstDay().AddMonths(-1);
             return result;
         }
     }

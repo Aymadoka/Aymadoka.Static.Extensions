@@ -5,16 +5,15 @@ namespace Aymadoka.Static.NullableDateTimeExtension
 {
     public static partial class NullableDateTimeExtensions
     {
-        /// <summary>使用指定的格式将可空的 <see cref="DateTime"/> 转换为其字符串表示形式</summary>
-        /// <param name="this">要转换的可空 <see cref="DateTime"/></param>
-        /// <param name="format">标准或自定义的日期和时间格式字符串。如果为 <c>null</c>，将使用默认格式</param>
+        /// <summary>
+        /// 将可空 <see cref="DateTime"/> 按指定格式转换为字符串。
+        /// </summary>
+        /// <param name="this">要格式化的可空 <see cref="DateTime"/> 实例。</param>
+        /// <param name="format">日期和时间的格式字符串。</param>
         /// <returns>
-        /// 如果 <paramref name="this"/> 不为 <c>null</c>，则返回其字符串表示形式；否则返回 <c>null</c>
+        /// 如果 <paramref name="this"/> 为 <c>null</c>，则返回 <c>null</c>；
+        /// 否则返回格式化后的字符串。
         /// </returns>
-        /// <remarks>
-        /// - 如果 <paramref name="this"/> 为 <c>null</c>，方法将返回 <c>null</c>。
-        /// - 如果 <paramref name="format"/> 为 <c>null</c>，将使用 <see cref="DateTime"/> 的默认格式。
-        /// </remarks>
         public static string? ToString([NotNullIfNotNull(nameof(@this))] this DateTime? @this, string? format)
         {
             if (@this == null)

@@ -12,7 +12,7 @@ namespace Aymadoka.Static.DateTimeOffsetExtension
         /// <remarks>
         /// - 返回的 <see cref="DateTimeOffset"/> 保留原始的时区偏移量。
         /// </remarks>
-        public static DateTimeOffset GetFirstDayOfMonth(this DateTimeOffset @this)
+        public static DateTimeOffset GetMonthFirstDay(this DateTimeOffset @this)
         {
             var result = @this.AddDays(1 - @this.Day);
             return result;

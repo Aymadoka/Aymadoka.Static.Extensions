@@ -17,7 +17,7 @@ namespace Aymadoka.Static.DateTimeExtension
             var expected = new DateTime(expectedYear, expectedMonth, expectedDay);
 
             // Act
-            var result = date.GetLastOfMonthSecondDay();
+            var result = date.GetMonthSecondDay();
 
             // Assert
             Assert.Equal(expected, result);

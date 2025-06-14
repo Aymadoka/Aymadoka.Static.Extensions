@@ -14,7 +14,7 @@ namespace Aymadoka.Static.DateTimeOffsetExtension
             var input = new DateTimeOffset(year, month, day, hour, minute, second, TimeSpan.Zero);
             var expected = new DateTimeOffset(expectedYear, expectedMonth, expectedDay, expectedHour, expectedMinute, expectedSecond, TimeSpan.Zero);
 
-            var result = input.GetFirstDayOfLastMonth();
+            var result = input.GetLastMonthFirstDay();
 
             Assert.Equal(expected, result);
         }

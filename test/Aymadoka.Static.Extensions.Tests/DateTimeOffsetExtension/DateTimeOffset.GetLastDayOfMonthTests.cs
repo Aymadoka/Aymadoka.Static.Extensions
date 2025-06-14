@@ -11,7 +11,7 @@ namespace Aymadoka.Static.DateTimeOffsetExtension
         public void GetLastDayOfMonth_ReturnsCorrectLastDay(int year, int month, int day, int expectedLastDay)
         {
             var date = new DateTimeOffset(year, month, day, 12, 34, 56, TimeSpan.Zero);
-            var lastDay = date.GetLastDayOfMonth();
+            var lastDay = date.GetMonthLastDay();
 
             Assert.Equal(year, lastDay.Year);
             Assert.Equal(month, lastDay.Month);
