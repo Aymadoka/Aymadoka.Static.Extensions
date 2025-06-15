@@ -98,11 +98,16 @@ namespace Aymadoka.Static.NullableNumberExtension
             Assert.Equal(expected, value.IsPositive());
         }
 
+        public static IEnumerable<object[]> IsPositiveDecimalData()
+        {
+            yield return new object[] { (decimal?)1.0, true };
+            yield return new object[] { (decimal?)0.0, false };
+            yield return new object[] { (decimal?)-1.0, false };
+            yield return new object[] { null, false };
+        }
+
         [Theory]
-        [InlineData(1.0, true)]
-        [InlineData(0.0, false)]
-        [InlineData(-1.0, false)]
-        [InlineData(null, false)]
+        [MemberData(nameof(IsPositiveDecimalData))]
         public void IsPositive_decimal_Test(decimal? value, bool expected)
         {
             Assert.Equal(expected, value.IsPositive());

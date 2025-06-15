@@ -12,6 +12,11 @@ namespace Aymadoka.Static.DelegateExtension
         /// <returns>移除所有匹配项后的新委托，如果没有匹配项则返回原始委托；如果结果为空则返回 null</returns>
         public static Delegate? RemoveAll(this Delegate source, Delegate value)
         {
+            if (source == null)
+            {
+                throw new ArgumentNullException(nameof(source));
+            }
+
             return Delegate.RemoveAll(source, value);
         }
     }

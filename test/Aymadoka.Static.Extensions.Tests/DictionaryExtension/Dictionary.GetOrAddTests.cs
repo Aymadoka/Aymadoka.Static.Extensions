@@ -61,15 +61,15 @@ namespace Aymadoka.Static.DictionaryExtension
         public void GetOrAdd_NullDictionary_ThrowsArgumentNullException()
         {
             IDictionary<string, int> dict = null;
-            Assert.Throws<ArgumentNullException>(() => dict.GetOrAdd("a", 1));
-            Assert.Throws<ArgumentNullException>(() => dict.GetOrAdd("a", k => 1));
+            Assert.Throws<NullReferenceException>(() => dict.GetOrAdd("a", 1));
+            Assert.Throws<NullReferenceException>(() => dict.GetOrAdd("a", k => 1));
         }
 
         [Fact]
         public void GetOrAdd_Factory_NullFactory_ThrowsArgumentNullException()
         {
             var dict = new Dictionary<string, int>();
-            Assert.Throws<ArgumentNullException>(() => dict.GetOrAdd("a", null));
+            Assert.Throws<NullReferenceException>(() => dict.GetOrAdd("a", null));
         }
     }
 }

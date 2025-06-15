@@ -19,11 +19,10 @@ namespace Aymadoka.Static.NullableDateTimeExtension
         }
 
         [Fact]
-        public void Yesterday_WithMinValue_ReturnsDayBeforeMin()
+        public void Yesterday_WithMinValue_ThrowsArgumentOutOfRangeException()
         {
             DateTime? input = DateTime.MinValue;
-            var result = input.Yesterday();
-            Assert.Equal(DateTime.MinValue.AddDays(-1), result);
+            Assert.Throws<ArgumentOutOfRangeException>(() => input.Yesterday());
         }
     }
 }

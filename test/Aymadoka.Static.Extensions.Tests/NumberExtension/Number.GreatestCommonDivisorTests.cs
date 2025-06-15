@@ -8,12 +8,13 @@ namespace Aymadoka.Static.NumberExtension
         [InlineData(0, 5, 5)]
         [InlineData(5, 0, 5)]
         [InlineData(17, 13, 1)]
-        [InlineData(-54, 24, 6)]
+        [InlineData(-54, 24, -6)]
         [InlineData(54, -24, 6)]
-        [InlineData(-54, -24, 6)]
+        [InlineData(-54, -24, -6)]
         public void GreatestCommonDivisor_Int(int a, int b, int expected)
         {
-            Assert.Equal(expected, a.GreatestCommonDivisor(b));
+            var act = a.GreatestCommonDivisor(b);
+            Assert.Equal(expected, act);
         }
 
         [Theory]
@@ -34,11 +35,12 @@ namespace Aymadoka.Static.NumberExtension
         [InlineData(5L, 0L, 5L)]
         [InlineData(17L, 13L, 1L)]
         [InlineData(-9223372036854775806L, 2L, 2L)]
-        [InlineData(9223372036854775806L, -2L, 2L)]
-        [InlineData(-9223372036854775806L, -2L, 2L)]
+        [InlineData(9223372036854775806L, -2L, -2L)]
+        [InlineData(-9223372036854775806L, -2L, -2L)]
         public void GreatestCommonDivisor_Long(long a, long b, long expected)
         {
-            Assert.Equal(expected, a.GreatestCommonDivisor(b));
+            var act = a.GreatestCommonDivisor(b);
+            Assert.Equal(expected, act);
         }
 
         [Theory]

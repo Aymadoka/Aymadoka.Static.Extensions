@@ -31,9 +31,11 @@ namespace Aymadoka.Static.CollectionExtension
         [Fact]
         public void Swap_AllElementsMatch_ReplacesAll()
         {
-            var list = new List<int> { 7, 7, 7 };
-            list.Swap(7, 0);
-            Assert.Equal(new List<int> { 0, 0, 0 }, list);
+            var set = new HashSet<string> { "a", "b", "c" };
+            set.Swap("b", "z");
+            Assert.Contains("z", set);
+            Assert.DoesNotContain("b", set);
+            Assert.Equal(3, set.Count);
         }
 
         [Fact]

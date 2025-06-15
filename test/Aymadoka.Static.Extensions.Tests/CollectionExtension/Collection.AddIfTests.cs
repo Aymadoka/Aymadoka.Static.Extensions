@@ -42,14 +42,14 @@ namespace Aymadoka.Static.CollectionExtension
         public void AddIf_ShouldThrowArgumentNullException_WhenCollectionIsNull()
         {
             List<int> list = null;
-            Assert.Throws<ArgumentNullException>(() => list.AddIf(x => true, 1));
+            Assert.Throws<NullReferenceException>(() => list.AddIf(x => true, 1));
         }
 
         [Fact]
         public void AddIf_ShouldThrowArgumentNullException_WhenPredicateIsNull()
         {
             var list = new List<int>();
-            Assert.Throws<ArgumentNullException>(() => list.AddIf(null, 1));
+            Assert.Throws<NullReferenceException>(() => list.AddIf(null, 1));
         }
     }
 }

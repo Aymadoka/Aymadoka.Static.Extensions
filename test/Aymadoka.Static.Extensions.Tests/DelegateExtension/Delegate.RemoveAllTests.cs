@@ -8,7 +8,7 @@ namespace Aymadoka.Static.DelegateExtension
         private int AddTwo(int x) => x + 2;
 
         [Fact]
-        public void Remove_ShouldRemoveLastMatchingDelegate()
+        public void Remove_ShouldRemoveLastMatchingDelegate2()
         {
             TestDelegate d1 = AddOne;
             TestDelegate d2 = AddTwo;
@@ -20,8 +20,9 @@ namespace Aymadoka.Static.DelegateExtension
             // 期望只剩下 AddOne, AddTwo
             var invocationList = result.GetInvocationList();
             Assert.Equal(2, invocationList.Length);
-            Assert.Equal(AddOne, invocationList[0]);
-            Assert.Equal(AddTwo, invocationList[1]);
+
+            Assert.True(d1.Equals(invocationList[0]));
+            Assert.True(d2.Equals(invocationList[1]));
         }
 
         [Fact]

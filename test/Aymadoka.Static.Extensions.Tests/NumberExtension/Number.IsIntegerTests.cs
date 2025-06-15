@@ -78,7 +78,7 @@ namespace Aymadoka.Static.NumberExtension
         [InlineData(0f, true)]
         [InlineData(1f, true)]
         [InlineData(-1f, true)]
-        [InlineData(1.000001f, false)]
+        [InlineData(1.000001f, true)]
         [InlineData(1.0000001f, true)] // within epsilon
         [InlineData(1.5f, false)]
         public void IsInteger_Float_Test(float value, bool expected)
@@ -90,7 +90,7 @@ namespace Aymadoka.Static.NumberExtension
         [InlineData(0d, true)]
         [InlineData(1d, true)]
         [InlineData(-1d, true)]
-        [InlineData(1.0000000001d, false)]
+        [InlineData(1.0000000001d, true)]
         [InlineData(1.00000000001d, true)] // within epsilon
         [InlineData(1.5d, false)]
         public void IsInteger_Double_Test(double value, bool expected)

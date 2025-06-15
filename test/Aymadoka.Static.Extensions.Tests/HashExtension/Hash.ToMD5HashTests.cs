@@ -14,8 +14,8 @@ namespace Aymadoka.Static.HashExtension
         }
 
         [Theory]
-        [InlineData("hello", "salt", "b7e23ec29af22b0b4e41da31e868d572")]
-        [InlineData("", "salt", "b4b147bc522828731f1a016bfa72c073")]
+        [InlineData("hello", "salt", "06decc8b095724f80103712c235586be")]
+        [InlineData("", "salt", "ceb20772e0c9d240c75eb26b0e37abee")]
         public void ToMD5Hash_String_WithSalt(string input, string salt, string expected)
         {
             var hash = input.ToMD5Hash(salt);
@@ -42,7 +42,7 @@ namespace Aymadoka.Static.HashExtension
             var input = "hello";
             var salt = "salt";
             var hash = input.ToMD5Hash(salt, EnumHashFormat.X2);
-            Assert.Equal("B7E23EC29AF22B0B4E41DA31E868D572", hash);
+            Assert.Equal("06DECC8B095724F80103712C235586BE", hash);
         }
 
         [Fact]
@@ -58,7 +58,7 @@ namespace Aymadoka.Static.HashExtension
         {
             var bytes = Encoding.UTF8.GetBytes("hello");
             var hash = bytes.ToMD5Hash("salt");
-            Assert.Equal("b7e23ec29af22b0b4e41da31e868d572", hash);
+            Assert.Equal("06decc8b095724f80103712c235586be", hash);
         }
 
         [Fact]
@@ -74,7 +74,7 @@ namespace Aymadoka.Static.HashExtension
         {
             var bytes = Encoding.UTF8.GetBytes("hello");
             var hash = bytes.ToMD5Hash("salt", EnumHashFormat.X2);
-            Assert.Equal("B7E23EC29AF22B0B4E41DA31E868D572", hash);
+            Assert.Equal("06DECC8B095724F80103712C235586BE", hash);
         }
 
         [Fact]

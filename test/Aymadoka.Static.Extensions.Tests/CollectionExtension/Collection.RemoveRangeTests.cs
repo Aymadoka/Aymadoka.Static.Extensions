@@ -9,13 +9,13 @@ namespace Aymadoka.Static.CollectionExtension
             var list = new List<int> { 1, 2, 3, 4, 5 };
 
             // Act
-            list.RemoveRange(2, 4);
+            list.RemoveRange(2, 2);
 
             // Assert
-            Assert.DoesNotContain(2, list);
+            Assert.DoesNotContain(3, list);
             Assert.DoesNotContain(4, list);
             Assert.Contains(1, list);
-            Assert.Contains(3, list);
+            Assert.Contains(2, list);
             Assert.Contains(5, list);
             Assert.Equal(3, list.Count);
         }

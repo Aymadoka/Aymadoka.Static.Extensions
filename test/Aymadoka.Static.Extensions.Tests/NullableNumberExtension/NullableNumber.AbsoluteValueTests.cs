@@ -83,13 +83,20 @@ namespace Aymadoka.Static.NullableNumberExtension
             Assert.Equal(expected, value.AbsoluteValue());
         }
 
+
+        public static IEnumerable<object[]> DecimalData()
+        {
+            yield return new object[] { null, null };
+            yield return new object[] { (decimal?)5.5, (decimal?)5.5 };
+            yield return new object[] { (decimal?)-5.5, (decimal?)5.5 };
+        }
+
         [Theory]
-        [InlineData(5.5, 5.5)]
-        [InlineData(-5.5, 5.5)]
-        [InlineData(null, null)]
+        [MemberData(nameof(DecimalData))]
         public void AbsoluteValue_decimal(decimal? value, decimal? expected)
         {
-            Assert.Equal(expected, value.AbsoluteValue());
+            var actual = value.AbsoluteValue();
+            Assert.Equal(expected, actual);
         }
     }
 }

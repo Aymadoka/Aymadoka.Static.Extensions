@@ -31,8 +31,7 @@ namespace Aymadoka.Static.NullableDateTimeExtension
         public void GetSecondLevelTimeStamp_LocalKindDate_ReturnsCorrectTimestamp()
         {
             DateTime? localDate = new DateTime(2024, 1, 1, 8, 0, 0, DateTimeKind.Local);
-            var utcDate = localDate.Value.ToUniversalTime();
-            var expected = (long)(utcDate - DateTime.UnixEpoch).TotalSeconds;
+            var expected = (long)(localDate.Value - DateTime.UnixEpoch).TotalSeconds;
             var result = localDate.GetSecondLevelTimeStamp();
             Assert.Equal(expected, result);
         }

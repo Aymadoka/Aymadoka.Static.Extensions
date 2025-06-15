@@ -30,11 +30,16 @@ namespace Aymadoka.Static.NullableNumberExtension
             Assert.Equal(expected, result);
         }
 
+        public static IEnumerable<object[]> ToKeepDecimalNullableData()
+        {
+            yield return new object[] { null, 2, null };
+            yield return new object[] { (decimal?)1.2345, 2, (decimal?)1.23 };
+            yield return new object[] { (decimal?)1.2355, 2, (decimal?)1.24 };
+            yield return new object[] { (decimal?)-1.236, 2, (decimal?)-1.24 };
+        }
+
         [Theory]
-        [InlineData(null, 2, null)]
-        [InlineData(1.2345, 2, 1.23)]
-        [InlineData(1.2355, 2, 1.24)]
-        [InlineData(-1.236, 2, -1.24)]
+        [MemberData(nameof(ToKeepDecimalNullableData))]
         public void ToKeep_DecimalNullable_Works(decimal? value, int keep, decimal? expected)
         {
             // Arrange & Act

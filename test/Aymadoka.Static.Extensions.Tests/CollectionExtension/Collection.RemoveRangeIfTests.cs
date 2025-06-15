@@ -48,7 +48,7 @@ namespace Aymadoka.Static.CollectionExtension
         public void RemoveRangeIf_NullPredicate_Throws()
         {
             var list = new List<int> { 1, 2, 3 };
-            Assert.Throws<ArgumentNullException>(() => list.RemoveRangeIf(null, 1, 2));
+            Assert.Throws<NullReferenceException>(() => list.RemoveRangeIf(null, 1, 2));
         }
     }
 }

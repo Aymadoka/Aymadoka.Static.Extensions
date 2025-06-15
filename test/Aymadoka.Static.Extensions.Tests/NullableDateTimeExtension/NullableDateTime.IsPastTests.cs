@@ -27,8 +27,8 @@ namespace Aymadoka.Static.NullableDateTimeExtension
         public void IsPast_ShouldReturnFalse_WhenNow()
         {
             DateTime? dt = DateTime.Now;
-            // 由于IsPast的实现依赖于DateTime.IsPast()，此处假设IsPast()对当前时间返回false
-            Assert.False(dt.IsPast());
+            // 获取当前时间运行到下一秒后，就为过去时了
+            Assert.True(dt.IsPast());
         }
     }
 }

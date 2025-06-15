@@ -74,9 +74,14 @@ namespace Aymadoka.Static.NullableNumberExtension
             Assert.Equal(expected, value.ChineseCapitalized());
         }
 
+        public static IEnumerable<object[]> DecimalData()
+        {
+            yield return new object[] { null, null };
+            yield return new object[] { (decimal?)123456.78, "壹拾贰万叁仟肆佰伍拾陆元柒角捌分" };
+        }
+
         [Theory]
-        [InlineData(123456.78, "壹拾贰万叁仟肆佰伍拾陆元柒角捌分")]
-        [InlineData(null, null)]
+        [MemberData(nameof(DecimalData))]
         public void ChineseCapitalized_Decimal(decimal? value, string expected)
         {
             Assert.Equal(expected, value.ChineseCapitalized());

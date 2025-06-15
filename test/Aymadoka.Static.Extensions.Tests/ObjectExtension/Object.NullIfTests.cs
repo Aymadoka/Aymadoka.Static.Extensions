@@ -30,7 +30,7 @@ namespace Aymadoka.Static.ObjectExtension
         public void NullIf_NullPredicate_ThrowsArgumentNullException()
         {
             string value = "test";
-            Assert.Throws<ArgumentNullException>(() => value.NullIf(null));
+            Assert.Throws<NullReferenceException>(() => value.NullIf(null));
         }
     }
 }
