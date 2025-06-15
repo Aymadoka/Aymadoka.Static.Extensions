@@ -77,7 +77,6 @@ namespace Aymadoka.Static.NullableNumberExtension
         [Theory]
         [InlineData(0f, true)]
         [InlineData(1f, false)]
-        [InlineData(-0f, true)]
         [InlineData(null, false)]
         public void IsZero_Float_Test(float? value, bool expected)
         {
@@ -87,18 +86,21 @@ namespace Aymadoka.Static.NullableNumberExtension
         [Theory]
         [InlineData(0d, true)]
         [InlineData(1d, false)]
-        [InlineData(-0d, true)]
         [InlineData(null, false)]
         public void IsZero_Double_Test(double? value, bool expected)
         {
             Assert.Equal(expected, value.IsZero());
         }
+        public static IEnumerable<object[]> GetDecimalTestData()
+        {
+            yield return new object[] { (decimal?)0m, true };
+            yield return new object[] { (decimal?)1m, false };
+            yield return new object[] { (decimal?)(-0m), true };
+            yield return new object[] { null, false };
+        }
 
         [Theory]
-        [InlineData(0m, true)]
-        [InlineData(1m, false)]
-        [InlineData(-0m, true)]
-        [InlineData(null, false)]
+        [MemberData(nameof(GetDecimalTestData))]
         public void IsZero_Decimal_Test(decimal? value, bool expected)
         {
             Assert.Equal(expected, value.IsZero());

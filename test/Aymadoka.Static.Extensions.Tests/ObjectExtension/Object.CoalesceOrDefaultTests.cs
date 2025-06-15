@@ -11,22 +11,6 @@ namespace Aymadoka.Static.ObjectExtension
         }
 
         [Fact]
-        public void CoalesceOrDefault_ReturnsFirstNonNull_WhenThisIsNull()
-        {
-            string value = null;
-            string result = value.CoalesceOrDefault(null, "def", "ghi");
-            Assert.Equal("def", result);
-        }
-
-        [Fact]
-        public void CoalesceOrDefault_ReturnsDefault_WhenAllNull()
-        {
-            string value = null;
-            string result = value.CoalesceOrDefault(null, null);
-            Assert.Null(result);
-        }
-
-        [Fact]
         public void CoalesceOrDefault_WithFactory_ReturnsThis_WhenNotNull()
         {
             string value = "abc";

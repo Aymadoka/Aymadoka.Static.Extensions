@@ -98,11 +98,16 @@ namespace Aymadoka.Static.NumberExtension
             Assert.Equal(expected, value.IsZero());
         }
 
+        public static IEnumerable<object[]> DecimalIsZeroData()
+        {
+            yield return new object[] { 0m, true };
+            yield return new object[] { 1m, false };
+            yield return new object[] { -1m, false };
+            yield return new object[] { 0.00000000000000000000000001m, false };
+        }
+
         [Theory]
-        [InlineData(0m, true)]
-        [InlineData(1m, false)]
-        [InlineData(-1m, false)]
-        [InlineData(0.00000000000000000000000001m, false)]
+        [MemberData(nameof(DecimalIsZeroData))]
         public void IsZero_Decimal_Works(decimal value, bool expected)
         {
             Assert.Equal(expected, value.IsZero());

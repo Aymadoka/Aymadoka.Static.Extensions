@@ -90,10 +90,15 @@ namespace Aymadoka.Static.NumberExtension
             Assert.Equal(expected, value.IsPositive());
         }
 
+        public static IEnumerable<object[]> DecimalIsPositiveData()
+        {
+            yield return new object[] { 1.0m, true };
+            yield return new object[] { 0.0m, false };
+            yield return new object[] { -1.0m, false };
+        }
+
         [Theory]
-        [InlineData(1.0m, true)]
-        [InlineData(0.0m, false)]
-        [InlineData(-1.0m, false)]
+        [MemberData(nameof(DecimalIsPositiveData))]
         public void IsPositive_Decimal_Test(decimal value, bool expected)
         {
             Assert.Equal(expected, value.IsPositive());

@@ -98,14 +98,20 @@ namespace Aymadoka.Static.NumberExtension
             Assert.Equal(expected, value.IsInteger());
         }
 
+        public static IEnumerable<object[]> DecimalIsIntegerData()
+        {
+            yield return new object[] { 0m, true };
+            yield return new object[] { 1m, true };
+            yield return new object[] { -1m, true };
+            yield return new object[] { 1.5m, false };
+        }
+
         [Theory]
-        [InlineData(0m, true)]
-        [InlineData(1m, true)]
-        [InlineData(-1m, true)]
-        [InlineData(1.5m, false)]
+        [MemberData(nameof(DecimalIsIntegerData))]
         public void IsInteger_Decimal_Test(decimal value, bool expected)
         {
             Assert.Equal(expected, value.IsInteger());
         }
+
     }
 }

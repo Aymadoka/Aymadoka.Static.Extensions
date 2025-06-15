@@ -80,9 +80,14 @@ namespace Aymadoka.Static.NumberExtension
             Assert.Equal(expected, value.ToCurrency());
         }
 
+        public static IEnumerable<object[]> DecimalToCurrencyData()
+        {
+            yield return new object[] { 123.456m, "￥123.46" };
+            yield return new object[] { -123.456m, "-￥123.46" };
+        }
+
         [Theory]
-        [InlineData(123.456m, "￥123.46")]
-        [InlineData(-123.456m, "-￥123.46")]
+        [MemberData(nameof(DecimalToCurrencyData))]
         public void ToCurrency_Decimal_DefaultCulture(decimal value, string expected)
         {
             Assert.Equal(expected, value.ToCurrency());

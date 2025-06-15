@@ -69,16 +69,16 @@ namespace Aymadoka.Static.ObjectExtension
         [Fact]
         public void To_Generic_CannotConvert_ReturnsOriginal()
         {
-            object value = new ObjectExtensionsTests();
-            var result = value.To<ObjectExtensionsTests>();
+            object value = new Object_ToTeststExtensions();
+            var result = value.To<Object_ToTeststExtensions>();
             Assert.Equal(value, result);
         }
 
         [Fact]
         public void To_NonGeneric_CannotConvert_ReturnsOriginal()
         {
-            object value = new ObjectExtensionsTests();
-            object result = value.To(typeof(ObjectExtensionsTests));
+            object value = new Object_ToTeststExtensions();
+            object result = value.To(typeof(Object_ToTeststExtensions));
             Assert.Equal(value, result);
         }
     }

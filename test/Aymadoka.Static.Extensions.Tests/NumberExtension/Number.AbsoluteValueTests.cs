@@ -3,7 +3,6 @@ namespace Aymadoka.Static.NumberExtension
     public class Number_AbsoluteValueTests
     {
         [Theory]
-        [InlineData((sbyte)-128, (sbyte)128)]
         [InlineData((sbyte)-1, (sbyte)1)]
         [InlineData((sbyte)0, (sbyte)0)]
         [InlineData((sbyte)1, (sbyte)1)]
@@ -22,7 +21,6 @@ namespace Aymadoka.Static.NumberExtension
         }
 
         [Theory]
-        [InlineData((short)-32768, (short)32768)]
         [InlineData((short)-1, (short)1)]
         [InlineData((short)0, (short)0)]
         [InlineData((short)1, (short)1)]

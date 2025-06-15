@@ -87,14 +87,19 @@ namespace Aymadoka.Static.NumberExtension
             Assert.Equal(expected, value.ChineseCapitalized());
         }
 
-        [Theory]
-        [InlineData(0m, "零元")]
-        [InlineData(1m, "壹元整")]
-        [InlineData(123.45m, "壹佰贰拾叁元肆角伍分")]
-        [InlineData(-123.00m, "负壹佰贰拾叁元整")]
-        public void ChineseCapitalized_Decimal(decimal value, string expected)
+        public static IEnumerable<object[]> ChineseCapitalizedDecimalData()
         {
-            Assert.Equal(expected, value.ChineseCapitalized());
+            yield return new object[] { 0d, "零元" };
+            yield return new object[] { 1d, "壹元整" };
+            yield return new object[] { 123.45d, "壹佰贰拾叁元肆角伍分" };
+            yield return new object[] { -123.00d, "负壹佰贰拾叁元整" };
+        }
+
+        [Theory]
+        [MemberData(nameof(ChineseCapitalizedDecimalData))]
+        public void ChineseCapitalized_Decimal(double value, string expected)
+        {
+            Assert.Equal(expected, ((decimal)value).ChineseCapitalized());
         }
     }
 }

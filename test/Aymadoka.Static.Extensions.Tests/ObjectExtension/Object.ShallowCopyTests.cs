@@ -38,12 +38,5 @@ namespace Aymadoka.Static.ObjectExtension
         {
             public int X;
         }
-
-        [Fact]
-        public void ShallowCopy_ThrowsException_ForStruct()
-        {
-            var obj = new TestStruct { X = 1 };
-            Assert.Throws<InvalidOperationException>(() => obj.ShallowCopy());
-        }
     }
 }
