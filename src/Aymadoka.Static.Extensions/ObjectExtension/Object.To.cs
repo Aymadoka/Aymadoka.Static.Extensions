@@ -5,6 +5,12 @@ namespace Aymadoka.Static.ObjectExtension
 {
     public static partial class ObjectExtensions
     {
+        /// <summary>
+        /// 将当前对象转换为指定类型 <typeparamref name="T"/>。
+        /// </summary>
+        /// <typeparam name="T">目标类型。</typeparam>
+        /// <param name="this">要转换的对象。</param>
+        /// <returns>转换后的对象。</returns>
         public static T To<T>(this Object @this)
         {
             if (@this != null)
@@ -43,6 +49,12 @@ namespace Aymadoka.Static.ObjectExtension
             return (T)@this;
         }
 
+        /// <summary>
+        /// 将当前对象转换为指定类型。
+        /// </summary>
+        /// <param name="this">要转换的对象。</param>
+        /// <param name="type">目标类型。</param>
+        /// <returns>转换后的对象。</returns>
         public static object To(this Object @this, Type type)
         {
             if (@this != null)
