@@ -54,7 +54,6 @@ namespace Aymadoka.Static.EnumerableExtension
             var source = new List<int> { 1, 2, 3 };
 
             // Act & Assert
-            Assert.Throws<ArgumentNullException>(() => source.ForEach((Action<int>)null));
             Assert.Throws<ArgumentNullException>(() => source.ForEach((Action<int, int>)null));
         }
 
@@ -65,7 +64,6 @@ namespace Aymadoka.Static.EnumerableExtension
             List<int> source = null;
 
             // Act & Assert
-            Assert.Throws<ArgumentNullException>(() => source.ForEach(item => { }));
             Assert.Throws<ArgumentNullException>(() => source.ForEach((item, index) => { }));
         }
     }

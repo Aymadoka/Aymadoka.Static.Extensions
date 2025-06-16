@@ -1,4 +1,5 @@
 using System.Globalization;
+using Aymadoka.Static.NumberExtension;
 
 namespace Aymadoka.Static.NullableNumberExtension
 {
@@ -17,7 +18,7 @@ namespace Aymadoka.Static.NullableNumberExtension
                 return null;
             }
 
-            var result = source.ToPercentage(places);
+            var result = source.Value.ToPercentage(places);
             return result;
         }
 
@@ -35,7 +36,7 @@ namespace Aymadoka.Static.NullableNumberExtension
                 return null;
             }
 
-            var result = source.ToPercentage(places, culture);
+            var result = source.Value.ToPercentage(places, culture);
             return result;
         }
 
@@ -52,7 +53,7 @@ namespace Aymadoka.Static.NullableNumberExtension
                 return null;
             }
 
-            var result = source.ToPercentage(places);
+            var result = source.Value.ToPercentage(places);
             return result;
         }
 
@@ -70,7 +71,7 @@ namespace Aymadoka.Static.NullableNumberExtension
                 return null;
             }
 
-            var result = source.ToPercentage(places, culture);
+            var result = source.Value.ToPercentage(places, culture);
             return result;
         }
 
@@ -87,7 +88,7 @@ namespace Aymadoka.Static.NullableNumberExtension
                 return null;
             }
 
-            var result = source.ToPercentage(places);
+            var result = source.Value.ToPercentage(places);
             return result;
         }
 
@@ -105,7 +106,7 @@ namespace Aymadoka.Static.NullableNumberExtension
                 return null;
             }
 
-            var result = source.ToPercentage(places, culture);
+            var result = source.Value.ToPercentage(places, culture);
             return result;
         }
     }

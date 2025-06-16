@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace Aymadoka.Static.CollectionExtension
@@ -12,6 +13,11 @@ namespace Aymadoka.Static.CollectionExtension
         /// <param name="values">要添加的元素数组。</param>
         public static void AddRange<T>(this ICollection<T> @this, params T[] values)
         {
+            if (@this == null)
+            {
+                throw new ArgumentNullException(nameof(@this));
+            }
+
             foreach (T value in values)
             {
                 @this.Add(value);

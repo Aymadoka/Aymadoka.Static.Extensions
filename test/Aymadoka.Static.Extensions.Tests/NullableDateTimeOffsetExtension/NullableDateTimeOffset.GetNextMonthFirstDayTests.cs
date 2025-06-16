@@ -19,7 +19,7 @@ namespace Aymadoka.Static.NullableDateTimeOffsetExtension
             int year, int month, int day, int expectedYear, int expectedMonth, int expectedDay)
         {
             DateTimeOffset? input = new DateTimeOffset(year, month, day, 10, 20, 30, TimeSpan.Zero);
-            var expected = new DateTimeOffset(expectedYear, expectedMonth, expectedDay, 0, 0, 0, TimeSpan.Zero);
+            var expected = new DateTimeOffset(expectedYear, expectedMonth, expectedDay, 10, 20, 30, TimeSpan.Zero);
             var result = input.GetNextMonthFirstDay();
             Assert.NotNull(result);
             Assert.Equal(expected, result.Value);

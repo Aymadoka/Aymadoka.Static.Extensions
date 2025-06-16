@@ -11,10 +11,15 @@ namespace Aymadoka.Static.ObjectExtension
         /// <typeparam name="T">目标类型。</typeparam>
         /// <param name="this">要转换的对象。</param>
         /// <returns>转换后的对象。</returns>
-        public static T To<T>(this Object @this)
+        public static T To<T>(this object @this)
         {
             if (@this != null)
             {
+                if (@this == DBNull.Value)
+                {
+                    return (T)(object)null;
+                }
+
                 Type targetType = typeof(T);
 
                 if (@this.GetType() == targetType)
@@ -39,11 +44,6 @@ namespace Aymadoka.Static.ObjectExtension
                         return (T)converter.ConvertFrom(@this);
                     }
                 }
-
-                if (@this == DBNull.Value)
-                {
-                    return (T)(object)null;
-                }
             }
 
             return (T)@this;
@@ -55,10 +55,15 @@ namespace Aymadoka.Static.ObjectExtension
         /// <param name="this">要转换的对象。</param>
         /// <param name="type">目标类型。</param>
         /// <returns>转换后的对象。</returns>
-        public static object To(this Object @this, Type type)
+        public static object To(this object @this, Type type)
         {
             if (@this != null)
             {
+                if (@this == DBNull.Value)
+                {
+                    return null;
+                }
+
                 Type targetType = type;
 
                 if (@this.GetType() == targetType)
@@ -82,11 +87,6 @@ namespace Aymadoka.Static.ObjectExtension
                     {
                         return converter.ConvertFrom(@this);
                     }
-                }
-
-                if (@this == DBNull.Value)
-                {
-                    return null;
                 }
             }
 

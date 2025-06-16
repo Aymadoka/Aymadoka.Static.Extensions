@@ -13,6 +13,16 @@ namespace Aymadoka.Static.EnumerableExtension
         /// <param name="action">要对每个元素执行的操作，包含元素和索引。</param>
         public static void ForEach<T>(this IEnumerable<T> @this, Action<T, int> action)
         {
+            if (@this == null)
+            {
+                throw new ArgumentNullException(nameof(@this));
+            }
+
+            if (action == null)
+            {
+                throw new ArgumentNullException(nameof(action));
+            }
+
             int index = 0;
             foreach (T item in @this)
             {

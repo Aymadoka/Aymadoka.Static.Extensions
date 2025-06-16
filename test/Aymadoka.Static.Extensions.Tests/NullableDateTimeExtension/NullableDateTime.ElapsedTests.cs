@@ -6,7 +6,7 @@ namespace Aymadoka.Static.NullableDateTimeExtension
         public void Elapsed_WithNonNullDateTime_ReturnsCorrectTimeSpan()
         {
             // Arrange
-            var now = DateTime.Now;
+            var now = DateTime.UtcNow;
             DateTime? earlier = now.AddMinutes(-10);
             // Act
             var elapsed = earlier.Elapsed();

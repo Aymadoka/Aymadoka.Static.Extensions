@@ -38,14 +38,20 @@ namespace Aymadoka.Static.NumberExtension
             Assert.Equal(expected, input.AbsoluteValue());
         }
 
+        public static IEnumerable<object[]> AbsoluteValueIntWorksData()
+        {
+            yield return new object[] { -2147483647, 2147483647 };
+            yield return new object[] { -1, 1 };
+            yield return new object[] { 0, 0 };
+            yield return new object[] { 1, 1 };
+        }
+
         [Theory]
-        [InlineData(-2147483648, 2147483648)]
-        [InlineData(-1, 1)]
-        [InlineData(0, 0)]
-        [InlineData(1, 1)]
+        [MemberData(nameof(AbsoluteValueIntWorksData))]
         public void AbsoluteValue_Int_Works(int input, int expected)
         {
-            Assert.Equal(expected, input.AbsoluteValue());
+            var act = input.AbsoluteValue();
+            Assert.Equal(expected, act);
         }
 
         [Theory]
@@ -57,14 +63,20 @@ namespace Aymadoka.Static.NumberExtension
             Assert.Equal(expected, input.AbsoluteValue());
         }
 
+        public static IEnumerable<object[]> AbsoluteValueLongWorksData()
+        {
+            yield return new object[] { -9223372036854775807L, 9223372036854775807L };
+            yield return new object[] { -1L, 1L };
+            yield return new object[] { 0L, 0L };
+            yield return new object[] { 1L, 1L };
+        }
+
         [Theory]
-        [InlineData(-9223372036854775808L, 9223372036854775808L)]
-        [InlineData(-1L, 1L)]
-        [InlineData(0L, 0L)]
-        [InlineData(1L, 1L)]
+        [MemberData(nameof(AbsoluteValueLongWorksData))]
         public void AbsoluteValue_Long_Works(long input, long expected)
         {
-            Assert.Equal(expected, input.AbsoluteValue());
+            var act = input.AbsoluteValue();
+            Assert.Equal(expected, act);
         }
 
         [Theory]

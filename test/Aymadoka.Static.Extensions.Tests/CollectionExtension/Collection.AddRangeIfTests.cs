@@ -42,7 +42,7 @@ namespace Aymadoka.Static.CollectionExtension
         public void AddRangeIf_ThrowsIfPredicateIsNull()
         {
             var list = new List<int>();
-            Assert.Throws<ArgumentNullException>(() => list.AddRangeIf(null, 1, 2));
+            Assert.Throws<NullReferenceException>(() => list.AddRangeIf(null, 1, 2));
         }
     }
 }

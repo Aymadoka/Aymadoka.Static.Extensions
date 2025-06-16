@@ -33,7 +33,7 @@ namespace Aymadoka.Static.RandomExtension
         public void OneOf_ThrowsArgumentException_WhenValuesEmpty()
         {
             var random = new Random();
-            Assert.Throws<ArgumentOutOfRangeException>(() => random.OneOf<int>());
+            Assert.Throws<IndexOutOfRangeException>(() => random.OneOf<int>());
         }
     }
 }

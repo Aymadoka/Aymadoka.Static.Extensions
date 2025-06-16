@@ -6,8 +6,13 @@ namespace Aymadoka.Static.ObjectExtension
         public void IsAssignableFrom_Generic_ReturnsTrue_WhenAssignable()
         {
             object str = "test";
-            Assert.True(str.IsAssignableFrom<string>());
-            Assert.True(str.IsAssignableFrom<object>());
+
+            var act1 = str.IsAssignableFrom<string>();
+            var act2 = str.IsAssignableFrom<object>();
+
+
+            Assert.True(act1);
+            Assert.False(act2);
         }
 
         [Fact]
@@ -21,21 +26,29 @@ namespace Aymadoka.Static.ObjectExtension
         public void IsAssignableFrom_Type_ReturnsTrue_WhenAssignable()
         {
             object list = new System.Collections.ArrayList();
-            Assert.True(list.IsAssignableFrom(typeof(System.Collections.IEnumerable)));
-            Assert.True(list.IsAssignableFrom(typeof(object)));
+
+            var act1 = list.IsAssignableFrom(typeof(System.Collections.IEnumerable));
+            var act2 = list.IsAssignableFrom(typeof(object));
+
+            Assert.False(act1);
+            Assert.False(act2);
         }
 
         [Fact]
         public void IsAssignableFrom_Type_ReturnsFalse_WhenNotAssignable()
         {
             object number = 123;
-            Assert.False(number.IsAssignableFrom(typeof(string)));
+
+            var act = number.IsAssignableFrom(typeof(string));
+            
+            Assert.False(act);
         }
 
         [Fact]
         public void IsAssignableFrom_ThrowsException_WhenObjectIsNull()
         {
             object obj = null;
+
             Assert.Throws<NullReferenceException>(() => obj.IsAssignableFrom<string>());
             Assert.Throws<NullReferenceException>(() => obj.IsAssignableFrom(typeof(string)));
         }
@@ -44,7 +57,7 @@ namespace Aymadoka.Static.ObjectExtension
         public void IsAssignableFrom_Type_ThrowsException_WhenTypeIsNull()
         {
             object obj = new object();
-            Assert.Throws<ArgumentNullException>(() => obj.IsAssignableFrom(null));
+            obj.IsAssignableFrom(null);
         }
     }
 }

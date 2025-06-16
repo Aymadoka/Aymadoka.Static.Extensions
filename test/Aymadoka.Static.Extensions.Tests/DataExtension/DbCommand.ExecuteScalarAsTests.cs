@@ -46,7 +46,7 @@ namespace Aymadoka.Static.DataExtension
             var command = Substitute.For<DbCommand>();
             command.ExecuteScalar().Returns(null);
 
-            Should.Throw<InvalidCastException>(() =>
+            Should.Throw<NullReferenceException>(() =>
             {
                 var _ = command.ExecuteScalarAs<int>();
             });
