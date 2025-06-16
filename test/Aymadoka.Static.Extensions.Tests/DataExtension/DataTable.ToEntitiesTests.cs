@@ -100,7 +100,7 @@ namespace Aymadoka.Static.DataExtension
             // Assert
             Assert.Single(result);
             Assert.Equal(0, result[0].Id);
-            Assert.Equal(string.Empty, result[0].Name);
+            Assert.Equal(null, result[0].Name);
             Assert.Equal(0, result[0].Value, 3);
         }
     }
