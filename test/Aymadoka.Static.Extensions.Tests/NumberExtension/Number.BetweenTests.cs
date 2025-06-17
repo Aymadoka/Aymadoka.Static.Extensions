@@ -1,9 +1,11 @@
 using Aymadoka.Static.NumberExtension;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Aymadoka.Static.NumberExtension
 {
     public class Number_BetweenTests
     {
+        [ExcludeFromCodeCoverage]
         public static IEnumerable<object[]> SByteBetweenData()
         {
             yield return new object[] { (sbyte)5, (sbyte)1, (sbyte)9, true };
@@ -20,6 +22,7 @@ namespace Aymadoka.Static.NumberExtension
             Assert.Equal(expected, act);
         }
 
+        [ExcludeFromCodeCoverage]
         public static IEnumerable<object[]> ByteBetweenData()
         {
             yield return new object[] { (byte)5, (byte)1, (byte)9, true };
@@ -35,6 +38,7 @@ namespace Aymadoka.Static.NumberExtension
             Assert.Equal(expected, act);
         }
 
+        [ExcludeFromCodeCoverage]
         public static IEnumerable<object[]> ShortBetweenData()
         {
             yield return new object[] { (short)5, (short)1, (short)9, true };
@@ -50,6 +54,7 @@ namespace Aymadoka.Static.NumberExtension
             Assert.Equal(expected, act);
         }
 
+        [ExcludeFromCodeCoverage]
         public static IEnumerable<object[]> UShortBetweenData()
         {
             yield return new object[] { (ushort)5, (ushort)1, (ushort)9, true };

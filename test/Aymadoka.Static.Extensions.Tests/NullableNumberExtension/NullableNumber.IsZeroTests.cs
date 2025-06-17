@@ -1,3 +1,5 @@
+using System.Diagnostics.CodeAnalysis;
+
 namespace Aymadoka.Static.NullableNumberExtension
 {
     public class NullableNumber_IsZeroTests
@@ -91,6 +93,8 @@ namespace Aymadoka.Static.NullableNumberExtension
         {
             Assert.Equal(expected, value.IsZero());
         }
+
+        [ExcludeFromCodeCoverage]
         public static IEnumerable<object[]> GetDecimalTestData()
         {
             yield return new object[] { (decimal?)0m, true };

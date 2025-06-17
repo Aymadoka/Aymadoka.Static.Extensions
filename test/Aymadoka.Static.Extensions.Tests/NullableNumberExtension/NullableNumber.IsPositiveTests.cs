@@ -1,3 +1,5 @@
+using System.Diagnostics.CodeAnalysis;
+
 namespace Aymadoka.Static.NullableNumberExtension
 {
     public class NullableNumber_IsPositiveTests
@@ -98,6 +100,7 @@ namespace Aymadoka.Static.NullableNumberExtension
             Assert.Equal(expected, value.IsPositive());
         }
 
+        [ExcludeFromCodeCoverage]
         public static IEnumerable<object[]> IsPositiveDecimalData()
         {
             yield return new object[] { (decimal?)1.0, true };

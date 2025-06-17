@@ -1,3 +1,5 @@
+using System.Diagnostics.CodeAnalysis;
+
 namespace Aymadoka.Static.NumberExtension
 {
     public class Number_IsIntegerTests
@@ -98,6 +100,7 @@ namespace Aymadoka.Static.NumberExtension
             Assert.Equal(expected, value.IsInteger());
         }
 
+        [ExcludeFromCodeCoverage]
         public static IEnumerable<object[]> DecimalIsIntegerData()
         {
             yield return new object[] { 0m, true };

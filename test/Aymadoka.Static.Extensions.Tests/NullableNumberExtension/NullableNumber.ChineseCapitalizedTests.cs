@@ -1,3 +1,5 @@
+using System.Diagnostics.CodeAnalysis;
+
 namespace Aymadoka.Static.NullableNumberExtension
 {
     public class NullableNumber_ChineseCapitalizedTests
@@ -74,6 +76,7 @@ namespace Aymadoka.Static.NullableNumberExtension
             Assert.Equal(expected, value.ChineseCapitalized());
         }
 
+        [ExcludeFromCodeCoverage]
         public static IEnumerable<object[]> DecimalData()
         {
             yield return new object[] { null, null };

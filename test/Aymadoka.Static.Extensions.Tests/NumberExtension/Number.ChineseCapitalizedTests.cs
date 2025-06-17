@@ -1,3 +1,5 @@
+using System.Diagnostics.CodeAnalysis;
+
 namespace Aymadoka.Static.NumberExtension
 {
     public class Number_ChineseCapitalizedTests
@@ -87,6 +89,7 @@ namespace Aymadoka.Static.NumberExtension
             Assert.Equal(expected, value.ChineseCapitalized());
         }
 
+        [ExcludeFromCodeCoverage]
         public static IEnumerable<object[]> ChineseCapitalizedDecimalData()
         {
             yield return new object[] { 0d, "零元" };

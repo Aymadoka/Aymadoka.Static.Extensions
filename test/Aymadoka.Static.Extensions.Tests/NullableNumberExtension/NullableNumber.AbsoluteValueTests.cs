@@ -1,3 +1,5 @@
+using System.Diagnostics.CodeAnalysis;
+
 namespace Aymadoka.Static.NullableNumberExtension
 {
     public class NullableNumber_AbsoluteValueTests
@@ -83,7 +85,7 @@ namespace Aymadoka.Static.NullableNumberExtension
             Assert.Equal(expected, value.AbsoluteValue());
         }
 
-
+        [ExcludeFromCodeCoverage]
         public static IEnumerable<object[]> DecimalData()
         {
             yield return new object[] { null, null };

@@ -1,3 +1,5 @@
+using System.Diagnostics.CodeAnalysis;
+
 namespace Aymadoka.Static.NumberExtension
 {
     public class Number_AbsoluteValueTests
@@ -38,6 +40,7 @@ namespace Aymadoka.Static.NumberExtension
             Assert.Equal(expected, input.AbsoluteValue());
         }
 
+        [ExcludeFromCodeCoverage]
         public static IEnumerable<object[]> AbsoluteValueIntWorksData()
         {
             yield return new object[] { -2147483647, 2147483647 };
@@ -63,6 +66,7 @@ namespace Aymadoka.Static.NumberExtension
             Assert.Equal(expected, input.AbsoluteValue());
         }
 
+        [ExcludeFromCodeCoverage]
         public static IEnumerable<object[]> AbsoluteValueLongWorksData()
         {
             yield return new object[] { -9223372036854775807L, 9223372036854775807L };

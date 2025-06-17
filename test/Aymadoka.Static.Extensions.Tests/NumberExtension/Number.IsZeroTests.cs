@@ -1,3 +1,5 @@
+using System.Diagnostics.CodeAnalysis;
+
 namespace Aymadoka.Static.NumberExtension
 {
     public class Number_IsZeroTests
@@ -98,6 +100,7 @@ namespace Aymadoka.Static.NumberExtension
             Assert.Equal(expected, value.IsZero());
         }
 
+        [ExcludeFromCodeCoverage]
         public static IEnumerable<object[]> DecimalIsZeroData()
         {
             yield return new object[] { 0m, true };

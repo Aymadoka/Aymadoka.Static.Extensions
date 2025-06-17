@@ -3,7 +3,7 @@ namespace Aymadoka.Static.EnumerableExtension
     public class Enumerable_ForEachTests
     {
         [Fact]
-        public void ForEach_WithActionAndIndex_ExecutesActionForEachElementWithCorrectIndex()
+        public void ForEach_WithActionAndIndex_ExecutesActionForEachElement()
         {
             // Arrange
             var source = new List<string> { "a", "b", "c" };
@@ -34,21 +34,7 @@ namespace Aymadoka.Static.EnumerableExtension
         }
 
         [Fact]
-        public void ForEach_WithEmptyCollection_DoesNotInvokeAction()
-        {
-            // Arrange
-            var source = Enumerable.Empty<int>();
-            var wasCalled = false;
-
-            // Act
-            source.ForEach(item => wasCalled = true);
-
-            // Assert
-            Assert.False(wasCalled);
-        }
-
-        [Fact]
-        public void ForEach_WithNullAction_ThrowsArgumentNullException()
+        public void ForEach_WithNullActionAndIndex_ThrowsArgumentNullException()
         {
             // Arrange
             var source = new List<int> { 1, 2, 3 };
@@ -58,13 +44,27 @@ namespace Aymadoka.Static.EnumerableExtension
         }
 
         [Fact]
-        public void ForEach_WithNullSource_ThrowsArgumentNullException()
+        public void ForEach_WithNullAction_ThrowsArgumentNullException()
         {
             // Arrange
-            List<int> source = null;
+            var source = new List<int> { 1, 2, 3 };
 
             // Act & Assert
-            Assert.Throws<ArgumentNullException>(() => source.ForEach((item, index) => { }));
+            Assert.Throws<ArgumentNullException>(() => source.ForEach((Action<int>)null));
+        }
+
+        [Fact]
+        public void ForEach_WithEmptySource_DoesNotInvokeAction()
+        {
+            // Arrange
+            var source = new List<int>();
+            var invoked = false;
+
+            // Act
+            source.ForEach((item, index) => invoked = true);
+
+            // Assert
+            Assert.False(invoked);
         }
     }
 }

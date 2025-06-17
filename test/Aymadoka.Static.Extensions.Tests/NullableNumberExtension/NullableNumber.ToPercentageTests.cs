@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 
 namespace Aymadoka.Static.NullableNumberExtension
@@ -25,6 +26,7 @@ namespace Aymadoka.Static.NullableNumberExtension
             Assert.Equal(expected, result);
         }
 
+        [ExcludeFromCodeCoverage]
         public static IEnumerable<object[]> ToPercentageDoubleReturnsExpectedData()
         {
             yield return new object[] { null, 2, null };
@@ -50,6 +52,7 @@ namespace Aymadoka.Static.NullableNumberExtension
             Assert.Equal(expected, result);
         }
 
+        [ExcludeFromCodeCoverage]
         public static IEnumerable<object[]> ToPercentageDecimalReturnsExpectedData()
         {
             yield return new object[] { (decimal?)null, 2, null };
@@ -65,6 +68,7 @@ namespace Aymadoka.Static.NullableNumberExtension
             Assert.Equal(expected, result);
         }
 
+        [ExcludeFromCodeCoverage]
         public static IEnumerable<object[]> ToPercentageDecimalWithCultureReturnsExpected()
         {
             yield return new object[] { (decimal?)null, 2, null };

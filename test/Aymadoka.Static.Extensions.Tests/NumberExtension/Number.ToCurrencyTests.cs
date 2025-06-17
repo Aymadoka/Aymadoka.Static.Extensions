@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 
 namespace Aymadoka.Static.NumberExtension
@@ -81,6 +82,7 @@ namespace Aymadoka.Static.NumberExtension
             Assert.Equal(expected, value.ToCurrency());
         }
 
+        [ExcludeFromCodeCoverage]
         public static IEnumerable<object[]> DecimalToCurrencyData()
         {
             yield return new object[] { 123.456m, "¥123.46" };

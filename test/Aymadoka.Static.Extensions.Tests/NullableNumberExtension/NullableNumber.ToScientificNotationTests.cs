@@ -1,9 +1,11 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 
 namespace Aymadoka.Static.NullableNumberExtension
 {
     public class NullableNumber_ToScientificNotationTests
     {
+        [ExcludeFromCodeCoverage]
         public static IEnumerable<object[]> FloatToScientificNotationDefaultDecimalPlacesData()
         {
             yield return new object[] { null, null };
@@ -28,7 +30,7 @@ namespace Aymadoka.Static.NullableNumberExtension
             Assert.Equal("1,235E+004", result);
         }
 
-
+        [ExcludeFromCodeCoverage]
         public static IEnumerable<object[]> DoubleToScientificNotationDefaultDecimalPlacesData()
         {
             yield return new object[] { null, null };
@@ -53,6 +55,7 @@ namespace Aymadoka.Static.NullableNumberExtension
             Assert.Equal("1,2346E+004", result);
         }
 
+        [ExcludeFromCodeCoverage]
         public static IEnumerable<object[]> DecimalToScientificNotationDefaultDecimalPlacesData()
         {
             yield return new object[] { null, null };

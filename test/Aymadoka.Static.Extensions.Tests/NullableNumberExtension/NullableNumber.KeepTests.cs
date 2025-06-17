@@ -1,3 +1,5 @@
+using System.Diagnostics.CodeAnalysis;
+
 namespace Aymadoka.Static.NullableNumberExtension
 {
     public class NullableNumber_KeepTests
@@ -30,6 +32,7 @@ namespace Aymadoka.Static.NullableNumberExtension
             Assert.Equal(expected, result);
         }
 
+        [ExcludeFromCodeCoverage]
         public static IEnumerable<object[]> ToKeepDecimalNullableData()
         {
             yield return new object[] { null, 2, null };

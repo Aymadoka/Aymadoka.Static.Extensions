@@ -1,3 +1,5 @@
+using System.Diagnostics.CodeAnalysis;
+
 namespace Aymadoka.Static.NumberExtension
 {
     public class Number_IsPositiveTests
@@ -90,6 +92,7 @@ namespace Aymadoka.Static.NumberExtension
             Assert.Equal(expected, value.IsPositive());
         }
 
+        [ExcludeFromCodeCoverage]
         public static IEnumerable<object[]> DecimalIsPositiveData()
         {
             yield return new object[] { 1.0m, true };
