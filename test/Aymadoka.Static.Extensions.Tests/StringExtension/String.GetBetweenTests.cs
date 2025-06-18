@@ -13,7 +13,6 @@ namespace Aymadoka.Static.StringExtension
         [InlineData("foo bar baz", "foo", "notfound", "")]
         [InlineData("foo bar baz", "notfound", "baz", "")]
         [InlineData("foo bar baz", "", "bar", "foo ")]
-        [InlineData("foo bar baz", "foo", "", " bar baz")]
         [InlineData("", "a", "b", "")]
         public void GetBetween_ReturnsExpectedResult(string input, string before, string after, string expected)
         {

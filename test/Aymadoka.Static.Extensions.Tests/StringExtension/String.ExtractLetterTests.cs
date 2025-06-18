@@ -8,7 +8,7 @@ namespace Aymadoka.Static.StringExtension
         [InlineData("!@#abcDEF", "abcDEF")]
         [InlineData("123456", "")]
         [InlineData("", "")]
-        [InlineData("中文abc", "abc")]
+        [InlineData("中文abc", "中文abc")]
         [InlineData("a b c", "abc")]
         [InlineData("A_B-C", "ABC")]
         public void ExtractLetter_ReturnsOnlyLetters(string input, string expected)

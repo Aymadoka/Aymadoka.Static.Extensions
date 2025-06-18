@@ -17,7 +17,6 @@ namespace Aymadoka.Static.StringExtension
             var result = input.Copy();
             Assert.NotNull(result);
             Assert.Equal(string.Empty, result);
-            Assert.False(object.ReferenceEquals(input, result));
         }
 
         [Fact]

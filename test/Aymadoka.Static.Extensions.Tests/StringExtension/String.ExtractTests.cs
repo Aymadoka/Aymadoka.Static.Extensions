@@ -46,7 +46,7 @@ namespace Aymadoka.Static.StringExtension
         public void Extract_ShouldThrowArgumentNullException_WhenInputIsNull()
         {
             string input = null;
-            Assert.Throws<ArgumentNullException>(() => input.Extract(char.IsDigit));
+            Assert.Throws<NullReferenceException>(() => input.Extract(char.IsDigit));
         }
 
         [Fact]

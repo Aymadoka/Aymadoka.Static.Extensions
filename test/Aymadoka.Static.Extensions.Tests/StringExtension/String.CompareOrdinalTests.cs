@@ -18,7 +18,7 @@ namespace Aymadoka.Static.StringExtension
         }
 
         [Theory]
-        [InlineData("abcdef", 1, "abczef", 1, 3, 0)] // "bcd" vs "bcz"
+        [InlineData("abcdef", 1, "abczef", 1, 3, -1)] // "bcd" vs "bcz"
         [InlineData("abcdef", 1, "abczef", 1, 2, 0)] // "bc" vs "bc"
         [InlineData("abcdef", 1, "abczef", 1, 4, -1)] // "bcde" vs "bcze"
         [InlineData("abcdef", 2, "abcdef", 2, 2, 0)] // "cd" vs "cd"
@@ -30,7 +30,10 @@ namespace Aymadoka.Static.StringExtension
         public void CompareOrdinal_Substring_ReturnsExpected(string strA, int indexA, string strB, int indexB, int length, int expectedSign)
         {
             int result = strA.CompareOrdinal(indexA, strB, indexB, length);
-            Assert.Equal(expectedSign, result == 0 ? 0 : (result > 0 ? 1 : -1));
+
+            var act = result == 0 ? 0 : (result > 0 ? 1 : -1);
+            
+            Assert.Equal(expectedSign, act);
         }
     }
 }
