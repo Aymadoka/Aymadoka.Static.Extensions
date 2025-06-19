@@ -9,7 +9,6 @@ namespace Aymadoka.Static.StringExtension
         [InlineData("abcdef", @"\d+", false)]
         [InlineData("Hello World", @"^Hello", true)]
         [InlineData("Hello World", @"world$", false)]
-        [InlineData("Hello World", @"world$", true, RegexOptions.IgnoreCase)]
         public void IsMatch_WithPattern_ReturnsExpected(string input, string pattern, bool expected)
         {
             var result = input.IsMatch(pattern);

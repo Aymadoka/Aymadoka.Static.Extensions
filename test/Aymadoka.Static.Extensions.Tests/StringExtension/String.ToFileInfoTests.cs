@@ -22,12 +22,8 @@ namespace Aymadoka.Static.StringExtension
             // Arrange
             string path = "";
 
-            // Act
-            FileInfo fileInfo = path.ToFileInfo();
-
-            // Assert
-            Assert.NotNull(fileInfo);
-            Assert.Equal(string.Empty, fileInfo.Name);
+            // Act & Assert
+            Assert.Throws<ArgumentException>(() => path.ToFileInfo());
         }
 
         [Fact]

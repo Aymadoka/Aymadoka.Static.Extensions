@@ -13,7 +13,13 @@ namespace Aymadoka.Static.StringExtension
         /// <returns>移除满足条件字符后的新字符串。</returns>
         public static string RemoveWhere(this string @this, Func<char, bool> predicate)
         {
-            return new string(@this.ToCharArray().Where(x => !predicate(x)).ToArray());
+            if (@this == null)
+            {
+                throw new ArgumentNullException(nameof(@this));
+            }
+
+            var result = new string(@this.ToCharArray().Where(x => predicate == null || !predicate(x)).ToArray());
+            return result;
         }
     }
 }

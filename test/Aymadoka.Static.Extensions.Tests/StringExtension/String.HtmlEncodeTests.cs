@@ -19,7 +19,7 @@ namespace Aymadoka.Static.StringExtension
         [Theory]
         [InlineData("<div>", "&lt;div&gt;")]
         [InlineData("A&B", "A&amp;B")]
-        [InlineData(null, null)]
+        [InlineData(null, "")]
         public void HtmlEncode_WithTextWriter_WritesExpectedResult(string input, string expected)
         {
             var sb = new StringBuilder();
@@ -27,6 +27,7 @@ namespace Aymadoka.Static.StringExtension
             {
                 input.HtmlEncode(writer);
             }
+
             Assert.Equal(expected, sb.ToString());
         }
     }

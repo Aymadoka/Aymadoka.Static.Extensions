@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 
 namespace Aymadoka.Static.StringExtension
@@ -11,6 +12,11 @@ namespace Aymadoka.Static.StringExtension
         /// <returns>表示指定路径的 <see cref="DirectoryInfo"/> 实例。</returns>
         public static DirectoryInfo ToDirectoryInfo(this string @this)
         {
+            if (@this == null)
+            {
+                throw new ArgumentNullException(nameof(@this));
+            }
+
             return new DirectoryInfo(@this);
         }
     }

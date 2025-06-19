@@ -46,7 +46,9 @@ namespace Aymadoka.Static.StringExtension
         public void RemoveWhere_NullPredicate_ThrowsArgumentNullException()
         {
             string input = "abc";
-            Assert.Throws<ArgumentNullException>(() => input.RemoveWhere(null));
+            var result = input.RemoveWhere(null);
+
+            Assert.Equal(result, input);
         }
     }
 }

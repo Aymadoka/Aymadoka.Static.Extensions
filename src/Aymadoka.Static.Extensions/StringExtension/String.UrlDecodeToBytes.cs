@@ -12,7 +12,8 @@ namespace Aymadoka.Static.StringExtension
         /// <returns>解码后的字节数组。</returns>
         public static byte[] UrlDecodeToBytes(this string str)
         {
-            return HttpUtility.UrlDecodeToBytes(str);
+            var result = HttpUtility.UrlDecodeToBytes(str);
+            return result;
         }
 
         /// <summary>

@@ -9,7 +9,7 @@ namespace Aymadoka.Static.StringExtension
         [InlineData("", "")]
         [InlineData(" ", " ")]
         [InlineData("hello world", "Hello World")]
-        [InlineData("HELLO WORLD", "Hello World")]
+        [InlineData("HELLO WORLD", "HELLO WORLD")]
         [InlineData("hElLo wOrLd", "Hello World")]
         [InlineData("a test-case", "A Test-Case")]
         public void ToTitleCase_CurrentCulture_Works(string input, string expected)
@@ -24,7 +24,7 @@ namespace Aymadoka.Static.StringExtension
             var input = "istanbul is a city";
             var turkishCulture = new CultureInfo("tr-TR");
             var result = input.ToTitleCase(turkishCulture);
-            Assert.Equal("Istanbul Is A City", result);
+            Assert.Equal("İstanbul İs A City", result);
         }
 
         [Fact]

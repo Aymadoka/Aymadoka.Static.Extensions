@@ -12,14 +12,14 @@ namespace Aymadoka.Static.StringExtension
         /// <returns>如果是有效的IPv4地址，返回 true；否则返回 false。</returns>
         public static bool IsValidIPv4([NotNullWhen(true)] this string? @this)
         {
-            if (@this.IsNullOrWhiteSpace())
+            if (string.IsNullOrWhiteSpace(@this))
             {
                 return false;
             }
 
-            // 匹配IPv4地址的正则表达式
-            var emailRegex = @"^(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9])\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[0-9])$";
-            return Regex.IsMatch(@this, emailRegex);
+            // 正则表达式匹配IPv4地址
+            const string pattern = @"^(25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)){3}$";
+            return Regex.IsMatch(@this, pattern);
         }
     }
 }

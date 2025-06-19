@@ -32,12 +32,11 @@ namespace Aymadoka.Static.StringExtension
             // Arrange
             string path = string.Empty;
 
-            // Act
-            DirectoryInfo dirInfo = path.ToDirectoryInfo();
-
-            // Assert
-            Assert.NotNull(dirInfo);
-            Assert.Equal(string.Empty, dirInfo.ToString());
+            // Act & Assert
+            Assert.Throws<ArgumentException>(() =>
+            {
+                DirectoryInfo dirInfo = path.ToDirectoryInfo();
+            });
         }
     }
 }

@@ -4,16 +4,22 @@ namespace Aymadoka.Static.StringExtension
     {
         [Theory]
         [InlineData("abc123", "123")]
-        [InlineData("Hello, 世界!", ", 世界!")]
+        [InlineData("Hello, 世界123!", ", 123!")]
         [InlineData("123456", "123456")]
-        [InlineData("A1B2C3", "123")]
+        [InlineData("!@#$%^", "!@#$%^")]
+        [InlineData("中文English123", "123")]
         [InlineData("", "")]
-        [InlineData("!@#$%", "!@#$%")]
-        [InlineData("中文English混合", "中文混合")]
-        public void RemoveLetter_RemovesAllLetters(string input, string expected)
+        public void RemoveLetter_RemovesAllUnicodeLetters(string input, string expected)
         {
             var result = input.RemoveLetter();
             Assert.Equal(expected, result);
+        }
+
+        [Fact]
+        public void RemoveLetter_NullInput_ThrowsArgumentNullException()
+        {
+            string input = null;
+            Assert.Throws<ArgumentNullException>(() => input.RemoveLetter());
         }
     }
 }

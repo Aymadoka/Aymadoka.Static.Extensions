@@ -6,7 +6,7 @@ namespace Aymadoka.Static.StringExtension
     {
         [Theory]
         [InlineData("abc", "abc")]
-        [InlineData("<div>", "&lt;div&gt;")]
+        [InlineData("<div>", "&lt;div>")]
         [InlineData("\"quote\"", "&quot;quote&quot;")]
         [InlineData("a&b", "a&amp;b")]
         [InlineData("a'b", "a&#39;b")]
@@ -19,11 +19,11 @@ namespace Aymadoka.Static.StringExtension
 
         [Theory]
         [InlineData("abc", "abc")]
-        [InlineData("<div>", "&lt;div&gt;")]
+        [InlineData("<div>", "&lt;div>")]
         [InlineData("\"quote\"", "&quot;quote&quot;")]
         [InlineData("a&b", "a&amp;b")]
         [InlineData("a'b", "a&#39;b")]
-        [InlineData(null, null)]
+        [InlineData(null, "")]
         public void HtmlAttributeEncode_WritesToTextWriter(string input, string expected)
         {
             var sb = new StringBuilder();

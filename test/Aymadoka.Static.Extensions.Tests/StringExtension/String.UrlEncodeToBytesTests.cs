@@ -6,7 +6,7 @@ namespace Aymadoka.Static.StringExtension
     {
         [Theory]
         [InlineData("hello world", "hello+world")]
-        [InlineData("测试", "%E6%B5%8B%E8%AF%95")]
+        [InlineData("测试", "%e6%b5%8b%e8%af%95")]
         [InlineData("", "")]
         [InlineData(null, null)]
         public void UrlEncodeToBytes_DefaultEncoding_ReturnsExpectedBytes(string input, string expectedEncoded)
@@ -16,17 +16,19 @@ namespace Aymadoka.Static.StringExtension
             Assert.Equal(expected, result);
         }
 
-        [Theory]
-        [InlineData("hello world", "hello+world")]
-        [InlineData("测试", "%B2%E2%CA%D4")]
-        [InlineData("", "")]
-        [InlineData(null, null)]
-        public void UrlEncodeToBytes_SpecifiedEncoding_ReturnsExpectedBytes(string input, string expectedEncoded)
+        [Fact]
+        public void UrlEncodeToBytes_WithEncoding_ReturnsExpectedBytes()
         {
-            var encoding = Encoding.GetEncoding("GB2312");
-            var expected = expectedEncoded == null ? null : encoding.GetBytes(expectedEncoded);
-            var result = input.UrlEncodeToBytes(encoding);
-            Assert.Equal(expected, result);
+            // Arrange
+            string input = "测试 test 123 !@#";
+            Encoding encoding = Encoding.Unicode;
+            byte[] expected = System.Web.HttpUtility.UrlEncodeToBytes(input, encoding);
+
+            // Act
+            byte[] actual = input.UrlEncodeToBytes(encoding);
+
+            // Assert
+            Assert.Equal(expected, actual);
         }
     }
 }

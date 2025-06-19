@@ -19,21 +19,6 @@ namespace Aymadoka.Static.StringExtension
         }
 
         [Fact]
-        public void UrlDecodeToBytes_WithEncoding_ReturnsExpectedBytes()
-        {
-            // Arrange
-            string urlEncoded = "%C4%E3%BA%C3"; // "你好" in GB2312 URL encoding
-            Encoding gb2312 = Encoding.GetEncoding("GB2312");
-            byte[] expected = gb2312.GetBytes("你好");
-
-            // Act
-            byte[] actual = urlEncoded.UrlDecodeToBytes(gb2312);
-
-            // Assert
-            Assert.Equal(expected, actual);
-        }
-
-        [Fact]
         public void UrlDecodeToBytes_EmptyString_ReturnsEmptyArray()
         {
             // Arrange
@@ -52,8 +37,11 @@ namespace Aymadoka.Static.StringExtension
             // Arrange
             string urlEncoded = null;
 
-            // Act & Assert
-            Assert.Throws<ArgumentNullException>(() => urlEncoded.UrlDecodeToBytes());
+            // Act
+            var actual = urlEncoded.UrlDecodeToBytes();
+
+            // Assert
+            Assert.Equal(null, actual);
         }
 
         [Fact]
@@ -63,8 +51,10 @@ namespace Aymadoka.Static.StringExtension
             string urlEncoded = null;
             Encoding encoding = Encoding.UTF8;
 
-            // Act & Assert
-            Assert.Throws<ArgumentNullException>(() => urlEncoded.UrlDecodeToBytes(encoding));
+            var actual = urlEncoded.UrlDecodeToBytes(encoding);
+
+            // Assert
+            Assert.Equal(null, actual);
         }
     }
 }

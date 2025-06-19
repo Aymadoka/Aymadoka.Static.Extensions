@@ -1,3 +1,4 @@
+using System;
 using System.Globalization;
 using System.Text;
 
@@ -12,6 +13,11 @@ namespace Aymadoka.Static.StringExtension
         /// <returns>移除变音符号后的字符串。</returns>
         public static string RemoveDiacritics(this string @this)
         {
+            if (@this == null)
+            {
+                throw new ArgumentNullException(nameof(@this));
+            }
+
             // 将字符串标准化为分解形式（FormD），以便分离出变音符号
             string normalizedString = @this.Normalize(NormalizationForm.FormD);
             var sb = new StringBuilder();

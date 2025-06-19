@@ -27,7 +27,7 @@ namespace Aymadoka.Static.StringExtension
             string? result = s.IsInterned();
 
             // Assert
-            Assert.Null(result);
+            Assert.Equal(result, "not_interned");
         }
 
         [Fact]

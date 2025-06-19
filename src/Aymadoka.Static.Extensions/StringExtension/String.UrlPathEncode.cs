@@ -11,7 +11,8 @@ namespace Aymadoka.Static.StringExtension
         /// <returns>编码后的字符串，适用于 URL 路径。</returns>
         public static string UrlPathEncode(this string str)
         {
-            return HttpUtility.UrlPathEncode(str);
+            var result = HttpUtility.UrlPathEncode(str);
+            return result;
         }
     }
 }

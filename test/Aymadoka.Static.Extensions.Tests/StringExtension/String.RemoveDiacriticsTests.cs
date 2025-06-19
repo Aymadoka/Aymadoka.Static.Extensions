@@ -11,21 +11,22 @@ namespace Aymadoka.Static.StringExtension
         [InlineData("Ångström", "Angstrom")]
         [InlineData("Crème brûlée", "Creme brulee")]
         [InlineData("élève", "eleve")]
-        [InlineData("Łódź", "Lodz")]
+        [InlineData("Łódź", "Łodz")]
         [InlineData("São Paulo", "Sao Paulo")]
         [InlineData("中文", "中文")]
         [InlineData("", "")]
-        [InlineData(null, null)]
         public void RemoveDiacritics_ShouldRemoveDiacritics(string input, string expected)
         {
-            if (input == null)
-            {
-                Assert.Null(StringExtensions.RemoveDiacritics(input));
-            }
-            else
-            {
-                Assert.Equal(expected, input.RemoveDiacritics());
-            }
+            Assert.Equal(expected, input.RemoveDiacritics());
+        }
+
+        [Fact]
+        public void RemoveDiacritics_ShouldReturnNull_WhenInputIsNull()
+        {
+            string input = null;
+            
+            // Act & Assert
+            Assert.Throws<ArgumentNullException>(() => StringExtensions.RemoveDiacritics(input));
         }
     }
 }

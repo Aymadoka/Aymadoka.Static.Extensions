@@ -7,7 +7,7 @@ namespace Aymadoka.Static.StringExtension
         [Theory]
         [InlineData("hello world", "hello+world")]
         [InlineData("a+b", "a%2bb")]
-        [InlineData("中文", "%E4%B8%AD%E6%96%87")]
+        [InlineData("中文", "%e4%b8%ad%e6%96%87")]
         [InlineData("", "")]
         [InlineData(null, null)]
         public void UrlEncode_DefaultEncoding_Works(string input, string expected)
@@ -21,7 +21,7 @@ namespace Aymadoka.Static.StringExtension
         {
             string input = "中文";
             Encoding encoding = Encoding.UTF8;
-            string expected = "%E4%B8%AD%E6%96%87";
+            string expected = "%e4%b8%ad%e6%96%87";
             var result = input.UrlEncode(encoding);
             Assert.Equal(expected, result);
         }

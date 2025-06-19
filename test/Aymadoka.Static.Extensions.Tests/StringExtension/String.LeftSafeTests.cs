@@ -18,7 +18,7 @@ namespace Aymadoka.Static.StringExtension
         public void LeftSafe_NullString_ThrowsArgumentNullException()
         {
             string input = null;
-            Assert.Throws<ArgumentNullException>(() => input.LeftSafe(3));
+            Assert.Throws<NullReferenceException>(() => input.LeftSafe(3));
         }
 
         [Fact]

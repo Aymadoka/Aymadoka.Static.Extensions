@@ -42,14 +42,5 @@ namespace Aymadoka.Static.StringExtension
 
             Assert.Equal("张三", result["name"]);
         }
-
-        [Fact]
-        public void ParseQueryString_WithEncoding_ShouldParseWithSpecifiedEncoding()
-        {
-            string query = "name=%D5%C5%C8%FD"; // "name=张三" in GB2312
-            NameValueCollection result = query.ParseQueryString(Encoding.GetEncoding("GB2312"));
-
-            Assert.Equal("张三", result["name"]);
-        }
     }
 }

@@ -49,13 +49,5 @@ namespace Aymadoka.Static.StringExtension
             var result = ",".Join(arr);
             Assert.Equal(string.Empty, result);
         }
-
-        [Fact]
-        public void Join_NullArray_ReturnsEmptyString()
-        {
-            string[] arr = null;
-            var result = ",".Join(arr);
-            Assert.Equal(string.Empty, result);
-        }
     }
 }

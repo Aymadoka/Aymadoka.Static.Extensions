@@ -4,14 +4,13 @@ namespace Aymadoka.Static.StringExtension
     {
         [Theory]
         [InlineData("abc", "abc")]
-        [InlineData("\"", "\\u0022")]
-        [InlineData("'", "'")]
+        [InlineData("'", "\\u0027")]
         [InlineData("\\", "\\\\")]
         [InlineData("\n", "\\n")]
         [InlineData("\r", "\\r")]
         [InlineData("\t", "\\t")]
         [InlineData("<script>", "\\u003cscript\\u003e")]
-        [InlineData(null, null)]
+        [InlineData(null, "")]
         public void JavaScriptStringEncode_WithoutDoubleQuotes_ReturnsExpected(string input, string expected)
         {
             var result = input.JavaScriptStringEncode();
@@ -19,15 +18,15 @@ namespace Aymadoka.Static.StringExtension
         }
 
         [Theory]
+        [InlineData("\"", "\"\\\"\"")]
+        [InlineData("'", "\"\\u0027\"")]
         [InlineData("abc", "\"abc\"")]
-        [InlineData("\"", "\"\\u0022\"")]
-        [InlineData("'", "\"'\"")]
         [InlineData("\\", "\"\\\\\"")]
         [InlineData("\n", "\"\\n\"")]
         [InlineData("\r", "\"\\r\"")]
         [InlineData("\t", "\"\\t\"")]
         [InlineData("<script>", "\"\\u003cscript\\u003e\"")]
-        [InlineData(null, "null")]
+        [InlineData("", "\"\"")]
         public void JavaScriptStringEncode_WithDoubleQuotes_ReturnsExpected(string input, string expected)
         {
             var result = input.JavaScriptStringEncode(true);

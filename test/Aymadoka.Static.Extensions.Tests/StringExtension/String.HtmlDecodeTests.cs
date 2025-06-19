@@ -20,7 +20,7 @@ namespace Aymadoka.Static.StringExtension
         [InlineData("&lt;span&gt;Test&lt;/span&gt;", "<span>Test</span>")]
         [InlineData("&quot;Hello&quot;", "\"Hello\"")]
         [InlineData("", "")]
-        [InlineData(null, null)]
+        [InlineData(null, "")]
         public void HtmlDecode_WithTextWriter_WritesExpectedResult(string input, string expected)
         {
             var sb = new StringBuilder();

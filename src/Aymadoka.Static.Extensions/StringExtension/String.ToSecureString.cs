@@ -1,3 +1,4 @@
+using System;
 using System.Security;
 
 namespace Aymadoka.Static.StringExtension
@@ -11,6 +12,11 @@ namespace Aymadoka.Static.StringExtension
         /// <returns>转换后的 <see cref="SecureString"/> 实例。</returns>
         public static SecureString ToSecureString(this string @this)
         {
+            if (@this == null)
+            {
+                throw new ArgumentNullException(nameof(@this));
+            }
+
             var secureString = new SecureString();
             foreach (char c in @this)
             {
