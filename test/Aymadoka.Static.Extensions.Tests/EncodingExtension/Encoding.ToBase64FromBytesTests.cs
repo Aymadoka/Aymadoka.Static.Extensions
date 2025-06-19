@@ -67,5 +67,46 @@ namespace Aymadoka.Static.EncodingExtension
             Assert.Throws<ArgumentNullException>(() => nullBytes.ToBase64FromBytes());
             Assert.Throws<ArgumentNullException>(() => emptyBytes.ToBase64FromBytes());
         }
+
+        [Fact]
+        public void ToBase64FromBytes_WithValidBytesAndOptions_ReturnsExpectedBase64()
+        {
+            // Arrange
+            byte[] bytes = Encoding.UTF8.GetBytes("hello world");
+            var expected = Convert.ToBase64String(bytes, Base64FormattingOptions.None);
+
+            // Act
+            var result = bytes.ToBase64FromBytes(Base64FormattingOptions.None);
+
+            // Assert
+            Assert.Equal(expected, result);
+        }
+
+        [Fact]
+        public void ToBase64FromBytes_WithInsertLineBreaksOption_ReturnsExpectedBase64()
+        {
+            // Arrange
+            byte[] bytes = new byte[60];
+            for (int i = 0; i < bytes.Length; i++) bytes[i] = (byte)i;
+            var expected = Convert.ToBase64String(bytes, Base64FormattingOptions.InsertLineBreaks);
+
+            // Act
+            var result = bytes.ToBase64FromBytes(Base64FormattingOptions.InsertLineBreaks);
+
+            // Assert
+            Assert.Equal(expected, result);
+        }
+
+        [Fact]
+        public void ToBase64FromBytes_NullOrEmpty_ThrowsArgumentNullException()
+        {
+            // Arrange
+            byte[] nullBytes = null;
+            byte[] emptyBytes = Array.Empty<byte>();
+
+            // Act & Assert
+            Assert.Throws<ArgumentNullException>(() => nullBytes.ToBase64FromBytes(Base64FormattingOptions.None));
+            Assert.Throws<ArgumentNullException>(() => emptyBytes.ToBase64FromBytes(Base64FormattingOptions.None));
+        }
     }
 }
