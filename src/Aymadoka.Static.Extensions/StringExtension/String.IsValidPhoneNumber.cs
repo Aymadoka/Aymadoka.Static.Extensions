@@ -13,7 +13,7 @@ namespace Aymadoka.Static.StringExtension
             {
                 return false;
             }
-            const string phoneRegex = @"^(\+?\d{1,3}[- ]?)?(\d{1,4}[- ]?)?\d{3,4}[- ]?\d{4,9}$";
+            const string phoneRegex = @"^(\+?\d{1,3}[- ]?)?(\d{1,4}[- ]?)?\d{3,4}[- ]?\d{3,9}$";
 
             return Regex.IsMatch(value, phoneRegex, RegexOptions.IgnoreCase | RegexOptions.Compiled);
         }

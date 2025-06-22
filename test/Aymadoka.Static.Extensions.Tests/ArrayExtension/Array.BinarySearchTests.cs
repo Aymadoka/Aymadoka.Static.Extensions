@@ -1,5 +1,3 @@
-using System.Collections.ObjectModel;
-
 namespace Aymadoka.Static.ArrayExtension
 {
     public class Array_BinarySearchTests
@@ -121,7 +119,7 @@ namespace Aymadoka.Static.ArrayExtension
             string valueToSearch = "cherry";
             int index = 1;
             int length = 2;
-            
+
             // Act
             int result = array.BinarySearch(index, length, valueToSearch, StringComparer.OrdinalIgnoreCase);
 
@@ -137,7 +135,7 @@ namespace Aymadoka.Static.ArrayExtension
             string valueToSearch = "cherry";
             int index = 0;
             int length = 1;
-            
+
             // Act & Assert
             Assert.Throws<ArgumentNullException>(() => array.BinarySearch(index, length, valueToSearch, StringComparer.OrdinalIgnoreCase));
         }

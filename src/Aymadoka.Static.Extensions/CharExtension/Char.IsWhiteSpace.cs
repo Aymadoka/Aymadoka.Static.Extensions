@@ -1,6 +1,3 @@
-using System.Globalization;
-using System;
-
 namespace Aymadoka.Static.CharExtension
 {
     public static partial class CharExtensions

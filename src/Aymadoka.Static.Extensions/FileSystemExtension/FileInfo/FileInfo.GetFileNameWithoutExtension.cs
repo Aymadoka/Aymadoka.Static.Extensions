@@ -1,13 +1,16 @@
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Text;
 
 namespace Aymadoka.Static.FileInfoExtension
 {
     public static partial class FileInfoExtensions
     {
-        public static String GetFileNameWithoutExtension(this FileInfo @this)
+        /// <summary>
+        /// 获取不带扩展名的文件名。
+        /// </summary>
+        /// <param name="this">要获取文件名的 <see cref="FileInfo"/> 实例。</param>
+        /// <returns>不带扩展名的文件名字符串。</returns>
+        public static string GetFileNameWithoutExtension(this FileInfo @this)
         {
             return Path.GetFileNameWithoutExtension(@this.FullName);
         }

@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -52,6 +53,41 @@ namespace Aymadoka.Static.HashExtension
             byte[] bytes = Encoding.UTF8.GetBytes(value);
             var result = bytes.ToSHA256Hash(salt, format);
             return result;
+        }
+
+        /// <summary>
+        /// 获取流的 SHA256 哈希值，默认格式为小写双字符（x2）。
+        /// </summary>
+        /// <param name="this">输入流</param>
+        /// <returns>SHA256 哈希值字符串</returns>
+        public static string ToSHA256Hash(this Stream @this)
+        {
+            return @this.ToSHA256Hash(EnumHashFormat.x2);
+        }
+
+        /// <summary>
+        /// 获取流的 SHA256 哈希值，指定格式。
+        /// </summary>
+        /// <param name="this">输入流</param>
+        /// <param name="format">哈希字符串格式</param>
+        /// <returns>SHA256 哈希值字符串</returns>
+        public static string ToSHA256Hash(this Stream @this, EnumHashFormat format)
+        {
+            if (@this == null)
+            {
+                throw new ArgumentNullException(nameof(@this));
+            }
+
+            using (var sha256 = SHA256.Create())
+            {
+                // 计算 SHA256 哈希值，返回一个 byte 数组
+                var hashBytes = sha256.ComputeHash(@this);
+
+                // 使用 string.Join 生成哈希值字符串
+                string md5Format = format.ToString();
+                string result = string.Join(string.Empty, hashBytes.Select(b => b.ToString(md5Format)));
+                return result;
+            }
         }
 
         /// <summary>获取字节数组的SHA256哈希值</summary>

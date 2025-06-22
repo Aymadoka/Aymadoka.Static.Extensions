@@ -7,13 +7,10 @@ namespace Aymadoka.Static.NullableDateTimeOffsetExtension
     public static partial class NullableDateTimeOffsetExtensions
     {
         /// <summary>
-        /// 判断可空 <see cref="DateTimeOffset"/> 是否为周末。
+        /// 判断指定的 <see cref="DateTimeOffset?"/> 是否为周末（星期六或星期日）。
         /// </summary>
-        /// <param name="this">要判断的可空 <see cref="DateTimeOffset"/>。</param>
-        /// <returns>
-        /// 如果 <paramref name="this"/> 不为 <c>null</c> 且为周六或周日，则返回 <c>true</c>；
-        /// 否则返回 <c>false</c>。
-        /// </returns>
+        /// <param name="this">要判断的 <see cref="DateTimeOffset?"/> 实例。</param>
+        /// <returns>如果为周末返回 <c>true</c>，否则返回 <c>false</c>。当值为 <c>null</c> 时返回 <c>false</c>。</returns>
         public static bool IsWeekend([NotNullWhen(true)] this DateTimeOffset? @this)
         {
             if (@this == null)

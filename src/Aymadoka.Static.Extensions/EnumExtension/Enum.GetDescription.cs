@@ -13,11 +13,6 @@ namespace Aymadoka.Static.EnumExtension
         /// <exception cref="ArgumentNullException">当 <paramref name="value"/> 为 null 时抛出</exception>
         public static string GetDescription<TEnum>(this TEnum value) where TEnum : Enum
         {
-            if (value == null)
-            {
-                throw new ArgumentNullException(nameof(value));
-            }
-
             var field = value.GetType().GetField(value.ToString());
             var attribute = field?.GetCustomAttributes(typeof(DescriptionAttribute), false)
                              .OfType<DescriptionAttribute>()

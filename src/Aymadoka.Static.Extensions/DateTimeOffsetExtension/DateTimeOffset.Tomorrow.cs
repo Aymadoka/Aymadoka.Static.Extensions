@@ -5,13 +5,10 @@ namespace Aymadoka.Static.DateTimeOffsetExtension
     public static partial class DateTimeOffsetExtensions
     {
         /// <summary>
-        /// 获取 <see cref="DateTimeOffset"/> 的下一天日期。
+        /// 返回指定 <see cref="DateTimeOffset"/> 的明天日期（即加一天）
         /// </summary>
-        /// <param name="this">要获取下一天的 <see cref="DateTimeOffset"/>。</param>
-        /// <returns>下一天的 <see cref="DateTimeOffset"/>。</returns>
-        /// <remarks>
-        /// - 返回的 <see cref="DateTimeOffset"/> 保留原始的时区偏移量。
-        /// </remarks>
+        /// <param name="this">要计算明天的 <see cref="DateTimeOffset"/> 实例</param>
+        /// <returns>加一天后的 <see cref="DateTimeOffset"/> 实例</returns>
         public static DateTimeOffset Tomorrow(this DateTimeOffset @this)
         {
             var result = @this.AddDays(1);

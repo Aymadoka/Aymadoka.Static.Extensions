@@ -4,12 +4,14 @@ namespace Aymadoka.Static.DateTimeExtension
 {
     public static partial class DateTimeExtensions
     {
-        /// <summary>获取指定日期的下一个月的第一天</summary>
-        /// <param name="this">源日期</param>
-        /// <returns>源日期的下一个月的第一天，保留时间部分</returns>
+        /// <summary>
+        /// 获取下一个月的第一天
+        /// </summary>
+        /// <param name="this">当前日期</param>
+        /// <returns>下一个月的第一天的 <see cref="DateTime"/> 实例</returns>
         public static DateTime GetNextMonthFirstDay(this DateTime @this)
         {
-            var result = @this.CurrentMonthFirstDay().AddMonths(1);
+            var result = @this.GetMonthFirstDay().AddMonths(1);
             return result;
         }
     }

@@ -1,5 +1,3 @@
-using System.Collections.ObjectModel;
-
 namespace Aymadoka.Static.ArrayExtension
 {
     public class Array_IndexOfTests

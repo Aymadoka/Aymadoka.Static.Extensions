@@ -2,16 +2,19 @@ using Aymadoka.Static.ObjectExtension;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.Common;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Aymadoka.Static.DataExtension
 {
     public static partial class DataExtensions
     {
+        /// <summary>
+        /// 将 <see cref="DataTable"/> 转换为实体对象集合。
+        /// </summary>
+        /// <typeparam name="T">目标实体类型，必须有无参构造函数。</typeparam>
+        /// <param name="this">要转换的 <see cref="DataTable"/> 实例。</param>
+        /// <returns>实体对象集合。</returns>
         public static IEnumerable<T> ToEntities<T>(this DataTable @this) where T : new()
         {
             Type type = typeof(T);
@@ -24,22 +27,18 @@ namespace Aymadoka.Static.DataExtension
             {
                 var entity = new T();
 
-                foreach (PropertyInfo property in properties)
+                // 设置属性值
+                foreach (PropertyInfo property in properties.Where(p => @this.Columns.Contains(p.Name)))
                 {
-                    if (@this.Columns.Contains(property.Name))
-                    {
-                        Type valueType = property.PropertyType;
-                        property.SetValue(entity, dr[property.Name].To(valueType), null);
-                    }
+                    Type valueType = property.PropertyType;
+                    property.SetValue(entity, dr[property.Name].To(valueType), null);
                 }
 
-                foreach (FieldInfo field in fields)
+                // 设置字段值
+                foreach (FieldInfo field in fields.Where(p => @this.Columns.Contains(p.Name)))
                 {
-                    if (@this.Columns.Contains(field.Name))
-                    {
-                        Type valueType = field.FieldType;
-                        field.SetValue(entity, dr[field.Name].To(valueType));
-                    }
+                    Type valueType = field.FieldType;
+                    field.SetValue(entity, dr[field.Name].To(valueType));
                 }
 
                 list.Add(entity);

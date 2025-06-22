@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
@@ -7,12 +6,23 @@ namespace Aymadoka.Static.FileInfoExtension
 {
     public static partial class FileInfoExtensions
     {
-        public static String ReadAllText(this FileInfo @this)
+        /// <summary>
+        /// 读取指定文件的所有文本内容，使用默认编码。
+        /// </summary>
+        /// <param name="this">要读取的 <see cref="FileInfo"/> 实例。</param>
+        /// <returns>文件的全部文本内容。</returns>
+        public static string ReadAllText(this FileInfo @this)
         {
             return File.ReadAllText(@this.FullName);
         }
 
-        public static String ReadAllText(this FileInfo @this, Encoding encoding)
+        /// <summary>
+        /// 读取指定文件的所有文本内容，使用指定的编码。
+        /// </summary>
+        /// <param name="this">要读取的 <see cref="FileInfo"/> 实例。</param>
+        /// <param name="encoding">用于读取文件的编码。</param>
+        /// <returns>文件的全部文本内容。</returns>
+        public static string ReadAllText(this FileInfo @this, Encoding encoding)
         {
             return File.ReadAllText(@this.FullName, encoding);
         }

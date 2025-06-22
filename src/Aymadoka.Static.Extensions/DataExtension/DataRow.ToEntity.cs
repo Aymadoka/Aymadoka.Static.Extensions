@@ -1,17 +1,19 @@
 using Aymadoka.Static.ObjectExtension;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Data.Common;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Aymadoka.Static.DataExtension
 {
     public static partial class DataExtensions
     {
+        /// <summary>
+        /// 将 <see cref="DataRow"/> 转换为指定类型的实体对象。
+        /// </summary>
+        /// <typeparam name="T">目标实体类型，必须有无参构造函数。</typeparam>
+        /// <param name="this">要转换的 <see cref="DataRow"/> 实例。</param>
+        /// <returns>转换后的实体对象。</returns>
         public static T ToEntity<T>(this DataRow @this) where T : new()
         {
             Type type = typeof(T);
@@ -20,22 +22,18 @@ namespace Aymadoka.Static.DataExtension
 
             var entity = new T();
 
-            foreach (PropertyInfo property in properties)
+            // 设置属性值
+            foreach (PropertyInfo property in properties.Where(p => @this.Table.Columns.Contains(p.Name)))
             {
-                if (@this.Table.Columns.Contains(property.Name))
-                {
-                    Type valueType = property.PropertyType;
-                    property.SetValue(entity, @this[property.Name].To(valueType), null);
-                }
+                Type valueType = property.PropertyType;
+                property.SetValue(entity, @this[property.Name].To(valueType), null);
             }
 
-            foreach (FieldInfo field in fields)
+            // 设置字段值
+            foreach (FieldInfo field in fields.Where(p => @this.Table.Columns.Contains(p.Name)))
             {
-                if (@this.Table.Columns.Contains(field.Name))
-                {
-                    Type valueType = field.FieldType;
-                    field.SetValue(entity, @this[field.Name].To(valueType));
-                }
+                Type valueType = field.FieldType;
+                field.SetValue(entity, @this[field.Name].To(valueType));
             }
 
             return entity;

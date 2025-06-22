@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -52,6 +53,37 @@ namespace Aymadoka.Static.HashExtension
             byte[] bytes = Encoding.UTF8.GetBytes(value);
             var result = bytes.ToMD5Hash(salt, format);
             return result;
+        }
+
+        /// <summary>
+        /// 获取流的MD5哈希值，默认格式为小写双字符（x2）。
+        /// </summary>
+        /// <param name="this">输入流</param>
+        /// <returns>MD5哈希值字符串</returns>
+        public static string ToMD5Hash(this Stream @this)
+        {
+            return @this.ToMD5Hash(EnumHashFormat.x2);
+        }
+
+        /// <summary>
+        /// 获取流的MD5哈希值，支持指定哈希字符串格式。
+        /// </summary>
+        /// <param name="this">输入流</param>
+        /// <param name="format">哈希字符串格式</param>
+        /// <returns>MD5哈希值字符串</returns>
+        public static string ToMD5Hash(this Stream @this, EnumHashFormat format)
+        {
+            using (var md5 = MD5.Create())
+            {
+                // 计算 MD5 哈希值，返回一个 byte 数组
+                var hashBytes = md5.ComputeHash(@this);
+
+                // 使用 string.Join 生成哈希值字符串
+                string md5Format = format.ToString();
+                string result = string.Join(string.Empty, hashBytes.Select(b => b.ToString(md5Format)));
+
+                return result;
+            }
         }
 
         /// <summary>获取字节数组的MD5哈希值</summary>

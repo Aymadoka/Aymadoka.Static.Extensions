@@ -1,10 +1,16 @@
-using System.Data;
 using System;
+using System.Data;
 
 namespace Aymadoka.Static.StringExtension
 {
     public static partial class StringExtensions
     {
+        /// <summary>
+        /// 将 SQL Server 类型名称字符串（如 "int"、"nvarchar" 等）转换为对应的 <see cref="SqlDbType"/> 枚举值。
+        /// </summary>
+        /// <param name="this">SQL Server 类型名称字符串。</param>
+        /// <returns>对应的 <see cref="SqlDbType"/> 枚举值。</returns>
+        /// <exception cref="ArgumentException">当类型名称不被支持时抛出。</exception>
         public static SqlDbType SqlTypeNameToSqlDbType(this string @this)
         {
             switch (@this.ToLower())
