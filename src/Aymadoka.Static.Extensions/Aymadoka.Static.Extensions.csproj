@@ -7,7 +7,7 @@
 		
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<PackageId>Aymadoka.Static.Extensions</PackageId>
-		<Version>1.0.3</Version>
+		<Version>1.0.4</Version>
 		<Authors>Aymadoka</Authors>
 		<PackageTags>extensions;extension;encrypt;capital;static</PackageTags>
 		<PackageIcon>icon.png</PackageIcon>
@@ -16,6 +16,7 @@
 		<PackageDescription>
 			欢迎使用 Aymadoka.Static.Extensions，这是一个专为C#开发者设计的静态扩展库，旨在通过提供丰富的时间处理、字符串操作、数组管理、哈希值计算及序列化支持来简化日常开发工作。无论您是构建Web应用、桌面软件还是移动解决方案，Aymadoka.Static.Extensions 都能为您提供所需的工具和灵活性，使编码变得更简单、更快速。
 		</PackageDescription>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
 	</PropertyGroup>
 
 	<ItemGroup>
